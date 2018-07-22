@@ -2,30 +2,24 @@
 <html class="no-js" lang="en">
 <head>
         <meta charset="utf-8">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Bege || Home 4</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <!-- Favicon -->
         <link rel="shortcut icon" type="image/x-icon" href="images/icons/icon_logo.png">
-        <!-- Place favicon.ico in the root directory -->
+        <title>Laptop2nd</title>
 
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/ionicons.min.css">
-        <link rel="stylesheet" href="css/css-plugins-call.css">
-        <link rel="stylesheet" href="css/bundle.css">
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/responsive.css">
-        <link rel="stylesheet" href="css/colors.css">
+        <link type="text/css" rel="stylesheet" href="{{ asset('/css/app.css') }}" />
+        <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
+        <link rel="stylesheet" href="{{asset('css/ionicons.min.css')}}">
+        <link rel="stylesheet" href="{{asset('css/css-plugins-call.css')}}">
+        <link rel="stylesheet" href="{{asset('css/bundle.css')}}">
+        <link rel="stylesheet" href="{{asset('css/main.css')}}">
+        <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
+        <link rel="stylesheet" href="{{asset('css/colors.css')}}">
     </head>
     <body>
-        <!--[if lte IE 9]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-        <![endif]-->
-
-        <!-- Add your site or application content here -->
 
         <!-- Body main wrapper start -->
         <div class="wrapper home-three home-four">
@@ -45,16 +39,7 @@
                             <div class="col-xl-6 col-md-12">
                                 <!-- header-search -->
                                 <div class="header-search clearfix">
-                                    <div class="category-select pull-right">
-                                        <select class="nice-select-menu">
-                                            <option data-display="All Categories">All Categories</option>
-                                            <option value="1">Decor & Furniture</option>
-                                            <option value="2">Electronics</option>
-                                            <option value="3">Fashion & clothings</option>
-                                            <option value="4" disabled>Sport & Outdoors</option>
-                                            <option value="5">Toy, Kids & Baby</option>
-                                        </select>
-                                    </div>
+
                                     <div class="header-search-form">
                                         <form action="#">
                                             <input type="text" name="search" placeholder="Search product...">
@@ -145,7 +130,7 @@
                         <div class="row">
                             <div class="col-xl-3 col-lg-3 hidden-md hidden-sm pull-left category-wrapper">
                                 <div class="categori-menu">
-                                <span class="categorie-title">Categories</span>
+                                <span class="categorie-title">Danh mục sản phẩm</span>
                                 <nav>
                                     <ul class="categori-menu-list menu-hidden">
                                         <li><a href="shop.html"><span><img src="images/icons/1.png" alt="menu-icon"></span>Electronics<i class="fa fa-angle-right" aria-hidden="true"></i></a>
@@ -428,2040 +413,1401 @@
                 <!-- Header bottom area end -->
             </header>
             <!-- HRADER AREA END -->
-            <!-- Slider area -->
-            <div class="slider-area">
-				<!-- slider-area start -->
-				<div class="slider-area-inner">
-					<!-- slider start -->
-					<div class="slider-inner">
-						<div id="mainSlider" class="nivoSlider nevo-slider">
-							<img src="images/slider/home4-slider1.jpg" alt="main slider" title="#htmlcaption1"/>
-							<img src="images/slider/home4-slider2.jpg" alt="main slider" title="#htmlcaption2"/>
-						</div>
+            <div id="root">
 
-						<div id="htmlcaption1" class="nivo-html-caption slider-caption">
-							<div class="slider-progress"></div>
-							<div class="container">
-								<div class="row">
-									<div class="col-md-12">
-										<div class="slider-content slider-content-1 slider-animated-1">
-											<h1 class="hone">INNOVATIVE</h1>
-											<h1 class="htwo">SMARTER</h1>
-											<h1 class="hthree">BRIGHTER</h1>
-											<h3>40” SkyHi Smart Package</h3>
-											<div class="button-1 hover-btn-2">
-												<a href="shop.html">SHOP NOW</a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div id="htmlcaption2" class="nivo-html-caption slider-caption">
-							<div class="slider-progress"></div>
-							<div class="container">
-								<div class="row">
-									<div class="col-md-12">
-										<div class="slider-content slider-content-2 slider-animated-2">
-											<h1 class="hone">DRONE DIY</h1>
-											<h1 class="htwo">WORKSHOP</h1>
-											<h3 class="h3one">Build & Fly</h3>
-											<h3 class="h3two">Your Own drone!</h3>
-											<div class="button-1 hover-btn-1">
-												<a href="shop.html">SHOP NOW</a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
+                          
+                           <!-- Brand logo area -->
+                          <div class="brand-logo-area">
+                              <div class="container">
+                                  <div class="row">
+                                      <div class="col-sm-12">
+                                          <div class="four-brand-carousel-active owl-carousel">
+                                              <!-- single brand logo -->
+                                              <div class="brand-logo">
+                                                  <a href="#"><img src="images/brand/brand1.jpg" alt="Brand logo"></a>
+                                              </div>
+                                              <!-- single brand logo end -->
+                                              <!-- single brand logo -->
+                                              <div class="brand-logo">
+                                                  <a href="#"><img src="images/brand/brand2.jpg" alt="Brand logo"></a>
+                                              </div>
+                                              <!-- single brand logo end -->
+                                              <!-- single brand logo -->
+                                              <div class="brand-logo">
+                                                  <a href="#"><img src="images/brand/brand3.jpg" alt="Brand logo"></a>
+                                              </div>
+                                              <!-- single brand logo end -->
+                                              <!-- single brand logo -->
+                                              <div class="brand-logo">
+                                                  <a href="#"><img src="images/brand/brand4.jpg" alt="Brand logo"></a>
+                                              </div>
+                                              <!-- single brand logo end -->
+                                              <!-- single brand logo -->
+                                              <div class="brand-logo">
+                                                  <a href="#"><img src="images/brand/brand5.jpg" alt="Brand logo"></a>
+                                              </div>
+                                              <!-- single brand logo end -->
+                                              <!-- single brand logo -->
+                                              <div class="brand-logo">
+                                                  <a href="#"><img src="images/brand/brand6.jpg" alt="Brand logo"></a>
+                                              </div>
+                                              <!-- single brand logo end -->
+                                              <!-- single brand logo -->
+                                              <div class="brand-logo">
+                                                  <a href="#"><img src="images/brand/brand7.jpg" alt="Brand logo"></a>
+                                              </div>
+                                              <!-- single brand logo end -->
+                                              <!-- single brand logo -->
+                                              <div class="brand-logo">
+                                                  <a href="#"><img src="images/brand/brand8.jpg" alt="Brand logo"></a>
+                                              </div>
+                                              <!-- single brand logo end -->
+                                              <!-- single brand logo -->
+                                              <div class="brand-logo">
+                                                  <a href="#"><img src="images/brand/brand9.jpg" alt="Brand logo"></a>
+                                              </div>
+                                              <!-- single brand logo end -->
+                                              <!-- single brand logo -->
+                                              <div class="brand-logo">
+                                                  <a href="#"><img src="images/brand/brand1.jpg" alt="Brand logo"></a>
+                                              </div>
+                                              <!-- single brand logo end -->
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <!-- Brand logo area end -->
+                          <!-- product carosel area -->
+                          <div class="product-carosel-area">
+                              <div class="container">
+                                  <div class="row">
+                                      <!-- Product column -->
+                                      <div class="col-sm-12 col-md-6 col-xl-4">
+                                          <div class="home-three-mini-product">
+                                          <div class="section-title">
+                                              <h3>LATEST PRODUCTS</h3>
+                                          </div>
+                                          <div class="mini-product carosel-next-prive owl-carousel">
+                                              <div class="mini-product-listview">
+                                                  <!-- single product -->
+                                                  <div class="single-product-area">
+                                                      <div class="product-wrapper listview">
+                                                          <div class="list-col4">
+                                                              <div class="product-image">
+                                                                  <a href="#">
+                                                                      <img src="images/product/mini/18.jpg" alt="">
+                                                                  </a>
+                                                                  <div class="quickviewbtn">
+                                                                      <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="list-col8">
+                                                              <div class="product-info">
+                                                                  <h2><a href="single-product.html">Itaque earum</a></h2>
+                                                                  <span class="price">
+                                                                      $ 866.00
+                                                                  </span>
 
-					</div>
-					<!-- slider end -->
-				</div>
-				<!-- slider-area end -->
-            </div>
-            <!-- Slider area end -->
-            <!-- Home four banner area -->
-            <div class="home-four-banner-area">
-                <div class="container">
-                    <div class="row">
-                        <div class="four-fast col-sm-6 col-lg-3 col-md-6 col-xs-12">
-                            <div class="four-single-banner-text">
-                                <div class="four-banner-img">
-                                    <a href="#">
-                                        <img src="images/banner/home4-banner1-1.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="four-banner-text">
-                                    <h3>Best Camera Under $500</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-3 col-md-6 col-xs-12">
-                            <div class="four-single-banner-text">
-                                <div class="four-banner-img">
-                                    <a href="#">
-                                        <img src="images/banner/home4-banner1-2.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="four-banner-text">
-                                    <h3>Best Smatwatch Under $100</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-3 col-md-6 col-xs-12">
-                            <div class="four-single-banner-text">
-                                <div class="four-banner-img">
-                                    <a href="#">
-                                        <img src="images/banner/home4-banner1-3.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="four-banner-text">
-                                    <h3>Best Laptop Under $2000</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="four-last col-sm-6 col-lg-3 col-md-6 col-xs-12">
-                            <div class="four-single-banner-text">
-                                <div class="four-banner-img">
-                                    <a href="#">
-                                        <img src="images/banner/home4-banner1-4.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="four-banner-text">
-                                    <h3>Best TV Under $800</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Home four banner area end -->
+                                                              </div>
+                                                              <div class="add-to-cart">
+                                                                  <a href="cart.html">Add to cart</a>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <!-- single product end -->
+                                                  <!-- single product -->
+                                                  <div class="single-product-area">
+                                                      <div class="product-wrapper listview">
+                                                          <div class="list-col4">
+                                                              <div class="product-image">
+                                                                  <a href="#">
+                                                                      <img src="images/product/mini/19.jpg" alt="">
+                                                                  </a>
+                                                                  <div class="quickviewbtn">
+                                                                      <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="list-col8">
+                                                              <div class="product-info">
+                                                                  <h2><a href="single-product.html">Nostrum exercita</a></h2>
+                                                                  <span class="price">
+                                                                      $ 550.00
+                                                                  </span>
 
-            <!-- Home fullwidth banner -->
-            <div class="home-fullwidth-banner-area">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <a href="#">
-                                <img src="images/banner/home4-banner2.jpg" alt="">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Home fullwidth banner end -->
-            <div class="product-area">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="section-title">
-                                <h3>BEST SELLERS</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-area-inner">
-                        <div class="row">
-                            <div class="home-two-product-carousel-active owl-carousel">
-                                <div class="col-sm-12">
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper gridview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/1.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Sit voluptatem</a></h2>
-                                                    <span class="price">
-                                                        <del>$ 77.00</del> $ 66.00
-                                                    </span>
-                                                </div>
-                                                <div class="product-hidden">
-                                                    <div class="add-to-cart">
-                                                        <a href="cart.html">Add to cart</a>
-                                                    </div>
-                                                    
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper gridview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/2.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Nulla sed libero</a></h2>
-                                                    <span class="price">
-                                                        $ 45.00
-                                                    </span>
-                                                </div>
-                                                <div class="product-hidden">
-                                                    <div class="add-to-cart">
-                                                        <a href="cart.html">Add to cart</a>
-                                                    </div>
-                                                    
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                </div>
-                                <div class="col-sm-12">
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper gridview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <span class="onsale">Sale!</span>
-                                                        <img src="images/product/3.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Pellentesque posuere</a></h2>
-                                                    <span class="price">
-                                                        $ 100.00
-                                                    </span>
-                                                </div>
-                                                <div class="product-hidden">
-                                                    <div class="add-to-cart">
-                                                        <a href="cart.html">Add to cart</a>
-                                                    </div>
-                                                    
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper gridview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/4.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Tincidunt malesuada</a></h2>
-                                                    <span class="price">
-                                                        <del>$ 80.00</del> $ 50.00
-                                                    </span>
-                                                </div>
-                                                <div class="product-hidden">
-                                                    <div class="add-to-cart">
-                                                        <a href="cart.html">Add to cart</a>
-                                                    </div>
-                                                    
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                </div>
-                                <div class="col-sm-12">
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper gridview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/5.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Pellentesque posuere</a></h2>
-                                                    <span class="price">
-                                                        $ 45.00
-                                                    </span>
-                                                </div>
-                                                <div class="product-hidden">
-                                                    <div class="add-to-cart">
-                                                        <a href="cart.html">Add to cart</a>
-                                                    </div>
-                                                    
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper gridview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <span class="onsale">Sale!</span>
-                                                        <img src="images/product/6.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Kaoreet lobortis</a></h2>
-                                                    <span class="price">
-                                                        $ 95.00
-                                                    </span>
-                                                </div>
-                                                <div class="product-hidden">
-                                                    <div class="add-to-cart">
-                                                        <a href="cart.html">Add to cart</a>
-                                                    </div>
-                                                    
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                </div>
-                                <div class="col-sm-12">
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper gridview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/7.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Aliquam lobortis est</a></h2>
-                                                    <span class="price">
-                                                        $ 80.00
-                                                    </span>
-                                                </div>
-                                                <div class="product-hidden">
-                                                    <div class="add-to-cart">
-                                                        <a href="cart.html">Add to cart</a>
-                                                    </div>
-                                                    
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper gridview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <span class="onsale">Sale!</span>
-                                                        <img src="images/product/8.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Sit voluptatem</a></h2>
-                                                    <span class="price">
-                                                        <del>$ 77.00</del> $ 66.00
-                                                    </span>
-                                                </div>
-                                                <div class="product-hidden">
-                                                    <div class="add-to-cart">
-                                                        <a href="cart.html">Add to cart</a>
-                                                    </div>
-                                                    
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                </div>
-                                <div class="col-sm-12">
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper gridview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/9.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Phasellus vel hendrerit</a></h2>
-                                                    <span class="price">
-                                                        $ 55.00
-                                                    </span>
-                                                </div>
-                                                <div class="product-hidden">
-                                                    <div class="add-to-cart">
-                                                        <a href="cart.html">Add to cart</a>
-                                                    </div>
-                                                    
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper gridview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <span class="onsale">Sale!</span>
-                                                        <img src="images/product/10.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Auctor gravida enim</a></h2>
-                                                    <span class="price">
-                                                        <del>$ 85.00</del> $ 75.00
-                                                    </span>
-                                                </div>
-                                                <div class="product-hidden">
-                                                    <div class="add-to-cart">
-                                                        <a href="cart.html">Add to cart</a>
-                                                    </div>
-                                                    
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                </div>
-                                <div class="col-sm-12">
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper gridview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/11.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Sit voluptatem</a></h2>
-                                                    <span class="price">
-                                                        <del>$ 77.00</del> $ 66.00
-                                                    </span>
-                                                </div>
-                                                <div class="product-hidden">
-                                                    <div class="add-to-cart">
-                                                        <a href="cart.html">Add to cart</a>
-                                                    </div>
-                                                    
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper gridview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/12.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Sit voluptatem</a></h2>
-                                                    <span class="price">
-                                                        <del>$ 77.00</del> $ 66.00
-                                                    </span>
-                                                </div>
-                                                <div class="product-hidden">
-                                                    <div class="add-to-cart">
-                                                        <a href="cart.html">Add to cart</a>
-                                                    </div>
-                                                    
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                </div>
-                                <div class="col-sm-12">
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper gridview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/13.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Sit voluptatem</a></h2>
-                                                    <span class="price">
-                                                        <del>$ 77.00</del> $ 66.00
-                                                    </span>
-                                                </div>
-                                                <div class="product-hidden">
-                                                    <div class="add-to-cart">
-                                                        <a href="cart.html">Add to cart</a>
-                                                    </div>
-                                                    
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper gridview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/1.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Sit voluptatem</a></h2>
-                                                    <span class="price">
-                                                        <del>$ 77.00</del> $ 66.00
-                                                    </span>
-                                                </div>
-                                                <div class="product-hidden">
-                                                    <div class="add-to-cart">
-                                                        <a href="cart.html">Add to cart</a>
-                                                    </div>
-                                                    
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                </div>
-                                <div class="col-sm-12">
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper gridview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/2.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Sit voluptatem</a></h2>
-                                                    <span class="price">
-                                                        <del>$ 77.00</del> $ 66.00
-                                                    </span>
-                                                </div>
-                                                <div class="product-hidden">
-                                                    <div class="add-to-cart">
-                                                        <a href="cart.html">Add to cart</a>
-                                                    </div>
-                                                    
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper gridview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/3.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Sit voluptatem</a></h2>
-                                                    <span class="price">
-                                                        <del>$ 77.00</del> $ 66.00
-                                                    </span>
-                                                </div>
-                                                <div class="product-hidden">
-                                                    <div class="add-to-cart">
-                                                        <a href="cart.html">Add to cart</a>
-                                                    </div>
-                                                    
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-             <!-- Brand logo area -->
-            <div class="brand-logo-area">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="four-brand-carousel-active owl-carousel">
-                                <!-- single brand logo -->
-                                <div class="brand-logo">
-                                    <a href="#"><img src="images/brand/brand1.jpg" alt="Brand logo"></a>
-                                </div>
-                                <!-- single brand logo end -->
-                                <!-- single brand logo -->
-                                <div class="brand-logo">
-                                    <a href="#"><img src="images/brand/brand2.jpg" alt="Brand logo"></a>
-                                </div>
-                                <!-- single brand logo end -->
-                                <!-- single brand logo -->
-                                <div class="brand-logo">
-                                    <a href="#"><img src="images/brand/brand3.jpg" alt="Brand logo"></a>
-                                </div>
-                                <!-- single brand logo end -->
-                                <!-- single brand logo -->
-                                <div class="brand-logo">
-                                    <a href="#"><img src="images/brand/brand4.jpg" alt="Brand logo"></a>
-                                </div>
-                                <!-- single brand logo end -->
-                                <!-- single brand logo -->
-                                <div class="brand-logo">
-                                    <a href="#"><img src="images/brand/brand5.jpg" alt="Brand logo"></a>
-                                </div>
-                                <!-- single brand logo end -->
-                                <!-- single brand logo -->
-                                <div class="brand-logo">
-                                    <a href="#"><img src="images/brand/brand6.jpg" alt="Brand logo"></a>
-                                </div>
-                                <!-- single brand logo end -->
-                                <!-- single brand logo -->
-                                <div class="brand-logo">
-                                    <a href="#"><img src="images/brand/brand7.jpg" alt="Brand logo"></a>
-                                </div>
-                                <!-- single brand logo end -->
-                                <!-- single brand logo -->
-                                <div class="brand-logo">
-                                    <a href="#"><img src="images/brand/brand8.jpg" alt="Brand logo"></a>
-                                </div>
-                                <!-- single brand logo end -->
-                                <!-- single brand logo -->
-                                <div class="brand-logo">
-                                    <a href="#"><img src="images/brand/brand9.jpg" alt="Brand logo"></a>
-                                </div>
-                                <!-- single brand logo end -->
-                                <!-- single brand logo -->
-                                <div class="brand-logo">
-                                    <a href="#"><img src="images/brand/brand1.jpg" alt="Brand logo"></a>
-                                </div>
-                                <!-- single brand logo end -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Brand logo area end -->
-            <!-- product carosel area -->
-            <div class="product-carosel-area">
-                <div class="container">
-                    <div class="row">
-                        <!-- Product column -->
-                        <div class="col-sm-12 col-md-6 col-xl-4">
-                            <div class="home-three-mini-product">
-                            <div class="section-title">
-                                <h3>LATEST PRODUCTS</h3>
-                            </div>
-                            <div class="mini-product carosel-next-prive owl-carousel">
-                                <div class="mini-product-listview">
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper listview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/mini/18.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Itaque earum</a></h2>
-                                                    <span class="price">
-                                                        $ 866.00
-                                                    </span>
+                                                              </div>
+                                                              <div class="add-to-cart">
+                                                                  <a href="cart.html">Add to cart</a>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <!-- single product end -->
+                                                  <!-- single product -->
+                                                  <div class="single-product-area">
+                                                      <div class="product-wrapper listview">
+                                                          <div class="list-col4">
+                                                              <div class="product-image">
+                                                                  <a href="#">
+                                                                      <img src="images/product/mini/20.jpg" alt="">
+                                                                  </a>
+                                                                  <div class="quickviewbtn">
+                                                                      <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="list-col8">
+                                                              <div class="product-info">
+                                                                  <h2><a href="single-product.html">Consequuntur magni</a></h2>
+                                                                  <span class="price">
+                                                                      $ 366.00
+                                                                  </span>
 
-                                                </div>
-                                                <div class="add-to-cart">
-                                                    <a href="cart.html">Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper listview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/mini/19.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Nostrum exercita</a></h2>
-                                                    <span class="price">
-                                                        $ 550.00
-                                                    </span>
+                                                              </div>
+                                                              <div class="add-to-cart">
+                                                                  <a href="cart.html">Add to cart</a>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <!-- single product end -->
+                                                  <!-- single product -->
+                                                  <div class="single-product-area">
+                                                      <div class="product-wrapper listview">
+                                                          <div class="list-col4">
+                                                              <div class="product-image">
+                                                                  <a href="#">
+                                                                      <img src="images/product/mini/21.jpg" alt="">
+                                                                  </a>
+                                                                  <div class="quickviewbtn">
+                                                                      <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="list-col8">
+                                                              <div class="product-info">
+                                                                  <h2><a href="single-product.html">Porro quisquam</a></h2>
+                                                                  <span class="price">
+                                                                      $ 88.00
+                                                                  </span>
 
-                                                </div>
-                                                <div class="add-to-cart">
-                                                    <a href="cart.html">Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper listview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/mini/20.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Consequuntur magni</a></h2>
-                                                    <span class="price">
-                                                        $ 366.00
-                                                    </span>
+                                                              </div>
+                                                              <div class="add-to-cart">
+                                                                  <a href="cart.html">Add to cart</a>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <!-- single product end -->
+                                              </div>
+                                              <div class="mini-product-listview">
+                                                  <!-- single product -->
+                                                  <div class="single-product-area">
+                                                      <div class="product-wrapper listview">
+                                                          <div class="list-col4">
+                                                              <div class="product-image">
+                                                                  <a href="#">
+                                                                      <img src="images/product/mini/22.jpg" alt="">
+                                                                  </a>
+                                                                  <div class="quickviewbtn">
+                                                                      <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="list-col8">
+                                                              <div class="product-info">
+                                                                  <h2><a href="single-product.html">Sit voluptatem</a></h2>
+                                                                  <span class="price">
+                                                                      <del>$ 77.00</del> $ 66.00
+                                                                  </span>
 
-                                                </div>
-                                                <div class="add-to-cart">
-                                                    <a href="cart.html">Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper listview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/mini/21.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Porro quisquam</a></h2>
-                                                    <span class="price">
-                                                        $ 88.00
-                                                    </span>
+                                                              </div>
+                                                              <div class="add-to-cart">
+                                                                  <a href="cart.html">Add to cart</a>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <!-- single product end -->
+                                                  <!-- single product -->
+                                                  <div class="single-product-area">
+                                                      <div class="product-wrapper listview">
+                                                          <div class="list-col4">
+                                                              <div class="product-image">
+                                                                  <a href="#">
+                                                                      <img src="images/product/mini/1.jpg" alt="">
+                                                                  </a>
+                                                                  <div class="quickviewbtn">
+                                                                      <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="list-col8">
+                                                              <div class="product-info">
+                                                                  <h2><a href="single-product.html">Sit voluptatem</a></h2>
+                                                                  <span class="price">
+                                                                      <del>$ 77.00</del> $ 66.00
+                                                                  </span>
 
-                                                </div>
-                                                <div class="add-to-cart">
-                                                    <a href="cart.html">Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                </div>
-                                <div class="mini-product-listview">
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper listview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/mini/22.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Sit voluptatem</a></h2>
-                                                    <span class="price">
-                                                        <del>$ 77.00</del> $ 66.00
-                                                    </span>
+                                                              </div>
+                                                              <div class="add-to-cart">
+                                                                  <a href="cart.html">Add to cart</a>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <!-- single product end -->
+                                                  <!-- single product -->
+                                                  <div class="single-product-area">
+                                                      <div class="product-wrapper listview">
+                                                          <div class="list-col4">
+                                                              <div class="product-image">
+                                                                  <a href="#">
+                                                                      <img src="images/product/mini/2.jpg" alt="">
+                                                                  </a>
+                                                                  <div class="quickviewbtn">
+                                                                      <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="list-col8">
+                                                              <div class="product-info">
+                                                                  <h2><a href="single-product.html">Sit voluptatem</a></h2>
+                                                                  <span class="price">
+                                                                      <del>$ 77.00</del> $ 66.00
+                                                                  </span>
 
-                                                </div>
-                                                <div class="add-to-cart">
-                                                    <a href="cart.html">Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper listview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/mini/1.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Sit voluptatem</a></h2>
-                                                    <span class="price">
-                                                        <del>$ 77.00</del> $ 66.00
-                                                    </span>
+                                                              </div>
+                                                              <div class="add-to-cart">
+                                                                  <a href="cart.html">Add to cart</a>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <!-- single product end -->
+                                                  <!-- single product -->
+                                                  <div class="single-product-area">
+                                                      <div class="product-wrapper listview">
+                                                          <div class="list-col4">
+                                                              <div class="product-image">
+                                                                  <a href="#">
+                                                                      <img src="images/product/mini/3.jpg" alt="">
+                                                                  </a>
+                                                                  <div class="quickviewbtn">
+                                                                      <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="list-col8">
+                                                              <div class="product-info">
+                                                                  <h2><a href="single-product.html">Sit voluptatem</a></h2>
+                                                                  <span class="price">
+                                                                      <del>$ 77.00</del> $ 66.00
+                                                                  </span>
 
-                                                </div>
-                                                <div class="add-to-cart">
-                                                    <a href="cart.html">Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper listview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/mini/2.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Sit voluptatem</a></h2>
-                                                    <span class="price">
-                                                        <del>$ 77.00</del> $ 66.00
-                                                    </span>
+                                                              </div>
+                                                              <div class="add-to-cart">
+                                                                  <a href="cart.html">Add to cart</a>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <!-- single product end -->
+                                              </div>
+                                              <div class="mini-product-listview">
+                                                  <!-- single product -->
+                                                  <div class="single-product-area">
+                                                      <div class="product-wrapper listview">
+                                                          <div class="list-col4">
+                                                              <div class="product-image">
+                                                                  <a href="#">
+                                                                      <img src="images/product/mini/4.jpg" alt="">
+                                                                  </a>
+                                                                  <div class="quickviewbtn">
+                                                                      <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="list-col8">
+                                                              <div class="product-info">
+                                                                  <h2><a href="single-product.html">Sit voluptatem</a></h2>
+                                                                  <span class="price">
+                                                                      <del>$ 77.00</del> $ 66.00
+                                                                  </span>
 
-                                                </div>
-                                                <div class="add-to-cart">
-                                                    <a href="cart.html">Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper listview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/mini/3.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Sit voluptatem</a></h2>
-                                                    <span class="price">
-                                                        <del>$ 77.00</del> $ 66.00
-                                                    </span>
+                                                              </div>
+                                                              <div class="add-to-cart">
+                                                                  <a href="cart.html">Add to cart</a>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <!-- single product end -->
+                                                  <!-- single product -->
+                                                  <div class="single-product-area">
+                                                      <div class="product-wrapper listview">
+                                                          <div class="list-col4">
+                                                              <div class="product-image">
+                                                                  <a href="#">
+                                                                      <img src="images/product/mini/5.jpg" alt="">
+                                                                  </a>
+                                                                  <div class="quickviewbtn">
+                                                                      <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="list-col8">
+                                                              <div class="product-info">
+                                                                  <h2><a href="single-product.html">Sit voluptatem</a></h2>
+                                                                  <span class="price">
+                                                                      <del>$ 77.00</del> $ 66.00
+                                                                  </span>
 
-                                                </div>
-                                                <div class="add-to-cart">
-                                                    <a href="cart.html">Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                </div>
-                                <div class="mini-product-listview">
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper listview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/mini/4.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Sit voluptatem</a></h2>
-                                                    <span class="price">
-                                                        <del>$ 77.00</del> $ 66.00
-                                                    </span>
+                                                              </div>
+                                                              <div class="add-to-cart">
+                                                                  <a href="cart.html">Add to cart</a>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <!-- single product end -->
+                                                  <!-- single product -->
+                                                  <div class="single-product-area">
+                                                      <div class="product-wrapper listview">
+                                                          <div class="list-col4">
+                                                              <div class="product-image">
+                                                                  <a href="#">
+                                                                      <img src="images/product/mini/6.jpg" alt="">
+                                                                  </a>
+                                                                  <div class="quickviewbtn">
+                                                                      <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="list-col8">
+                                                              <div class="product-info">
+                                                                  <h2><a href="single-product.html">Sit voluptatem</a></h2>
+                                                                  <span class="price">
+                                                                      <del>$ 77.00</del> $ 66.00
+                                                                  </span>
 
-                                                </div>
-                                                <div class="add-to-cart">
-                                                    <a href="cart.html">Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper listview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/mini/5.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Sit voluptatem</a></h2>
-                                                    <span class="price">
-                                                        <del>$ 77.00</del> $ 66.00
-                                                    </span>
+                                                              </div>
+                                                              <div class="add-to-cart">
+                                                                  <a href="cart.html">Add to cart</a>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <!-- single product end -->
+                                                  <!-- single product -->
+                                                  <div class="single-product-area">
+                                                      <div class="product-wrapper listview">
+                                                          <div class="list-col4">
+                                                              <div class="product-image">
+                                                                  <a href="#">
+                                                                      <img src="images/product/mini/7.jpg" alt="">
+                                                                  </a>
+                                                                  <div class="quickviewbtn">
+                                                                      <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="list-col8">
+                                                              <div class="product-info">
+                                                                  <h2><a href="single-product.html">Sit voluptatem</a></h2>
+                                                                  <span class="price">
+                                                                      <del>$ 77.00</del> $ 66.00
+                                                                  </span>
 
-                                                </div>
-                                                <div class="add-to-cart">
-                                                    <a href="cart.html">Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper listview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/mini/6.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Sit voluptatem</a></h2>
-                                                    <span class="price">
-                                                        <del>$ 77.00</del> $ 66.00
-                                                    </span>
+                                                              </div>
+                                                              <div class="add-to-cart">
+                                                                  <a href="cart.html">Add to cart</a>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <!-- single product end -->
+                                              </div>
+                                          </div>
+                                          </div>
+                                      </div>
+                                      <!-- Product column end -->
+                                      <!-- Product column -->
+                                      <div class="col-sm-12 col-md-6 col-xl-4">
+                                          <div class="home-three-mini-product">
+                                          <div class="section-title">
+                                              <h3>TOP RATED PRODUCTS</h3>
+                                          </div>
+                                          <div class="mini-product carosel-next-prive owl-carousel">
+                                              <div class="mini-product-listview">
+                                                  <!-- single product -->
+                                                  <div class="single-product-area">
+                                                      <div class="product-wrapper listview">
+                                                          <div class="list-col4">
+                                                              <div class="product-image">
+                                                                  <a href="#">
+                                                                      <img src="images/product/mini/6.jpg" alt="">
+                                                                  </a>
+                                                                  <div class="quickviewbtn">
+                                                                      <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="list-col8">
+                                                              <div class="product-info">
+                                                                  <h2><a href="single-product.html">Duis pulvinar</a></h2>
+                                                                  <span class="price">
+                                                                      $ 84.00
+                                                                  </span>
 
-                                                </div>
-                                                <div class="add-to-cart">
-                                                    <a href="cart.html">Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper listview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/mini/7.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Sit voluptatem</a></h2>
-                                                    <span class="price">
-                                                        <del>$ 77.00</del> $ 66.00
-                                                    </span>
+                                                              </div>
+                                                              <div class="add-to-cart">
+                                                                  <a href="cart.html">Add to cart</a>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <!-- single product end -->
+                                                  <!-- single product -->
+                                                  <div class="single-product-area">
+                                                      <div class="product-wrapper listview">
+                                                          <div class="list-col4">
+                                                              <div class="product-image">
+                                                                  <a href="#">
+                                                                      <img src="images/product/mini/7.jpg" alt="">
+                                                                  </a>
+                                                                  <div class="quickviewbtn">
+                                                                      <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="list-col8">
+                                                              <div class="product-info">
+                                                                  <h2><a href="single-product.html">Porro quisquam</a></h2>
+                                                                  <span class="price">
+                                                                      <del>$ 77.00</del> $ 68.00
+                                                                  </span>
 
-                                                </div>
-                                                <div class="add-to-cart">
-                                                    <a href="cart.html">Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        <!-- Product column end -->
-                        <!-- Product column -->
-                        <div class="col-sm-12 col-md-6 col-xl-4">
-                            <div class="home-three-mini-product">
-                            <div class="section-title">
-                                <h3>TOP RATED PRODUCTS</h3>
-                            </div>
-                            <div class="mini-product carosel-next-prive owl-carousel">
-                                <div class="mini-product-listview">
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper listview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/mini/6.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Duis pulvinar</a></h2>
-                                                    <span class="price">
-                                                        $ 84.00
-                                                    </span>
+                                                              </div>
+                                                              <div class="add-to-cart">
+                                                                  <a href="cart.html">Add to cart</a>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <!-- single product end -->
+                                                  <!-- single product -->
+                                                  <div class="single-product-area">
+                                                      <div class="product-wrapper listview">
+                                                          <div class="list-col4">
+                                                              <div class="product-image">
+                                                                  <a href="#">
+                                                                      <img src="images/product/mini/8.jpg" alt="">
+                                                                  </a>
+                                                                  <div class="quickviewbtn">
+                                                                      <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="list-col8">
+                                                              <div class="product-info">
+                                                                  <h2><a href="single-product.html">Laudantium</a></h2>
+                                                                  <span class="price">
+                                                                      $ 75.00
+                                                                  </span>
 
-                                                </div>
-                                                <div class="add-to-cart">
-                                                    <a href="cart.html">Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper listview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/mini/7.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Porro quisquam</a></h2>
-                                                    <span class="price">
-                                                        <del>$ 77.00</del> $ 68.00
-                                                    </span>
+                                                              </div>
+                                                              <div class="add-to-cart">
+                                                                  <a href="cart.html">Add to cart</a>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <!-- single product end -->
+                                                  <!-- single product -->
+                                                  <div class="single-product-area">
+                                                      <div class="product-wrapper listview">
+                                                          <div class="list-col4">
+                                                              <div class="product-image">
+                                                                  <a href="#">
+                                                                      <img src="images/product/mini/9.jpg" alt="">
+                                                                  </a>
+                                                                  <div class="quickviewbtn">
+                                                                      <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="list-col8">
+                                                              <div class="product-info">
+                                                                  <h2><a href="single-product.html">Nullam maximus</a></h2>
+                                                                  <span class="price">
+                                                                      $ 95.00
+                                                                  </span>
 
-                                                </div>
-                                                <div class="add-to-cart">
-                                                    <a href="cart.html">Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper listview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/mini/8.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Laudantium</a></h2>
-                                                    <span class="price">
-                                                        $ 75.00
-                                                    </span>
+                                                              </div>
+                                                              <div class="add-to-cart">
+                                                                  <a href="cart.html">Add to cart</a>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <!-- single product end -->
+                                              </div>
+                                              <div class="mini-product-listview">
+                                                  <!-- single product -->
+                                                  <div class="single-product-area">
+                                                      <div class="product-wrapper listview">
+                                                          <div class="list-col4">
+                                                              <div class="product-image">
+                                                                  <a href="#">
+                                                                      <img src="images/product/mini/10.jpg" alt="">
+                                                                  </a>
+                                                                  <div class="quickviewbtn">
+                                                                      <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="list-col8">
+                                                              <div class="product-info">
+                                                                  <h2><a href="single-product.html">Nemo enim</a></h2>
+                                                                  <span class="price">
+                                                                      $ 55.00
+                                                                  </span>
 
-                                                </div>
-                                                <div class="add-to-cart">
-                                                    <a href="cart.html">Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper listview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/mini/9.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Nullam maximus</a></h2>
-                                                    <span class="price">
-                                                        $ 95.00
-                                                    </span>
+                                                              </div>
+                                                              <div class="add-to-cart">
+                                                                  <a href="cart.html">Add to cart</a>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <!-- single product end -->
+                                                  <!-- single product -->
+                                                  <div class="single-product-area">
+                                                      <div class="product-wrapper listview">
+                                                          <div class="list-col4">
+                                                              <div class="product-image">
+                                                                  <a href="#">
+                                                                      <img src="images/product/mini/11.jpg" alt="">
+                                                                  </a>
+                                                                  <div class="quickviewbtn">
+                                                                      <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="list-col8">
+                                                              <div class="product-info">
+                                                                  <h2><a href="single-product.html">Natus erro</a></h2>
+                                                                  <span class="price">
+                                                                      <del>$ 77.00</del> $ 66.00
+                                                                  </span>
 
-                                                </div>
-                                                <div class="add-to-cart">
-                                                    <a href="cart.html">Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                </div>
-                                <div class="mini-product-listview">
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper listview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/mini/10.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Nemo enim</a></h2>
-                                                    <span class="price">
-                                                        $ 55.00
-                                                    </span>
+                                                              </div>
+                                                              <div class="add-to-cart">
+                                                                  <a href="cart.html">Add to cart</a>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <!-- single product end -->
+                                                  <!-- single product -->
+                                                  <div class="single-product-area">
+                                                      <div class="product-wrapper listview">
+                                                          <div class="list-col4">
+                                                              <div class="product-image">
+                                                                  <a href="#">
+                                                                      <img src="images/product/mini/12.jpg" alt="">
+                                                                  </a>
+                                                                  <div class="quickviewbtn">
+                                                                      <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="list-col8">
+                                                              <div class="product-info">
+                                                                  <h2><a href="single-product.html">Epicuri per</a></h2>
+                                                                  <span class="price">
+                                                                      $ 88.00
+                                                                  </span>
 
-                                                </div>
-                                                <div class="add-to-cart">
-                                                    <a href="cart.html">Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper listview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/mini/11.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Natus erro</a></h2>
-                                                    <span class="price">
-                                                        <del>$ 77.00</del> $ 66.00
-                                                    </span>
+                                                              </div>
+                                                              <div class="add-to-cart">
+                                                                  <a href="cart.html">Add to cart</a>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <!-- single product end -->
+                                                  <!-- single product -->
+                                                  <div class="single-product-area">
+                                                      <div class="product-wrapper listview">
+                                                          <div class="list-col4">
+                                                              <div class="product-image">
+                                                                  <a href="#">
+                                                                      <img src="images/product/mini/13.jpg" alt="">
+                                                                  </a>
+                                                                  <div class="quickviewbtn">
+                                                                      <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="list-col8">
+                                                              <div class="product-info">
+                                                                  <h2><a href="single-product.html">Sit voluptatem</a></h2>
+                                                                  <span class="price">
+                                                                      <del>$ 77.00</del> $ 66.00
+                                                                  </span>
 
-                                                </div>
-                                                <div class="add-to-cart">
-                                                    <a href="cart.html">Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper listview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/mini/12.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Epicuri per</a></h2>
-                                                    <span class="price">
-                                                        $ 88.00
-                                                    </span>
+                                                              </div>
+                                                              <div class="add-to-cart">
+                                                                  <a href="cart.html">Add to cart</a>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <!-- single product end -->
+                                              </div>
+                                              <div class="mini-product-listview">
+                                                  <!-- single product -->
+                                                  <div class="single-product-area">
+                                                      <div class="product-wrapper listview">
+                                                          <div class="list-col4">
+                                                              <div class="product-image">
+                                                                  <a href="#">
+                                                                      <img src="images/product/mini/14.jpg" alt="">
+                                                                  </a>
+                                                                  <div class="quickviewbtn">
+                                                                      <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="list-col8">
+                                                              <div class="product-info">
+                                                                  <h2><a href="single-product.html">Auctor gravida enim</a></h2>
+                                                                  <span class="price">
+                                                                       $ 63.00
+                                                                  </span>
 
-                                                </div>
-                                                <div class="add-to-cart">
-                                                    <a href="cart.html">Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper listview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/mini/13.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Sit voluptatem</a></h2>
-                                                    <span class="price">
-                                                        <del>$ 77.00</del> $ 66.00
-                                                    </span>
+                                                              </div>
+                                                              <div class="add-to-cart">
+                                                                  <a href="cart.html">Add to cart</a>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <!-- single product end -->
+                                                  <!-- single product -->
+                                                  <div class="single-product-area">
+                                                      <div class="product-wrapper listview">
+                                                          <div class="list-col4">
+                                                              <div class="product-image">
+                                                                  <a href="#">
+                                                                      <img src="images/product/mini/15.jpg" alt="">
+                                                                  </a>
+                                                                  <div class="quickviewbtn">
+                                                                      <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="list-col8">
+                                                              <div class="product-info">
+                                                                  <h2><a href="single-product.html">Nulla sed libero</a></h2>
+                                                                  <span class="price">
+                                                                      $ 86.00
+                                                                  </span>
 
-                                                </div>
-                                                <div class="add-to-cart">
-                                                    <a href="cart.html">Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                </div>
-                                <div class="mini-product-listview">
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper listview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/mini/14.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Auctor gravida enim</a></h2>
-                                                    <span class="price">
-                                                         $ 63.00
-                                                    </span>
+                                                              </div>
+                                                              <div class="add-to-cart">
+                                                                  <a href="cart.html">Add to cart</a>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <!-- single product end -->
+                                                  <!-- single product -->
+                                                  <div class="single-product-area">
+                                                      <div class="product-wrapper listview">
+                                                          <div class="list-col4">
+                                                              <div class="product-image">
+                                                                  <a href="#">
+                                                                      <img src="images/product/mini/16.jpg" alt="">
+                                                                  </a>
+                                                                  <div class="quickviewbtn">
+                                                                      <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="list-col8">
+                                                              <div class="product-info">
+                                                                  <h2><a href="single-product.html">Pellentesque posuere</a></h2>
+                                                                  <span class="price">
+                                                                      $ 78.00
+                                                                  </span>
 
-                                                </div>
-                                                <div class="add-to-cart">
-                                                    <a href="cart.html">Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper listview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/mini/15.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Nulla sed libero</a></h2>
-                                                    <span class="price">
-                                                        $ 86.00
-                                                    </span>
+                                                              </div>
+                                                              <div class="add-to-cart">
+                                                                  <a href="cart.html">Add to cart</a>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <!-- single product end -->
+                                                  <!-- single product -->
+                                                  <div class="single-product-area">
+                                                      <div class="product-wrapper listview">
+                                                          <div class="list-col4">
+                                                              <div class="product-image">
+                                                                  <a href="#">
+                                                                      <img src="images/product/mini/17.jpg" alt="">
+                                                                  </a>
+                                                                  <div class="quickviewbtn">
+                                                                      <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="list-col8">
+                                                              <div class="product-info">
+                                                                  <h2><a href="single-product.html">Sit voluptatem</a></h2>
+                                                                  <span class="price">
+                                                                      <del>$ 77.00</del> $ 66.00
+                                                                  </span>
 
-                                                </div>
-                                                <div class="add-to-cart">
-                                                    <a href="cart.html">Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper listview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/mini/16.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Pellentesque posuere</a></h2>
-                                                    <span class="price">
-                                                        $ 78.00
-                                                    </span>
+                                                              </div>
+                                                              <div class="add-to-cart">
+                                                                  <a href="cart.html">Add to cart</a>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <!-- single product end -->
+                                              </div>
+                                          </div>
+                                          </div>
+                                      </div>
+                                      <!-- Product column end -->
+                                      <!-- Product column -->
+                                      <div class="col-sm-12 col-md-6 col-xl-4">
+                                          <div class="home-three-mini-product">
+                                          <div class="section-title">
+                                              <h3>FEATURED PRODUCTS</h3>
+                                          </div>
+                                          <div class="mini-product carosel-next-prive owl-carousel">
+                                              <div class="mini-product-listview">
+                                                  <!-- single product -->
+                                                  <div class="single-product-area">
+                                                      <div class="product-wrapper listview">
+                                                          <div class="list-col4">
+                                                              <div class="product-image">
+                                                                  <a href="#">
+                                                                      <img src="images/product/mini/1.jpg" alt="">
+                                                                  </a>
+                                                                  <div class="quickviewbtn">
+                                                                      <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="list-col8">
+                                                              <div class="product-info">
+                                                                  <h2><a href="single-product.html">Donec tempus</a></h2>
+                                                                  <span class="price">
+                                                                      $ 82.00
+                                                                  </span>
 
-                                                </div>
-                                                <div class="add-to-cart">
-                                                    <a href="cart.html">Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper listview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/mini/17.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Sit voluptatem</a></h2>
-                                                    <span class="price">
-                                                        <del>$ 77.00</del> $ 66.00
-                                                    </span>
+                                                              </div>
+                                                              <div class="add-to-cart">
+                                                                  <a href="cart.html">Add to cart</a>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <!-- single product end -->
+                                                  <!-- single product -->
+                                                  <div class="single-product-area">
+                                                      <div class="product-wrapper listview">
+                                                          <div class="list-col4">
+                                                              <div class="product-image">
+                                                                  <a href="#">
+                                                                      <img src="images/product/mini/2.jpg" alt="">
+                                                                  </a>
+                                                                  <div class="quickviewbtn">
+                                                                      <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="list-col8">
+                                                              <div class="product-info">
+                                                                  <h2><a href="single-product.html">Sed tempor</a></h2>
+                                                                  <span class="price">
+                                                                      <del>$ 87.00</del> $ 80.00
+                                                                  </span>
 
-                                                </div>
-                                                <div class="add-to-cart">
-                                                    <a href="cart.html">Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        <!-- Product column end -->
-                        <!-- Product column -->
-                        <div class="col-sm-12 col-md-6 col-xl-4">
-                            <div class="home-three-mini-product">
-                            <div class="section-title">
-                                <h3>FEATURED PRODUCTS</h3>
-                            </div>
-                            <div class="mini-product carosel-next-prive owl-carousel">
-                                <div class="mini-product-listview">
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper listview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/mini/1.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Donec tempus</a></h2>
-                                                    <span class="price">
-                                                        $ 82.00
-                                                    </span>
+                                                              </div>
+                                                              <div class="add-to-cart">
+                                                                  <a href="cart.html">Add to cart</a>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <!-- single product end -->
+                                                  <!-- single product -->
+                                                  <div class="single-product-area">
+                                                      <div class="product-wrapper listview">
+                                                          <div class="list-col4">
+                                                              <div class="product-image">
+                                                                  <a href="#">
+                                                                      <img src="images/product/mini/3.jpg" alt="">
+                                                                  </a>
+                                                                  <div class="quickviewbtn">
+                                                                      <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="list-col8">
+                                                              <div class="product-info">
+                                                                  <h2><a href="single-product.html">Cras neque</a></h2>
+                                                                  <span class="price">
+                                                                      $ 70.00
+                                                                  </span>
 
-                                                </div>
-                                                <div class="add-to-cart">
-                                                    <a href="cart.html">Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper listview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/mini/2.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Sed tempor</a></h2>
-                                                    <span class="price">
-                                                        <del>$ 87.00</del> $ 80.00
-                                                    </span>
+                                                              </div>
+                                                              <div class="add-to-cart">
+                                                                  <a href="cart.html">Add to cart</a>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <!-- single product end -->
+                                                  <!-- single product -->
+                                                  <div class="single-product-area">
+                                                      <div class="product-wrapper listview">
+                                                          <div class="list-col4">
+                                                              <div class="product-image">
+                                                                  <a href="#">
+                                                                      <img src="images/product/mini/4.jpg" alt="">
+                                                                  </a>
+                                                                  <div class="quickviewbtn">
+                                                                      <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="list-col8">
+                                                              <div class="product-info">
+                                                                  <h2><a href="single-product.html">Pellentesque ultricies</a></h2>
+                                                                  <span class="price">
+                                                                      $ 85.00
+                                                                  </span>
 
-                                                </div>
-                                                <div class="add-to-cart">
-                                                    <a href="cart.html">Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper listview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/mini/3.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Cras neque</a></h2>
-                                                    <span class="price">
-                                                        $ 70.00
-                                                    </span>
+                                                              </div>
+                                                              <div class="add-to-cart">
+                                                                  <a href="cart.html">Add to cart</a>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <!-- single product end -->
+                                              </div>
+                                              <div class="mini-product-listview">
+                                                  <!-- single product -->
+                                                  <div class="single-product-area">
+                                                      <div class="product-wrapper listview">
+                                                          <div class="list-col4">
+                                                              <div class="product-image">
+                                                                  <a href="#">
+                                                                      <img src="images/product/mini/5.jpg" alt="">
+                                                                  </a>
+                                                                  <div class="quickviewbtn">
+                                                                      <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="list-col8">
+                                                              <div class="product-info">
+                                                                  <h2><a href="single-product.html">Vestibulum suscipit</a></h2>
+                                                                  <span class="price">
+                                                                      $ 84.00
+                                                                  </span>
 
-                                                </div>
-                                                <div class="add-to-cart">
-                                                    <a href="cart.html">Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper listview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/mini/4.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Pellentesque ultricies</a></h2>
-                                                    <span class="price">
-                                                        $ 85.00
-                                                    </span>
+                                                              </div>
+                                                              <div class="add-to-cart">
+                                                                  <a href="cart.html">Add to cart</a>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <!-- single product end -->
+                                                  <!-- single product -->
+                                                  <div class="single-product-area">
+                                                      <div class="product-wrapper listview">
+                                                          <div class="list-col4">
+                                                              <div class="product-image">
+                                                                  <a href="#">
+                                                                      <img src="images/product/mini/6.jpg" alt="">
+                                                                  </a>
+                                                                  <div class="quickviewbtn">
+                                                                      <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="list-col8">
+                                                              <div class="product-info">
+                                                                  <h2><a href="single-product.html">Nemo enim</a></h2>
+                                                                  <span class="price">
+                                                                      $ 220.00
+                                                                  </span>
 
-                                                </div>
-                                                <div class="add-to-cart">
-                                                    <a href="cart.html">Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                </div>
-                                <div class="mini-product-listview">
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper listview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/mini/5.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Vestibulum suscipit</a></h2>
-                                                    <span class="price">
-                                                        $ 84.00
-                                                    </span>
+                                                              </div>
+                                                              <div class="add-to-cart">
+                                                                  <a href="cart.html">Add to cart</a>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <!-- single product end -->
+                                                  <!-- single product -->
+                                                  <div class="single-product-area">
+                                                      <div class="product-wrapper listview">
+                                                          <div class="list-col4">
+                                                              <div class="product-image">
+                                                                  <a href="#">
+                                                                      <img src="images/product/mini/7.jpg" alt="">
+                                                                  </a>
+                                                                  <div class="quickviewbtn">
+                                                                      <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="list-col8">
+                                                              <div class="product-info">
+                                                                  <h2><a href="single-product.html">Epicuri per</a></h2>
+                                                                  <span class="price">
+                                                                      $ 152.00
+                                                                  </span>
 
-                                                </div>
-                                                <div class="add-to-cart">
-                                                    <a href="cart.html">Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper listview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/mini/6.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Nemo enim</a></h2>
-                                                    <span class="price">
-                                                        $ 220.00
-                                                    </span>
+                                                              </div>
+                                                              <div class="add-to-cart">
+                                                                  <a href="cart.html">Add to cart</a>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <!-- single product end -->
+                                                  <!-- single product -->
+                                                  <div class="single-product-area">
+                                                      <div class="product-wrapper listview">
+                                                          <div class="list-col4">
+                                                              <div class="product-image">
+                                                                  <a href="#">
+                                                                      <img src="images/product/mini/8.jpg" alt="">
+                                                                  </a>
+                                                                  <div class="quickviewbtn">
+                                                                      <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="list-col8">
+                                                              <div class="product-info">
+                                                                  <h2><a href="single-product.html">Sit voluptatem</a></h2>
+                                                                  <span class="price">
+                                                                      <del>$ 77.00</del> $ 66.00
+                                                                  </span>
 
-                                                </div>
-                                                <div class="add-to-cart">
-                                                    <a href="cart.html">Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper listview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/mini/7.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Epicuri per</a></h2>
-                                                    <span class="price">
-                                                        $ 152.00
-                                                    </span>
+                                                              </div>
+                                                              <div class="add-to-cart">
+                                                                  <a href="cart.html">Add to cart</a>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <!-- single product end -->
+                                              </div>
+                                              <div class="mini-product-listview">
+                                                  <!-- single product -->
+                                                  <div class="single-product-area">
+                                                      <div class="product-wrapper listview">
+                                                          <div class="list-col4">
+                                                              <div class="product-image">
+                                                                  <a href="#">
+                                                                      <img src="images/product/mini/9.jpg" alt="">
+                                                                  </a>
+                                                                  <div class="quickviewbtn">
+                                                                      <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="list-col8">
+                                                              <div class="product-info">
+                                                                  <h2><a href="single-product.html">Laudantium</a></h2>
+                                                                  <span class="price">
+                                                                      $ 86.00
+                                                                  </span>
 
-                                                </div>
-                                                <div class="add-to-cart">
-                                                    <a href="cart.html">Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper listview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/mini/8.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Sit voluptatem</a></h2>
-                                                    <span class="price">
-                                                        <del>$ 77.00</del> $ 66.00
-                                                    </span>
+                                                              </div>
+                                                              <div class="add-to-cart">
+                                                                  <a href="cart.html">Add to cart</a>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <!-- single product end -->
+                                                  <!-- single product -->
+                                                  <div class="single-product-area">
+                                                      <div class="product-wrapper listview">
+                                                          <div class="list-col4">
+                                                              <div class="product-image">
+                                                                  <a href="#">
+                                                                      <img src="images/product/mini/10.jpg" alt="">
+                                                                  </a>
+                                                                  <div class="quickviewbtn">
+                                                                      <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="list-col8">
+                                                              <div class="product-info">
+                                                                  <h2><a href="single-product.html">Porro quisquam</a></h2>
+                                                                  <span class="price">
+                                                                      $ 68.00
+                                                                  </span>
 
-                                                </div>
-                                                <div class="add-to-cart">
-                                                    <a href="cart.html">Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                </div>
-                                <div class="mini-product-listview">
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper listview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/mini/9.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Laudantium</a></h2>
-                                                    <span class="price">
-                                                        $ 86.00
-                                                    </span>
+                                                              </div>
+                                                              <div class="add-to-cart">
+                                                                  <a href="cart.html">Add to cart</a>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <!-- single product end -->
+                                                  <!-- single product -->
+                                                  <div class="single-product-area">
+                                                      <div class="product-wrapper listview">
+                                                          <div class="list-col4">
+                                                              <div class="product-image">
+                                                                  <a href="#">
+                                                                      <img src="images/product/mini/11.jpg" alt="">
+                                                                  </a>
+                                                                  <div class="quickviewbtn">
+                                                                      <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="list-col8">
+                                                              <div class="product-info">
+                                                                  <h2><a href="single-product.html">Sit voluptatem</a></h2>
+                                                                  <span class="price">
+                                                                      <del>$ 77.00</del> $ 66.00
+                                                                  </span>
 
-                                                </div>
-                                                <div class="add-to-cart">
-                                                    <a href="cart.html">Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper listview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/mini/10.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Porro quisquam</a></h2>
-                                                    <span class="price">
-                                                        $ 68.00
-                                                    </span>
+                                                              </div>
+                                                              <div class="add-to-cart">
+                                                                  <a href="cart.html">Add to cart</a>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <!-- single product end -->
+                                                  <!-- single product -->
+                                                  <div class="single-product-area">
+                                                      <div class="product-wrapper listview">
+                                                          <div class="list-col4">
+                                                              <div class="product-image">
+                                                                  <a href="#">
+                                                                      <img src="images/product/mini/12.jpg" alt="">
+                                                                  </a>
+                                                                  <div class="quickviewbtn">
+                                                                      <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="list-col8">
+                                                              <div class="product-info">
+                                                                  <h2><a href="single-product.html">Sit voluptatem</a></h2>
+                                                                  <span class="price">
+                                                                      <del>$ 77.00</del> $ 66.00
+                                                                  </span>
 
-                                                </div>
-                                                <div class="add-to-cart">
-                                                    <a href="cart.html">Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper listview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/mini/11.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Sit voluptatem</a></h2>
-                                                    <span class="price">
-                                                        <del>$ 77.00</del> $ 66.00
-                                                    </span>
+                                                              </div>
+                                                              <div class="add-to-cart">
+                                                                  <a href="cart.html">Add to cart</a>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <!-- single product end -->
+                                              </div>
+                                          </div>
+                                          </div>
+                                      </div>
+                                      <!-- Product column end -->
+                                  </div>
+                              </div>
+                          </div>
+                          <!-- product carosel area end -->
 
-                                                </div>
-                                                <div class="add-to-cart">
-                                                    <a href="cart.html">Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                    <!-- single product -->
-                                    <div class="single-product-area">
-                                        <div class="product-wrapper listview">
-                                            <div class="list-col4">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <img src="images/product/mini/12.jpg" alt="">
-                                                    </a>
-                                                    <div class="quickviewbtn">
-                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="list-col8">
-                                                <div class="product-info">
-                                                    <h2><a href="single-product.html">Sit voluptatem</a></h2>
-                                                    <span class="price">
-                                                        <del>$ 77.00</del> $ 66.00
-                                                    </span>
-
-                                                </div>
-                                                <div class="add-to-cart">
-                                                    <a href="cart.html">Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- single product end -->
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        <!-- Product column end -->
-                    </div>
-                </div>
-            </div>
-            <!-- product carosel area end -->
-
-            <footer class="footer-area">
-                <!-- newsletter area -->
-                <div class="newsletter-area">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-12 col-md-12 col-xl-12">
-                                <div class="newsletter-text">
-                                    <div class="icon"><i class="icon ion-email"></i></div>
-                                    <h3>Sign Up To Newsletter</h3>
-                                    <h4>..and Receive $29 Coupon For First Shopping</h4>
-                                </div>
-                                <div class="newsletter">
-                                    <div class="newsletter-box">
-                                         <form action="#">
-                                              <input class="subscribe" placeholder="your email address" name="email" id="subscribe" type="email">
-                                              <button type="submit" class="submit">subscribe!</button>
-                                         </form>
-                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- newsletter area end -->
-                <!-- footer main -->
-                <div class="footer-main">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-6 col-lg-3 col-md-3 col-xs-12">
-                                <div class="footer-logo-area">
-                                    <ul>
-                                        <li>
-                                            <h4>Contact info:</h4>
-                                            <p>169-C, Technohub, Dubai Silicon Oasis.</p>
-                                        </li>
-                                        <li>
-                                            <h4>Telephone:</h4>
-                                            <p>(+011) 123 777 8888 - (+011) 123 888 9999</p>
-                                        </li>
-                                        <li>
-                                            <h4>Email:</h4>
-                                            <p>Support@example.com</p>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-3 col-md-3 col-xs-12">
-                                <div class="footer-menu">
-                                    <h3>Customer Service</h3>
-                                    <ul>
-                                        <li><a href="#">Contact Us</a></li>
-                                        <li><a href="#">Returns</a></li>
-                                        <li><a href="#">Order History</a></li>
-                                        <li><a href="#">Site Map</a></li>
-                                        <li><a href="#">Testimonials</a></li>
-                                        <li><a href="#">My Account</a></li>
-                                        <li><a href="#">Unsubscribe Notification</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-3 col-md-3 col-xs-12">
-                                <div class="footer-menu">
-                                    <h3>Information</h3>
-                                    <ul>
-                                        <li><a href="#">About Us</a></li>
-                                        <li><a href="#">Delivery infomation</a></li>
-                                        <li><a href="#">Privacy Policy</a></li>
-                                        <li><a href="#">Terms & Conditions</a></li>
-                                        <li><a href="#">Warranty</a></li>
-                                        <li><a href="#">FAQ</a></li>
-                                        <li><a href="#">Seller Login</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-3 col-md-3 col-xs-12">
-                                <div class="footer-menu">
-                                    <h3>Extras</h3>
-                                    <ul>
-                                        <li><a href="#">Brands</a></li>
-                                        <li><a href="#">Gift Vouchers</a></li>
-                                        <li><a href="#">Affiliates</a></li>
-                                        <li><a href="#">Wishlist</a></li>
-                                        <li><a href="#">Order History</a></li>
-                                        <li><a href="#">Track Your Order</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- footer main end -->
-                <!-- footer copyright area -->
-                <div class="footer-copyright-area">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-12 col-lg-6 col-md-6">
-                                <p>Copyright © 2018 Bege . All Rights Reserved.</p>
-                            </div>
-                            <div class="col-sm-12 col-lg-6 col-md-6 pull-right">
-                                <img src="images/icons/payment-icon.png" alt="payment icon">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- footer copyright area end -->
-            </footer>
-            <!-- QUICKVIEW PRODUCT START -->
-            <div id="quickview-wrapper">
-                <!-- Modal -->
-                <div class="modal fade" id="product_modal" tabindex="-1">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-close-btn">
-                                <button class="close" data-dismiss="modal">
-                                    <i class="fa fa-times"></i>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                               <!-- Single product area -->
-                               <div class="single-product-area">
-                                   <div class="container-fullwidth">
-                                       <div class="single-product-wrapper">
-                                           <div class="row">
-                                               <div class="col-xs-12 col-md-7 col-lg-7">
-                                                    <div class="product-details-img-content">
-                                                        <div class="product-details-tab mr-40">
-                                                            <div class="product-details-large tab-content">
-                                                                <div class="tab-pane active" id="pro-details1">
-                                                                    <div class="product-popup">
-                                                                        <a href="images/product/single/product4.jpg">
-                                                                            <img src="images/product/single/product4.jpg" alt="">
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="tab-pane" id="pro-details2">
-                                                                    <div class="product-pop">
-                                                                        <a href="#">
-                                                                            <img src="images/product/single/product5.jpg" alt="">
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="tab-pane" id="pro-details3">
-                                                                    <div class="product-pop">
-                                                                        <a href="#">
-                                                                            <img src="images/product/single/product6.jpg" alt="">
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="tab-pane" id="pro-details4">
-                                                                    <div class="product-pop">
-                                                                        <a href="#">
-                                                                            <img src="images/product/single/product7.jpg" alt="">
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="tab-pane" id="pro-details5">
-                                                                    <div class="product-pop">
-                                                                        <a href="#">
-                                                                            <img src="images/product/single/product8.jpg" alt="">
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="product-details-small nav product-dec-slider-qui owl-carousel">
-                                                                <a class="active" href="#pro-details1">
-                                                                    <img src="images/product/thumbnails/product4.jpg" alt="">
-                                                                </a>
-                                                                <a href="#pro-details2">
-                                                                    <img src="images/product/thumbnails/product5.jpg" alt="">
-                                                                </a>
-                                                                <a href="#pro-details3">
-                                                                    <img src="images/product/thumbnails/product6.jpg" alt="">
-                                                                </a>
-                                                                <a href="#pro-details4">
-                                                                    <img src="images/product/thumbnails/product7.jpg" alt="">
-                                                                </a>
-                                                                <a href="#pro-details5">
-                                                                    <img src="images/product/thumbnails/product8.jpg" alt="">
-                                                                </a>
-                                                                <a class="active" href="#pro-details1">
-                                                                    <img src="images/product/thumbnails/product4.jpg" alt="">
-                                                                </a>
-                                                                <a href="#pro-details2">
-                                                                    <img src="images/product/thumbnails/product5.jpg" alt="">
-                                                                </a>
-                                                                <a href="#pro-details3">
-                                                                    <img src="images/product/thumbnails/product6.jpg" alt="">
-                                                                </a>
-                                                                <a href="#pro-details4">
-                                                                    <img src="images/product/thumbnails/product7.jpg" alt="">
-                                                                </a>
-                                                                <a href="#pro-details5">
-                                                                    <img src="images/product/thumbnails/product8.jpg" alt="">
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                               </div>
-                                               <div class="col-xs-12 col-md-5 col-lg-5">
-                                                   <div class="single-product-info">
-                                                       <h1>Sit voluptatem</h1>
-
-                                                        <span class="price">
-                                                            <del>$ 77.00</del> $ 66.00
-                                                        </span>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco,Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus</p>
-                                                        <div class="box-quantity d-flex">
-                                                            <form action="#">
-                                                                <input class="quantity mr-40" min="1" value="1" type="number">
-                                                            </form>
-                                                            <a class="add-cart" href="cart.html">add to cart</a>
-                                                        </div>
-                                                        <div class="wishlist-compear-area">
-                                                            <a href="wishlist.html"><i class="ion-ios-heart-outline"></i> Add to Wishlist</a>
-                                                            <a href="#"><i class="ion-ios-loop-strong"></i> Compare</a>
-                                                        </div>
-                                                        <div class="product_meta">
-                                                            <span class="posted_in">Categories: <a href="#" rel="tag">Accessories</a>, <a href="#" rel="tag">Clothings</a></span>
-                                                        </div>
-                                                        <div class="single-product-sharing">
-                                                            <div class="widget widget_socialsharing_widget">
-                                                                <h3 class="widget-title">Share this product</h3>
-                                                                <ul class="social-icons">
-                                                                    <li><a class="facebook social-icon" href="#"><i class="fa fa-facebook"></i></a></li>
-                                                                    <li><a class="twitter social-icon" href="#"><i class="fa fa-twitter"></i></a></li>
-                                                                    <li><a class="pinterest social-icon" href="#"><i class="fa fa-pinterest"></i></a></li>
-                                                                    <li><a class="gplus social-icon" href="#"><i class="fa fa-google-plus"></i></a></li>
-                                                                    <li><a class="linkedin social-icon" href="#"><i class="fa fa-linkedin"></i></a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
+                          <footer class="footer-area">
+                              <!-- newsletter area -->
+                              <div class="newsletter-area">
+                                  <div class="container">
+                                      <div class="row">
+                                          <div class="col-sm-12 col-md-12 col-xl-12">
+                                              <div class="newsletter-text">
+                                                  <div class="icon"><i class="icon ion-email"></i></div>
+                                                  <h3>Sign Up To Newsletter</h3>
+                                                  <h4>..and Receive $29 Coupon For First Shopping</h4>
+                                              </div>
+                                              <div class="newsletter">
+                                                  <div class="newsletter-box">
+                                                       <form action="#">
+                                                            <input class="subscribe" placeholder="your email address" name="email" id="subscribe" type="email">
+                                                            <button type="submit" class="submit">subscribe!</button>
+                                                       </form>
                                                    </div>
-                                               </div>
-                                           </div>
-                                       </div>
-                                   </div>
-                               </div>
-                                <!-- Single product area end -->
-                            </div>
-                        </div><!-- .modal-content -->
-                    </div><!-- .modal-dialog -->
-                </div><!-- END Modal -->
-            </div>
-            <!-- QUICKVIEW PRODUCT END -->
-        </div>
-        <!-- Body main wrapper end -->
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!-- newsletter area end -->
+                              <!-- footer main -->
+                              <div class="footer-main">
+                                  <div class="container">
+                                      <div class="row">
+                                          <div class="col-sm-6 col-lg-3 col-md-3 col-xs-12">
+                                              <div class="footer-logo-area">
+                                                  <ul>
+                                                      <li>
+                                                          <h4>Contact info:</h4>
+                                                          <p>169-C, Technohub, Dubai Silicon Oasis.</p>
+                                                      </li>
+                                                      <li>
+                                                          <h4>Telephone:</h4>
+                                                          <p>(+011) 123 777 8888 - (+011) 123 888 9999</p>
+                                                      </li>
+                                                      <li>
+                                                          <h4>Email:</h4>
+                                                          <p>Support@example.com</p>
+                                                      </li>
+                                                  </ul>
+                                              </div>
+                                          </div>
+                                          <div class="col-sm-6 col-lg-3 col-md-3 col-xs-12">
+                                              <div class="footer-menu">
+                                                  <h3>Customer Service</h3>
+                                                  <ul>
+                                                      <li><a href="#">Contact Us</a></li>
+                                                      <li><a href="#">Returns</a></li>
+                                                      <li><a href="#">Order History</a></li>
+                                                      <li><a href="#">Site Map</a></li>
+                                                      <li><a href="#">Testimonials</a></li>
+                                                      <li><a href="#">My Account</a></li>
+                                                      <li><a href="#">Unsubscribe Notification</a></li>
+                                                  </ul>
+                                              </div>
+                                          </div>
+                                          <div class="col-sm-6 col-lg-3 col-md-3 col-xs-12">
+                                              <div class="footer-menu">
+                                                  <h3>Information</h3>
+                                                  <ul>
+                                                      <li><a href="#">About Us</a></li>
+                                                      <li><a href="#">Delivery infomation</a></li>
+                                                      <li><a href="#">Privacy Policy</a></li>
+                                                      <li><a href="#">Terms & Conditions</a></li>
+                                                      <li><a href="#">Warranty</a></li>
+                                                      <li><a href="#">FAQ</a></li>
+                                                      <li><a href="#">Seller Login</a></li>
+                                                  </ul>
+                                              </div>
+                                          </div>
+                                          <div class="col-sm-6 col-lg-3 col-md-3 col-xs-12">
+                                              <div class="footer-menu">
+                                                  <h3>Extras</h3>
+                                                  <ul>
+                                                      <li><a href="#">Brands</a></li>
+                                                      <li><a href="#">Gift Vouchers</a></li>
+                                                      <li><a href="#">Affiliates</a></li>
+                                                      <li><a href="#">Wishlist</a></li>
+                                                      <li><a href="#">Order History</a></li>
+                                                      <li><a href="#">Track Your Order</a></li>
+                                                  </ul>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!-- footer main end -->
+                              <!-- footer copyright area -->
+                              <div class="footer-copyright-area">
+                                  <div class="container">
+                                      <div class="row">
+                                          <div class="col-sm-12 col-lg-6 col-md-6">
+                                              <p>Copyright © 2018 Bege . All Rights Reserved.</p>
+                                          </div>
+                                          <div class="col-sm-12 col-lg-6 col-md-6 pull-right">
+                                              <img src="images/icons/payment-icon.png" alt="payment icon">
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!-- footer copyright area end -->
+                          </footer>
+                          <!-- QUICKVIEW PRODUCT START -->
+                          <div id="quickview-wrapper">
+                              <!-- Modal -->
+                              <div class="modal fade" id="product_modal" tabindex="-1">
+                                  <div class="modal-dialog">
+                                      <div class="modal-content">
+                                          <div class="modal-close-btn">
+                                              <button class="close" data-dismiss="modal">
+                                                  <i class="fa fa-times"></i>
+                                              </button>
+                                          </div>
+                                          <div class="modal-body">
+                                             <!-- Single product area -->
+                                             <div class="single-product-area">
+                                                 <div class="container-fullwidth">
+                                                     <div class="single-product-wrapper">
+                                                         <div class="row">
+                                                             <div class="col-xs-12 col-md-7 col-lg-7">
+                                                                  <div class="product-details-img-content">
+                                                                      <div class="product-details-tab mr-40">
+                                                                          <div class="product-details-large tab-content">
+                                                                              <div class="tab-pane active" id="pro-details1">
+                                                                                  <div class="product-popup">
+                                                                                      <a href="images/product/single/product4.jpg">
+                                                                                          <img src="images/product/single/product4.jpg" alt="">
+                                                                                      </a>
+                                                                                  </div>
+                                                                              </div>
+                                                                              <div class="tab-pane" id="pro-details2">
+                                                                                  <div class="product-pop">
+                                                                                      <a href="#">
+                                                                                          <img src="images/product/single/product5.jpg" alt="">
+                                                                                      </a>
+                                                                                  </div>
+                                                                              </div>
+                                                                              <div class="tab-pane" id="pro-details3">
+                                                                                  <div class="product-pop">
+                                                                                      <a href="#">
+                                                                                          <img src="images/product/single/product6.jpg" alt="">
+                                                                                      </a>
+                                                                                  </div>
+                                                                              </div>
+                                                                              <div class="tab-pane" id="pro-details4">
+                                                                                  <div class="product-pop">
+                                                                                      <a href="#">
+                                                                                          <img src="images/product/single/product7.jpg" alt="">
+                                                                                      </a>
+                                                                                  </div>
+                                                                              </div>
+                                                                              <div class="tab-pane" id="pro-details5">
+                                                                                  <div class="product-pop">
+                                                                                      <a href="#">
+                                                                                          <img src="images/product/single/product8.jpg" alt="">
+                                                                                      </a>
+                                                                                  </div>
+                                                                              </div>
+                                                                          </div>
+                                                                          <div class="product-details-small nav product-dec-slider-qui owl-carousel">
+                                                                              <a class="active" href="#pro-details1">
+                                                                                  <img src="images/product/thumbnails/product4.jpg" alt="">
+                                                                              </a>
+                                                                              <a href="#pro-details2">
+                                                                                  <img src="images/product/thumbnails/product5.jpg" alt="">
+                                                                              </a>
+                                                                              <a href="#pro-details3">
+                                                                                  <img src="images/product/thumbnails/product6.jpg" alt="">
+                                                                              </a>
+                                                                              <a href="#pro-details4">
+                                                                                  <img src="images/product/thumbnails/product7.jpg" alt="">
+                                                                              </a>
+                                                                              <a href="#pro-details5">
+                                                                                  <img src="images/product/thumbnails/product8.jpg" alt="">
+                                                                              </a>
+                                                                              <a class="active" href="#pro-details1">
+                                                                                  <img src="images/product/thumbnails/product4.jpg" alt="">
+                                                                              </a>
+                                                                              <a href="#pro-details2">
+                                                                                  <img src="images/product/thumbnails/product5.jpg" alt="">
+                                                                              </a>
+                                                                              <a href="#pro-details3">
+                                                                                  <img src="images/product/thumbnails/product6.jpg" alt="">
+                                                                              </a>
+                                                                              <a href="#pro-details4">
+                                                                                  <img src="images/product/thumbnails/product7.jpg" alt="">
+                                                                              </a>
+                                                                              <a href="#pro-details5">
+                                                                                  <img src="images/product/thumbnails/product8.jpg" alt="">
+                                                                              </a>
+                                                                          </div>
+                                                                      </div>
+                                                                  </div>
+                                                             </div>
+                                                             <div class="col-xs-12 col-md-5 col-lg-5">
+                                                                 <div class="single-product-info">
+                                                                     <h1>Sit voluptatem</h1>
 
-
+                                                                      <span class="price">
+                                                                          <del>$ 77.00</del> $ 66.00
+                                                                      </span>
+                                                                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco,Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus</p>
+                                                                      <div class="box-quantity d-flex">
+                                                                          <form action="#">
+                                                                              <input class="quantity mr-40" min="1" value="1" type="number">
+                                                                          </form>
+                                                                          <a class="add-cart" href="cart.html">add to cart</a>
+                                                                      </div>
+                                                                      <div class="wishlist-compear-area">
+                                                                          <a href="wishlist.html"><i class="ion-ios-heart-outline"></i> Add to Wishlist</a>
+                                                                          <a href="#"><i class="ion-ios-loop-strong"></i> Compare</a>
+                                                                      </div>
+                                                                      <div class="product_meta">
+                                                                          <span class="posted_in">Categories: <a href="#" rel="tag">Accessories</a>, <a href="#" rel="tag">Clothings</a></span>
+                                                                      </div>
+                                                                      <div class="single-product-sharing">
+                                                                          <div class="widget widget_socialsharing_widget">
+                                                                              <h3 class="widget-title">Share this product</h3>
+                                                                              <ul class="social-icons">
+                                                                                  <li><a class="facebook social-icon" href="#"><i class="fa fa-facebook"></i></a></li>
+                                                                                  <li><a class="twitter social-icon" href="#"><i class="fa fa-twitter"></i></a></li>
+                                                                                  <li><a class="pinterest social-icon" href="#"><i class="fa fa-pinterest"></i></a></li>
+                                                                                  <li><a class="gplus social-icon" href="#"><i class="fa fa-google-plus"></i></a></li>
+                                                                                  <li><a class="linkedin social-icon" href="#"><i class="fa fa-linkedin"></i></a></li>
+                                                                              </ul>
+                                                                          </div>
+                                                                      </div>
+                                                                 </div>
+                                                             </div>
+                                                         </div>
+                                                     </div>
+                                                 </div>
+                                             </div>
+                                              <!-- Single product area end -->
+                                          </div>
+                                      </div><!-- .modal-content -->
+                                  </div><!-- .modal-dialog -->
+                              </div><!-- END Modal -->
+                          </div>
+                          <!-- QUICKVIEW PRODUCT END -->
+                      </div>
+                      <!-- Body main wrapper end -->
+        <script src="{{asset('js/app.js')}}"></script>
         <!-- jQuery CDN -->
-        <script src="js/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-        <!-- jQuery Local -->
-        <script>window.jQuery || document.write('<script src="js/jquery-3.2.1.min.js"><\/script>')</script>
+        <script src="{{asset('js/jquery-3.2.1.min.js')}}" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+        <!-- <script>window.jQuery || document.write('<script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>')</script> -->
 
         <!-- Popper min js -->
-        <script src="js/popper.min.js"></script>
+        <script src="{{asset('js/popper.min.js')}}"></script>
         <!-- Bootstrap min js  -->
-        <script src="js/bootstrap.min.js"></script>
+        <script src="{{asset('js/bootstrap.min.js')}}"></script>
 		<!-- nivo slider pack js  -->
-        <script src="js/jquery.nivo.slider.pack.js"></script>
+        <script src="{{asset('js/jquery.nivo.slider.pack.js')}}"></script>
         <!-- All plugins here -->
-        <script src="js/plugins.js"></script>
+        <script src="{{asset('js/plugins.js')}}"></script>
         <!-- Main js  -->
-        <script src="js/main.js"></script>
+        <script src="{{asset('js/main.js')}}"></script>
 
 
     </body>
