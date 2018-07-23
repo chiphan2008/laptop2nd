@@ -2,7 +2,7 @@
 
 @section("content")
 
-<div id="root"></div>
+<div id="mycontact"></div>
 
 
           <!-- Body main wrapper end -->

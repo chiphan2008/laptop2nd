@@ -2,7 +2,7 @@
 
 @section("content")
 
-<div id="root"></div>
+<div id="mycheckout"></div>
 
 
           <!-- Body main wrapper end -->

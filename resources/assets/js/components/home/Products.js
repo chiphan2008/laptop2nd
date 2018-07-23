@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 
 export default class Products extends Component {
     render() {
@@ -9,7 +8,7 @@ export default class Products extends Component {
                   <div className="row">
                       <div className="col-sm-12">
                           <div className="section-title">
-                              <h3>BEST SELLERS</h3>
+                              <h3>Sản phẩm mới</h3>
                           </div>
                       </div>
                   </div>
@@ -142,7 +141,7 @@ export default class Products extends Component {
 
                               </div>
                               <div className="col-sm-12">
-                                  
+
                                   <div className="single-product-area">
                                       <div className="product-wrapper gridview">
                                           <div className="list-col4">
@@ -205,7 +204,7 @@ export default class Products extends Component {
 
                               </div>
                               <div className="col-sm-12">
-                                  
+
                                   <div className="single-product-area">
                                       <div className="product-wrapper gridview">
                                           <div className="list-col4">
@@ -268,7 +267,7 @@ export default class Products extends Component {
 
                               </div>
                               <div className="col-sm-12">
-                                  
+
                                   <div className="single-product-area">
                                       <div className="product-wrapper gridview">
                                           <div className="list-col4">
@@ -331,7 +330,7 @@ export default class Products extends Component {
 
                               </div>
                               <div className="col-sm-12">
-                                  
+
                                   <div className="single-product-area">
                                       <div className="product-wrapper gridview">
                                           <div className="list-col4">
@@ -393,7 +392,7 @@ export default class Products extends Component {
 
                               </div>
                               <div className="col-sm-12">
-                                  
+
                                   <div className="single-product-area">
                                       <div className="product-wrapper gridview">
                                           <div className="list-col4">

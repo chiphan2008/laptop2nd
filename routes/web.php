@@ -14,3 +14,12 @@
 Route::get('/', function () {
     return view('index');
 });
+Route::get('/gio-hang.html', function () {
+    return view('cart');
+});
+Route::get('/xac-nhan-dat-hang.html', function () {
+    return view('checkout');
+});
+Route::get('/lien-he.html', function () {
+    return view('contact');
+});
