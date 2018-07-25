@@ -23,3 +23,21 @@ Route::get('/xac-nhan-dat-hang.html', function () {
 Route::get('/lien-he.html', function () {
     return view('contact');
 });
+/*
+|--------------------------------------------------------------------------
+| Admin
+|--------------------------------------------------------------------------
+*/
+Route::get('/auth/login', function () {
+    return view('admin.login');
+});
+Route::group(['prefix' => 'admincp'], function (){
+  Route::get('/logout', function(){
+  	session()->flush();
+  	return redirect('/auth/login');
+  });
+  Route::get('/', function () {
+      return view('admin.index');
+  });
+
+});
