@@ -35,6 +35,6 @@ export default class HomePage extends Component {
     }
 }
 
-if (document.getElementById('root')) {
-    ReactDOM.render(<HomePage />, document.getElementById('root'));
+if (document.getElementById('rootTag')) {
+    ReactDOM.render(<HomePage />, document.getElementById('rootTag'));
 }

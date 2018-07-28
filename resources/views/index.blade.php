@@ -2,7 +2,7 @@
 
 @section("content")
 
-<div id="root"></div>
+<div id="rootTag"></div>
 
 
           <!-- Body main wrapper end -->
