@@ -31,13 +31,17 @@ Route::get('/lien-he.html', function () {
 Route::get('/auth/login', function () {
     return view('admin.login');
 });
-Route::group(['prefix' => 'admincp'], function (){
+Route::group(['prefix' => 'admincp','middleware'=>'auth'], function (){
   Route::get('/logout', function(){
   	session()->flush();
-  	return redirect('/auth/login');
+  	return redirect('/login');
   });
   Route::get('/', function () {
       return view('admin.index');
   });
 
 });
+
+Auth::routes();
+
+//Route::get('/home', 'AdminController@index')->name('home');
