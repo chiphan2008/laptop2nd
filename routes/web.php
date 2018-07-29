@@ -28,20 +28,22 @@ Route::get('/lien-he.html', function () {
 | Admin
 |--------------------------------------------------------------------------
 */
-Route::get('/auth/login', function () {
+Route::get('/auth/login', function(){
     return view('admin.login');
-});
-Route::group(['prefix' => 'admincp','middleware'=>'auth'], function (){
+})->name('login');
+Route::post('/auth/login', 'LoginController@authenticate');
+
+Route::group(['prefix' => 'admincp','middleware'=>'guest'], function (){
   Route::get('/logout', function(){
   	session()->flush();
-  	return redirect('/login');
-  });
-  Route::get('/', function () {
-      return view('admin.index');
-  });
+  	return redirect()->route('login');
+  })->name('logout');
+  Route::get('/', 'AdminController@index')->name('dashboard');
+  Route::get('/news', 'AdminController@getNews')->name('news');
+  Route::get('/news/form/{id?}', 'AdminController@getNewsForm');
 
 });
 
-Auth::routes();
+//Auth::routes();
 
 //Route::get('/home', 'AdminController@index')->name('home');

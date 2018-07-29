@@ -25,4 +25,14 @@ class AdminController extends Controller
     {
         return view('admin.index');
     }
+
+    public function getNews()
+    {
+        return view('admin.news');
+    }
+
+    public function getNewsForm($id=0)
+    {
+        return view('admin.newsForm',['id'=>$id]);
+    }
 }
