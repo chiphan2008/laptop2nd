@@ -31,6 +31,7 @@ Route::get('/lien-he.html', function () {
 Route::get('/auth/login', function(){
     return view('admin.login');
 })->name('login');
+
 Route::post('/auth/login', 'LoginController@authenticate');
 
 Route::group(['prefix' => 'admincp','middleware'=>'guest'], function (){
@@ -44,6 +45,7 @@ Route::group(['prefix' => 'admincp','middleware'=>'guest'], function (){
 
 });
 
-//Auth::routes();
-
-//Route::get('/home', 'AdminController@index')->name('home');
+// Route::get('/adminlevel/register', function(){
+//     return view('auth.register');
+// })->name('register');
+// Auth::routes();
