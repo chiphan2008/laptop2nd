@@ -33,6 +33,7 @@ class AdminController extends Controller
 
     public function getNewsForm($id=0)
     {
+        echo $id;
         return view('admin.newsForm',['id'=>$id]);
     }
 }
