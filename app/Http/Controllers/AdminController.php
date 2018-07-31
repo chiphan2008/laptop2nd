@@ -31,9 +31,18 @@ class AdminController extends Controller
         return view('admin.news');
     }
 
-    public function getNewsForm($id=0)
+    public function getNewsForm(Request $request)
     {
-        echo $id;
-        return view('admin.newsForm',['id'=>$id]);
+        return view('admin.newsForm',['id'=>$request->id]);
+    }
+    public function postNewsForm(Request $request)
+    {
+        //var_dump($request->tieude);
+        return view('admin.news');
+    }
+
+    public function getDelNews($id=0)
+    {
+        return view('admin.news');
     }
 }
