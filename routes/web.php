@@ -1,5 +1,6 @@
 <?php
 
+\View::share('ADMIN_ROUTE','admincp');
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,6 +29,7 @@ Route::get('/lien-he.html', function () {
 | Admin
 |--------------------------------------------------------------------------
 */
+
 Route::get('/auth/login', function(){
     return view('admin.login');
 })->name('login');
@@ -40,8 +42,12 @@ Route::group(['prefix' => 'admincp','middleware'=>'guest'], function (){
   	return redirect()->route('login');
   })->name('logout');
   Route::get('/', 'AdminController@index')->name('dashboard');
+
+  //news
   Route::get('/news', 'AdminController@getNews')->name('news');
   Route::get('/news/form/{id?}', 'AdminController@getNewsForm');
+  Route::post('/news/form/{id?}', 'AdminController@postNewsForm');
+  Route::get('/news/delete/{id}', 'AdminController@getDelNews');
 
 });
 
