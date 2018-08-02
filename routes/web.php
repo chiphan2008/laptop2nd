@@ -43,6 +43,14 @@ Route::group(['prefix' => 'admincp','middleware'=>'guest'], function (){
   })->name('logout');
   Route::get('/', 'AdminController@index')->name('dashboard');
 
+  //slider
+  Route::get('/slide', 'AdminController@getSlide')->name('slide');
+  Route::post('/slide', 'AdminController@postSlide');
+  //logo
+  Route::get('/logo', 'AdminController@getLogo')->name('logo');
+  Route::get('/logo/delete/{id}', 'AdminController@deleteLogo');
+  Route::post('/logo', 'AdminController@postLogo');
+
   //news
   Route::get('/news', 'AdminController@getNews')->name('news');
   Route::get('/news/form/{id?}', 'AdminController@getNewsForm');

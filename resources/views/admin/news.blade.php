@@ -1,10 +1,7 @@
 @extends("layouts.admin")
 
-
 @section('content')
 <div class="right_col" role="main">
-
-
     <form class="form-horizontal" method="POST">
     {{ csrf_field() }}
     <div class="col-md-12 col-sm-12 col-xs-12">

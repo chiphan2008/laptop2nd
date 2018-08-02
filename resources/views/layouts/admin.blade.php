@@ -1,4 +1,4 @@
-<?php 
+<?php
 $user = session()->get('user');
 ?>
 <!DOCTYPE html>
@@ -31,8 +31,10 @@ $user = session()->get('user');
 
     <!-- Custom Theme Style -->
     <link href="{{asset('admin/build/css/custom.min.css')}}" rel="stylesheet">
-    
+
 	  <?php date_default_timezone_set('Asia/Ho_Chi_Minh');?>
+    <!-- jQuery -->
+    <script src="{{asset('admin/vendors/jquery/dist/jquery.min.js')}}"></script>
   </head>
 
   <body class="nav-md">
@@ -41,7 +43,7 @@ $user = session()->get('user');
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="{{route('dashboard')}}" class="site_title"> 
+              <a href="{{route('dashboard')}}" class="site_title">
               <i class="fa fa-laptop"></i>
               <span>Laptop2nd</span></a>
             </div>
@@ -77,10 +79,10 @@ $user = session()->get('user');
 
                   <li><a><i class="fa fa-image"></i> Hình ảnh<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Banner slider</a></li>
+                      <li><a href="{{route('slide')}}">Banner slider</a></li>
                       <li><a href="#">Banner (4 index)</a></li>
                       <li><a href="#">Banner full</a></li>
-                      <li><a href="#">Logo thương hiệu</a></li>
+                      <li><a href="{{route('logo')}}">Logo thương hiệu</a></li>
                     </ul>
                   </li>
 
@@ -93,7 +95,7 @@ $user = session()->get('user');
 
                   <li><a href="{{route('news')}}"><i class="fa fa-newspaper-o"></i> Tin tức</a>
                   </li>
-                
+
                   <li><a><i class="fa fa-cog"></i> Cấu hình <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="#">Thông tin chung</a></li>
@@ -103,7 +105,7 @@ $user = session()->get('user');
                   </li>
                 </ul>
               </div>
-              
+
 
             </div>
             <!-- /sidebar menu -->
@@ -148,7 +150,7 @@ $user = session()->get('user');
                 <li>
                 <a href="{{ Config::get('app.url') }}" target="_blank">
                 {{$_SERVER['SERVER_NAME']}}
-                <i class="fa fa-external-link"></i> 
+                <i class="fa fa-external-link"></i>
                 </a>
                 </li>
                 <!-- <li role="presentation" class="dropdown">
@@ -224,7 +226,6 @@ $user = session()->get('user');
         <!-- page content -->
         @yield('content')
         <!-- /page content -->
-
         <!-- footer content -->
         <footer>
           <div class="pull-right">
@@ -236,12 +237,11 @@ $user = session()->get('user');
       </div>
     </div>
 
-    <!-- jQuery -->
-    <script src="{{asset('admin/vendors/jquery/dist/jquery.min.js')}}"></script>
-    
+
+
     <script src="{{asset('admin/ckeditor/ckeditor.js')}}"></script>
-  <script src="{{asset('admin/ckfinder/ckfinder.js')}}"></script>
-    
+    <script src="{{asset('admin/ckfinder/ckfinder.js')}}"></script>
+
   <script>
   //var j = jQuery.noConflict();
 
@@ -251,17 +251,17 @@ $user = session()->get('user');
           var id=$(this).attr('id');
           var baseurl = '{{asset('/')}}';
           var editor = CKEDITOR.replace( ''+id,{
-            uiColor : '#9AB8F3',    
+            uiColor : '#9AB8F3',
             language:'en',
             skin:'moono',
             height: 300,
             filebrowserImageBrowseUrl : baseurl +'/ckfinder/ckfinder.html?Type=Images',
             filebrowserFlashBrowseUrl : baseurl +'/ckfinder/ckfinder.html?Type=Flash',
             filebrowserLinkBrowseUrl : baseurl +'/ckfinder/ckfinder.html',
-            
+
             filebrowserImageUploadUrl : baseurl +'/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
-            filebrowserFlashUploadUrl : baseurl +'/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',  
-            filebrowserLinkUploadUrl : baseurl +'/ckfinder/core/connector/php/connector.php?command=QuickUpload',  
+            filebrowserFlashUploadUrl : baseurl +'/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
+            filebrowserLinkUploadUrl : baseurl +'/ckfinder/core/connector/php/connector.php?command=QuickUpload',
           });
         });
       });
@@ -306,7 +306,7 @@ $user = session()->get('user');
   //     .on( "change", function() {
   //       from.datepicker( "option", "maxDate", getDate( this ) );
   //     });
- 
+
   //   function getDate( element ) {
   //     var date;
   //     try {
@@ -314,11 +314,11 @@ $user = session()->get('user');
   //     } catch( error ) {
   //       date = null;
   //     }
- 
+
   //     return date;
   //   }
   // } );
-  
+
   </script>
     <!-- Bootstrap -->
     <script src="{{asset('admin/vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
