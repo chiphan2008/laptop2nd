@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="right_col" role="main">
-    <form class="form-horizontal" method="POST">
+    <form class="form-horizontal" method="POST" id="frm">
     {{ csrf_field() }}
     <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
@@ -29,7 +29,7 @@
                         <tr>
                           <td><input type="checkbox" name="chon[]" id="chon" value="{{$r['id']}}"></td>
                           <td>{{$r['ten']}}</td>
-                          <td><img src="{{$r['urlhinh']}}" /></td>
+                          <td><img src="{{asset('images/slider/'.$r['urlhinh'])}}" height="100" /></td>
 
                           <td style="text-align:center">
                             @if($r['anhien']==1)
