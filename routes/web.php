@@ -55,6 +55,8 @@ Route::group(['prefix' => 'admincp','middleware'=>'guest'], function (){
   Route::get('/logo/form/{id?}', 'AdminController@getLogoForm');
   Route::post('/logo/form/{id?}', 'AdminController@postLogoForm');
   Route::get('/logo/delete/{id}', 'AdminController@deleteLogo');
+  //banner
+  Route::get('/banner', 'AdminController@getBanner')->name('banner');
 
   //news
   Route::get('/news', 'AdminController@getNews')->name('news');

@@ -201,6 +201,12 @@ class AdminController extends Controller
         $this->put_json('logo',$row);
         return redirect()->route('logo');
     }
+    //banner
+    public function getBanner()
+    {
+        return view('admin.banner');
+    }
+
     //news
     public function getNews()
     {

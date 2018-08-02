@@ -67,22 +67,21 @@
 
 <script type="text/javascript">
     jQuery(document).ready(function() {
-    jQuery("#chonhet").click(function(){
-        var status=this.checked;
-        jQuery("input[name='chon[]']").each(function(){this.checked=status;})
-    });
+      jQuery("#chonhet").click(function(){
+          var status=this.checked;
+          jQuery("input[name='chon[]']").each(function(){this.checked=status;})
+      });
 
-});
-function confirmDel(id=null){
-  var ok = confirm("Bạn có chắc muốn xoá?");
-  if(ok){
-    if(id!=null){
-      return window.location="{{asset($ADMIN_ROUTE.'/slide/delete')}}/" + id;
-    }else {
-      $('#frm').submit();
+  });
+  function confirmDel(id=null){
+    var ok = confirm("Bạn có chắc muốn xoá?");
+    if(ok){
+      if(id!=null){
+        return window.location="{{asset($ADMIN_ROUTE.'/slide/delete')}}/" + id;
+      }else {
+        $('#frm').submit();
+      }
     }
   }
-}
-</script>
 </script>
 @endsection

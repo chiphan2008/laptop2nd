@@ -80,8 +80,7 @@ $user = session()->get('user');
                   <li><a><i class="fa fa-image"></i> Hình ảnh<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{route('slide')}}">Banner slider</a></li>
-                      <li><a href="#">Banner (4 index)</a></li>
-                      <li><a href="#">Banner full</a></li>
+                      <li><a href="{{route('banner')}}">Banner</a></li>
                       <li><a href="{{route('logo')}}">Logo thương hiệu</a></li>
                     </ul>
                   </li>
