@@ -35,6 +35,7 @@ $user = session()->get('user');
 	  <?php date_default_timezone_set('Asia/Ho_Chi_Minh');?>
     <!-- jQuery -->
     <script src="{{asset('admin/vendors/jquery/dist/jquery.min.js')}}"></script>
+    <script src="{{asset('js/func.js')}}"></script>
   </head>
 
   <body class="nav-md">
@@ -72,8 +73,8 @@ $user = session()->get('user');
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-sitemap"></i> Danh mục sản phẩm<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Danh mục</a></li>
-                      <li><a href="#">Sản phẩm</a></li>
+                      <li><a href="{{route('category')}}">Danh mục</a></li>
+                      <li><a href="{{route('product')}}">Sản phẩm</a></li>
                     </ul>
                   </li>
 
@@ -87,8 +88,8 @@ $user = session()->get('user');
 
                   <li><a><i class="fa fa-user"></i> Khách hàng<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Danh sách thành viên</a></li>
-                      <li><a href="#">Quản lý đơn hàng</a></li>
+                      <li><a href="{{route('client')}}">Danh sách thành viên</a></li>
+                      <li><a href="{{route('order')}}">Quản lý đơn hàng</a></li>
                     </ul>
                   </li>
 
@@ -97,9 +98,9 @@ $user = session()->get('user');
 
                   <li><a><i class="fa fa-cog"></i> Cấu hình <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Thông tin chung</a></li>
-                      <li><a href="#">Bản đồ</a></li>
-                      <li><a href="#">Tạo khuyến mãi</a></li>
+                      <li><a href="{{route('info')}}">Thông tin chung</a></li>
+                      <li><a href="{{route('map')}}">Bản đồ</a></li>
+                      <li><a href="{{route('promotion')}}">Tạo khuyến mãi</a></li>
                     </ul>
                   </li>
                 </ul>

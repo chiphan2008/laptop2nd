@@ -55,14 +55,32 @@ Route::group(['prefix' => 'admincp','middleware'=>'guest'], function (){
   Route::get('/logo/form/{id?}', 'AdminController@getLogoForm');
   Route::post('/logo/form/{id?}', 'AdminController@postLogoForm');
   Route::get('/logo/delete/{id}', 'AdminController@deleteLogo');
-  //banner
+  //banner NOT...YET
   Route::get('/banner', 'AdminController@getBanner')->name('banner');
-
-  //news
+  //info NOT...YET
+  Route::get('/info', 'AdminController@getProduct')->name('info');
+  //map NOT...YET
+  Route::get('/map', 'AdminController@getProduct')->name('map');
+  //promotion NOT...YET
+  Route::get('/promotion', 'AdminController@getProduct')->name('promotion');
+  //news NOT...YET
   Route::get('/news', 'AdminController@getNews')->name('news');
   Route::get('/news/form/{id?}', 'AdminController@getNewsForm');
   Route::post('/news/form/{id?}', 'AdminController@postNewsForm');
   Route::get('/news/delete/{id}', 'AdminController@getDelNews');
+  //category
+  Route::get('/category', 'AdminController@getCat')->name('category');
+  Route::post('/category', 'AdminController@postCat');
+  Route::get('/category/delete/{id}', 'AdminController@deleteCat');
+  Route::get('/category/form/{id?}', 'AdminController@getCatForm');
+  Route::post('/category/form/{id?}', 'AdminController@postCatForm');
+  //product NOT...YET
+  Route::get('/product', 'AdminController@getProduct')->name('product');
+  //client NOT...YET
+  Route::get('/client', 'AdminController@getProduct')->name('client');
+  //order NOT...YET
+  Route::get('/order', 'AdminController@getProduct')->name('order');
+
 
 });
 

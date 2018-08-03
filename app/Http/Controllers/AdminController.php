@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManagerStatic as Image;
+use DB;
+use Carbon\Carbon;
 
 class AdminController extends Controller
 {
@@ -207,6 +209,64 @@ class AdminController extends Controller
         return view('admin.banner');
     }
 
+    //category
+    public function getCat()
+    {
+        return view('admin.cat');
+    }
+    public function postCat(Request $request)
+    {
+        if(!empty($request->input('chon'))){
+            foreach ($request->input('chon') as $id) {
+              DB::table('category')->where(['idcat'=>$id])->delete();
+            }
+        }
+        return redirect()->route('category');
+    }
+    public function deleteCat($id)
+    {
+        DB::table('category')->where(['idcat'=>$id])->delete();
+        return redirect()->route('category');
+    }
+    public function getCatForm(Request $request)
+    {
+        $id = round($request->id);
+        $row =[];
+        $rs = DB::table('category')->where(['idcat'=>$id])
+      					->get();
+        if(count($rs)>0) $row =$rs[0];
+        return view('admin.catForm',[
+          'id'=> $id,'row'=>$row
+        ]);
+    }
+    public function postCatForm(Request $request)
+    {
+        $id = round($request->id);
+        $data['name'] = trim($request->name);
+        $data['alias'] = trim($request->alias);
+        $data['idcha'] = round($request->idcha);
+        $data['thutu'] = round($request->thutu);
+        $data['anhien'] = round($request->anhien);
+        $data['kw'] = trim($request->kw);
+        $data['des'] = trim($request->des);
+        $data['created_at'] = Carbon::now();
+        $data['updated_at'] = Carbon::now();
+        if($id>0){
+          DB::table('category')->where(['idcat'=>$id])->update($data);
+        }else {
+          DB::table('category')->insert($data);
+        }
+        return redirect()->route('category');
+    }
+    //selectMenu
+    public function selectCat($id=0){
+    	$menu = DB::table('category')
+					->select('name','idcat','thutu','anhien')
+					->where(['idcha'=>$id])
+					->orderBy('thutu','asc')->orderBy('name','asc')
+					->get();
+		  return $menu;
+    }
     //news
     public function getNews()
     {

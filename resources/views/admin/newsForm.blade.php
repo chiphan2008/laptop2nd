@@ -41,7 +41,7 @@
                 <label class="col-sm-2 control-label">Nội dung:</label>
                 <div class="col-sm-10">
                     <p>
-                    <textarea id="noidung" class="form-control ck_editor" rows="5" name="noidung" cols="50">
+                        <textarea id="noidung" class="form-control ck_editor" rows="5" name="noidung" cols="50">
 
                         </textarea>
                     </p>
