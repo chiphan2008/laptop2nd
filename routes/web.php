@@ -59,8 +59,9 @@ Route::group(['prefix' => 'admincp','middleware'=>'guest'], function (){
   Route::get('/banner', 'AdminController@getBanner')->name('banner');
   //info NOT...YET
   Route::get('/info', 'AdminController@getProduct')->name('info');
-  //map NOT...YET
-  Route::get('/map', 'AdminController@getProduct')->name('map');
+  //maps
+  Route::get('/map', 'AdminController@getMap')->name('map');
+  Route::post('/map', 'AdminController@postMap');
   //promotion NOT...YET
   Route::get('/promotion', 'AdminController@getProduct')->name('promotion');
   //news 

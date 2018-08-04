@@ -208,7 +208,25 @@ class AdminController extends Controller
     {
         return view('admin.banner');
     }
+    //maps
+    public function getMap()
+    {
+        $row = $this->get_json('map');
+        return view('admin.map',[
+          'row'=>$row
+        ]);
+    }
+    public function postMap(Request $request)
+    {
+        $data['ten'] = trim($request->ten);
+        $data['chitiet'] = trim($request->chitiet);
+        $data['diachi'] = trim($request->diachi);
+        $data['toado'] = trim($request->toado);
+        $data['anhien'] = round($request->anhien);
+        $this->put_json('map',$data);
 
+        return redirect()->route('map');
+    }
     //category
     public function getCat()
     {

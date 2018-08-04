@@ -29,7 +29,9 @@ $user = session()->get('user');
     <!-- bootstrap-daterangepicker -->
     <link href="{{asset('admin/vendors/bootstrap-daterangepicker/daterangepicker.css')}}" rel="stylesheet" />
 
-    
+   <!-- <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASulEnnbaigVNev_MwNTJrdu32ddguhkA&sensor=false">
+    </script> -->
     <!-- Custom Theme Style -->
     <link href="{{asset('admin/build/css/custom.min.css')}}" rel="stylesheet" />
     
@@ -41,7 +43,28 @@ $user = session()->get('user');
     <script src="{{asset('admin/vendors/jquery/dist/jquery.min.js')}}"></script>
     <script src="{{asset('admin/ckeditor/ckeditor.js')}}"></script>
     <script src="{{asset('admin/ckfinder/ckfinder.js')}}"></script>
-    <style>
+    
+    
+    <style type="text/css">
+           
+    .inpput{width:99%; border:1px solid #DDD; padding:5px}
+    #mapCanvas {
+        width: 60%;
+        height: 500px;
+        float: left;
+    }
+    #infoPanel 
+    {
+        width:35%;
+        float: left;
+        margin-left: 10px;
+    }
+    #infoPanel div {
+        margin-bottom: 5px;
+    }
+    .huongdan{margin-top:10px; border:1px solid #DDD; background:#EEE; line-height:200%; font-size:15px; color:#f00; padding:20px; text-align:center;}
+    
+        
     .file_input{
         display: inline-block;
         padding: 10px 16px;
