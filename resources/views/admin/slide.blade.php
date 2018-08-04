@@ -79,7 +79,7 @@
       if(id!=null){
         return window.location="{{asset($ADMIN_ROUTE.'/slide/delete')}}/" + id;
       }else {
-        $('#frm').submit();
+        j('#frm').submit();
       }
     }
   }

@@ -79,7 +79,7 @@ function confirmDel(id=null){
     if(id!=null){
       return window.location="{{asset($ADMIN_ROUTE.'/logo/delete')}}/" + id;
     }else {
-      $('#frm').submit();
+      j('#frm').submit();
     }
   }
 }

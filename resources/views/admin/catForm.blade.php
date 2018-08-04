@@ -24,7 +24,7 @@
                         <option value="0">Danh mục cha</option>
                         <?php $menu1 = $AdminCtrl->selectCat(0);?>
                         @foreach($menu1 as $list1)
-                            <option style="font-weight:bold;" value="{{$list1->idcat}}">{{$list1->name}}</option>
+                            <option <?=@$list1->idcat==$row->idcha?'selected':''?> style="font-weight:bold;" value="{{$list1->idcat}}">{{$list1->name}}</option>
                         @endforeach
                         </select>
                     </p>
@@ -104,14 +104,14 @@
 
 </div>
 <script type="text/javascript">
-$(function(){
+j(function(){
 
-    if($("#alias").val() == ''){
-      $("#alias").val(str_slug($("#name").val()))
+    if(j("#alias").val() == ''){
+      j("#alias").val(str_slug(j("#name").val()))
     }
-    $("#name").on("keyup",function(){
-      var name = $(this).val();
-      $("#alias").val(str_slug(name))
+    j("#name").on("keyup",function(){
+      var name = j(this).val();
+      j("#alias").val(str_slug(name))
     })
 });
 </script>

@@ -43,7 +43,7 @@ Examples:
 
 ATTENTION: The trailing slash is required.
 */
-$baseUrl = 'http://localhost/la_demo1/upload/';
+$baseUrl = 'http://localhost/laptop2nd/public/upload/';
 
 /*
 $baseDir : the path to the local directory (in the server) which points to the

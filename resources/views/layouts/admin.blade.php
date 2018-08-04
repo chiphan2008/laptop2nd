@@ -27,14 +27,131 @@ $user = session()->get('user');
     <!-- JQVMap -->
     <link href="{{asset('admin/vendors/jqvmap/dist/jqvmap.min.css')}}" rel="stylesheet"/>
     <!-- bootstrap-daterangepicker -->
-    <link href="{{asset('admin/vendors/bootstrap-daterangepicker/daterangepicker.css')}}" rel="stylesheet">
+    <link href="{{asset('admin/vendors/bootstrap-daterangepicker/daterangepicker.css')}}" rel="stylesheet" />
 
+    
     <!-- Custom Theme Style -->
-    <link href="{{asset('admin/build/css/custom.min.css')}}" rel="stylesheet">
-
+    <link href="{{asset('admin/build/css/custom.min.css')}}" rel="stylesheet" />
+    
+    <link href="{{asset('css/jquery.filer.css')}}" rel="stylesheet" />
+    <link href="{{asset('css/jquery.filer-dragdropbox-theme.css')}}" rel="stylesheet" />
+    
 	  <?php date_default_timezone_set('Asia/Ho_Chi_Minh');?>
     <!-- jQuery -->
     <script src="{{asset('admin/vendors/jquery/dist/jquery.min.js')}}"></script>
+    <script src="{{asset('admin/ckeditor/ckeditor.js')}}"></script>
+    <script src="{{asset('admin/ckfinder/ckfinder.js')}}"></script>
+    <style>
+    .file_input{
+        display: inline-block;
+        padding: 10px 16px;
+        outline: none;
+        cursor: pointer;
+        text-decoration: none;
+        text-align: center;
+        white-space: nowrap;
+        font-family: sans-serif;
+        font-size: 11px;
+        font-weight: bold;
+        border-radius: 3px;
+        color: #008BFF;
+        border: 1px solid #008BFF;
+        vertical-align: middle;
+        background-color: #fff;
+        margin-bottom: 10px;
+        box-shadow: 0px 1px 5px rgba(0,0,0,0.05);
+        -webkit-transition: all 0.2s;
+        -moz-transition: all 0.2s;
+        transition: all 0.2s;
+    }
+    .file_input:hover,
+    .file_input:active {
+        background: #008BFF;
+        color: #fff;
+        text-decoration: none;
+    }
+	.item_trich{ height:100px; float:left; margin-right:5px; border:1px solid #CCC; padding:5px; position:relative; margin-bottom:5px;}
+	.item_trich img{ height: 100%;}
+	.change_stt{ position:absolute; bottom:0px; right:0px; z-index:999; background:#FFF; padding:5px;}
+	.loader_trich{ display:none; position:absolute; top:37px; left:37px;}
+</style>
+    <script>
+    var j = jQuery.noConflict();
+    //ckeditor
+    j(document).ready(function() {
+          j('.ck_editor').each(function(index, el) {
+            var id=j(this).attr('id');
+            var baseurl = '{{asset('/admin')}}';
+            var editor = CKEDITOR.replace( ''+id,{
+              uiColor : '#9AB8F3',
+              language:'en',
+              skin:'moono',
+              height: 300,
+              filebrowserImageBrowseUrl : baseurl +'/ckfinder/ckfinder.html?Type=Images',
+              filebrowserFlashBrowseUrl : baseurl +'/ckfinder/ckfinder.html?Type=Flash',
+              filebrowserLinkBrowseUrl : baseurl +'/ckfinder/ckfinder.html',
+
+              filebrowserImageUploadUrl : baseurl +'/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+              filebrowserFlashUploadUrl : baseurl +'/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
+              filebrowserLinkUploadUrl : baseurl +'/ckfinder/core/connector/php/connector.php?command=QuickUpload',
+            });
+          });
+        });
+
+  // j(function() {
+  //   var dateFormat = "dd-mm-yy";
+  //   j( "#date_active" )
+  //       .datepicker({
+  //         defaultDate: "+1w",
+  //         numberOfMonths: 1,
+  //         showOn: "button",
+  //         buttonImage: "la_demo/images/calendar.png",
+  //         buttonImageOnly: true,
+  //         dateFormat: "dd-mm-yy"
+
+  //       })
+  //       .on( "change", function() {
+  //         to.datepicker( "option", "minDate", getDate( this ) );
+  //       });
+
+  //     from = j( "#from" )
+  //       .datepicker({
+  //         defaultDate: "+1w",
+  //         numberOfMonths: 1,
+  //         showOn: "button",
+  //         buttonImage: "la_demo/images/calendar.png",
+  //         buttonImageOnly: true,
+  //         dateFormat: "dd-mm-yy"
+
+  //       })
+  //       .on( "change", function() {
+  //         to.datepicker( "option", "minDate", getDate( this ) );
+  //       }),
+  //     to = j( "#to" ).datepicker({
+  //         defaultDate: "+1w",
+  //         numberOfMonths: 1,
+  //         showOn: "button",
+  //         buttonImage: "la_demo/images/calendar.png",
+  //         buttonImageOnly: true,
+  //         dateFormat: "dd-mm-yy"
+  //     })
+  //     .on( "change", function() {
+  //       from.datepicker( "option", "maxDate", getDate( this ) );
+  //     });
+
+  //   function getDate( element ) {
+  //     var date;
+  //     try {
+  //       date = j.datepicker.parseDate( dateFormat, element.value );
+  //     } catch( error ) {
+  //       date = null;
+  //     }
+
+  //     return date;
+  //   }
+  // } );
+
+  </script>
     <script src="{{asset('js/func.js')}}"></script>
   </head>
 
@@ -239,125 +356,17 @@ $user = session()->get('user');
 
 
 
-    <script src="{{asset('admin/ckeditor/ckeditor.js')}}"></script>
-    <script src="{{asset('admin/ckfinder/ckfinder.js')}}"></script>
-
-  <script>
-  //var j = jQuery.noConflict();
-
-  //ckeditor
-  $(document).ready(function() {
-        $('.ck_editor').each(function(index, el) {
-          var id=$(this).attr('id');
-          var baseurl = '{{asset('/')}}';
-          var editor = CKEDITOR.replace( ''+id,{
-            uiColor : '#9AB8F3',
-            language:'en',
-            skin:'moono',
-            height: 300,
-            filebrowserImageBrowseUrl : baseurl +'/ckfinder/ckfinder.html?Type=Images',
-            filebrowserFlashBrowseUrl : baseurl +'/ckfinder/ckfinder.html?Type=Flash',
-            filebrowserLinkBrowseUrl : baseurl +'/ckfinder/ckfinder.html',
-
-            filebrowserImageUploadUrl : baseurl +'/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
-            filebrowserFlashUploadUrl : baseurl +'/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
-            filebrowserLinkUploadUrl : baseurl +'/ckfinder/core/connector/php/connector.php?command=QuickUpload',
-          });
-        });
-      });
-
-  // j(function() {
-  //   var dateFormat = "dd-mm-yy";
-  //   j( "#date_active" )
-  //       .datepicker({
-  //         defaultDate: "+1w",
-  //         numberOfMonths: 1,
-  //         showOn: "button",
-  //         buttonImage: "la_demo/images/calendar.png",
-  //         buttonImageOnly: true,
-  //         dateFormat: "dd-mm-yy"
-
-  //       })
-  //       .on( "change", function() {
-  //         to.datepicker( "option", "minDate", getDate( this ) );
-  //       });
-
-  //     from = j( "#from" )
-  //       .datepicker({
-  //         defaultDate: "+1w",
-  //         numberOfMonths: 1,
-  //         showOn: "button",
-  //         buttonImage: "la_demo/images/calendar.png",
-  //         buttonImageOnly: true,
-  //         dateFormat: "dd-mm-yy"
-
-  //       })
-  //       .on( "change", function() {
-  //         to.datepicker( "option", "minDate", getDate( this ) );
-  //       }),
-  //     to = j( "#to" ).datepicker({
-  //         defaultDate: "+1w",
-  //         numberOfMonths: 1,
-  //         showOn: "button",
-  //         buttonImage: "la_demo/images/calendar.png",
-  //         buttonImageOnly: true,
-  //         dateFormat: "dd-mm-yy"
-  //     })
-  //     .on( "change", function() {
-  //       from.datepicker( "option", "maxDate", getDate( this ) );
-  //     });
-
-  //   function getDate( element ) {
-  //     var date;
-  //     try {
-  //       date = j.datepicker.parseDate( dateFormat, element.value );
-  //     } catch( error ) {
-  //       date = null;
-  //     }
-
-  //     return date;
-  //   }
-  // } );
-
-  </script>
+    <script src="{{asset('js/my.js')}}"></script>
+    <script src="{{asset('js/jquery.filer.min.js')}}"></script>
+    
     <!-- Bootstrap -->
     <script src="{{asset('admin/vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-    <!-- FastClick -->
-    <script src="{{asset('admin/vendors/fastclick/lib/fastclick.js')}}"></script>
-    <!-- NProgress -->
-    <script src="{{asset('admin/vendors/nprogress/nprogress.js')}}"></script>
-    <!-- Chart.js -->
-    <script src="{{asset('admin/vendors/Chart.js/dist/Chart.min.js')}}"></script>
-    <!-- gauge.js -->
-    <script src="{{asset('admin/vendors/gauge.js/dist/gauge.min.js')}}"></script>
-    <!-- bootstrap-progressbar -->
-    <script src="{{asset('admin/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js')}}"></script>
-    <!-- iCheck -->
-    <script src="{{asset('admin/vendors/iCheck/icheck.min.js')}}"></script>
-    <!-- Skycons -->
-    <script src="{{asset('admin/vendors/skycons/skycons.js')}}"></script>
-    <!-- Flot -->
-    <script src="{{asset('admin/vendors/Flot/jquery.flot.js')}}"></script>
-    <script src="{{asset('admin/vendors/Flot/jquery.flot.pie.js')}}"></script>
-    <script src="{{asset('admin/vendors/Flot/jquery.flot.time.js')}}"></script>
-    <script src="{{asset('admin/vendors/Flot/jquery.flot.stack.js')}}"></script>
-    <script src="{{asset('admin/vendors/Flot/jquery.flot.resize.js')}}"></script>
-    <!-- Flot plugins -->
-    <script src="{{asset('admin/vendors/flot.orderbars/js/jquery.flot.orderBars.js')}}"></script>
-    <script src="{{asset('admin/vendors/flot-spline/js/jquery.flot.spline.min.js')}}"></script>
-    <script src="{{asset('admin/vendors/flot.curvedlines/curvedLines.js')}}"></script>
-    <!-- DateJS -->
-    <script src="{{asset('admin/vendors/DateJS/build/date.js')}}"></script>
-    <!-- JQVMap -->
-    <script src="{{asset('admin/vendors/jqvmap/dist/jquery.vmap.js')}}"></script>
-    <script src="{{asset('admin/vendors/jqvmap/dist/maps/jquery.vmap.world.js')}}"></script>
-    <script src="{{asset('admin/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js')}}"></script>
-    <!-- bootstrap-daterangepicker -->
+    
     <script src="{{asset('admin/vendors/moment/min/moment.min.js')}}"></script>
     <script src="{{asset('admin/vendors/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
 
     <!-- Custom Theme Scripts -->
-    <script src="{{asset('admin/build/js/custom.min.js')}}"></script>
+    <script src="{{asset('admin/build/js/custom.js')}}"></script>
 
   </body>
 </html>

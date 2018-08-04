@@ -7,6 +7,13 @@
     {{ csrf_field() }}
     <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
+                @if ($message = Session::get('success'))
+                  <div class="panel-body">
+                    <div class="alert alert-success" role="alert">
+                      {{$message}}
+                    </div>
+                  </div>
+                @endif
                   <div class="x_title">
                     <h2>Danh mục</h2>
 
@@ -29,23 +36,22 @@
 
                     @foreach($rs_cat as $r)
                     <tr>
-                    <td style="width:5%;text-align:center"><input type="checkbox" name="chon[]" id="chon" value="{{$r->idcat}}"></td>
+                        <td style="width:5%;text-align:center"><input type="checkbox" name="chon[]" id="chon" value="{{$r->idcat}}"></td>
 
-                    <td> {{$r->name}} </td>
+                        <td> {{$r->name}} </td>
 
-                    <td>{{$r->thutu}}</td>
+                        <td>{{$r->thutu}}</td>
 
-                    <td align="center">
-                    @if($r->anhien ==1)
-                    <i class="fa fa-eye" style="color:#1d9d74;"></i>
-                    @else
-                    <i class="fa fa-eye-slash" style="color:red;"></i>
-                    @endif
-                    </td>
+                        <td align="center">
+                        @if($r->anhien ==1)
+                        <i class="fa fa-eye" style="color:#1d9d74;"></i>
+                        @else
+                        <i class="fa fa-eye-slash" style="color:red;"></i>
+                        @endif
+                        </td>
 
-                    <td align="center"><a href="{{asset($ADMIN_ROUTE.'/category/form/'.$r->idcat)}}"><i class="fa fa-pencil"></i></a></td>
-
-                    <td align="center"> <a onclick="confirmDel({{$r->idcat}})"> <i class="fa fa-times" style="color:#F00;"></i> </a> </td>
+                        <td align="center"><a href="{{asset($ADMIN_ROUTE.'/category/form/'.$r->idcat)}}"><i class="fa fa-pencil"></i></a></td>
+                        <td align="center"> <a onclick="confirmDel({{$r->idcat}})"> <i class="fa fa-times" style="color:#F00;"></i> </a> </td>
                     </tr>
                     <!-- dm con -->
                     <?php $cat_child = $AdminCtrl->selectCat($r->idcat);?>
@@ -53,7 +59,7 @@
                     	<tr>
                     	<td align="center"><input type="checkbox" name="chon[]" id="chon" value="{{$r1->idcat}}"></td>
 
-                    	<td class="change_stt">|------ {{$r1->name}}</td>
+                    	<td>|------ {{$r1->name}}</td>
 
                     	<td>{{$r1->thutu}}</td>
 
@@ -65,7 +71,7 @@
                     	@endif
                     	</td>
 
-                    	<td align="center"><a href="{{asset($ADMIN_ROUTE.'/category/'.$r1->idcat)}}"><i class="fa fa-pencil"></i></a></td>
+                    	<td align="center"><a href="{{asset($ADMIN_ROUTE.'/category/form/'.$r1->idcat)}}"><i class="fa fa-pencil"></i></a></td>
 
                     	<td align="center"> <a onclick="confirmDel({{$r1->idcat}})"> <i class="fa fa-times" style="color:#F00;"></i> </a> </td>
                     	</tr>
@@ -96,7 +102,7 @@ function confirmDel(id=null){
     if(id!=null){
       return window.location="{{asset($ADMIN_ROUTE.'/category/delete')}}/" + id;
     }else {
-      $('#frm').submit();
+      j('#frm').submit();
     }
   }
 }

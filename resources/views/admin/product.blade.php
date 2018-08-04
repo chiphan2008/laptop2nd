@@ -14,19 +14,19 @@
                   </div>
                 @endif
                   <div class="x_title">
-                    <h2>Tin tức</h2>
+                    <h2>Sản phẩm</h2>
 
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    @if(count($rs_news)>0)
+                    @if(count($rs_product)>0)
                     <table id="danhsach" class="table table-striped table-bordered">
                       <thead>
                         <tr>
                           <th style="width:5%;text-align:center"><input type="checkbox" name="chonhet" id="chonhet"></th>
-                          <th>Tiêu đề</th>
+                          <th>Tên sản phẩm</th>
                           <th>Hình ảnh</th>
-                          <th>Số lần xem</th>
+                          <th>Giá</th>
                           <th style="width:7%;text-align:center">Hiển thị</th>
                           <th style="width:7%;text-align:center">Sửa</th>
                           <th style="width:7%;text-align:center">Xoá</th>
@@ -34,14 +34,19 @@
                       </thead>
 
 
-                    @foreach($rs_news as $r)
-                    
-                    <tr>
-                    <td style="width:5%;text-align:center"><input type="checkbox" name="chon[]" id="chon" value="{{$r->idtin}}"></td>
+                    @foreach($rs_product as $r)
+                    <?php $hinh  = json_decode($r->urlhinh,true);?>
 
-                    <td>{{$r->tieude}} </td>
-                    <td><img src="{{asset('images/news/'.$r->urlhinh)}}" height="50" /></td>
-                    <td>{{$r->solanxem}}</td>
+                    <tr>
+                    <td style="width:5%;text-align:center"><input type="checkbox" name="chon[]" id="chon" value="{{$r->idsp}}"></td>
+
+                    <td>{{$r->tensp}} </td>
+                    <td>
+                    @if(count($hinh)>0)
+                    <img src="{{asset('images/product/thumb/'.$hinh[0])}}" height="50" />
+                    @endif
+                    </td>
+                    <td>{{number_format($r->giaban,0,".",",")}}</td>
 
                     <td align="center">
                     @if($r->anhien==1)
@@ -51,15 +56,15 @@
                     @endif
                     </td>
 
-                    <td align="center"><a href="{{asset($ADMIN_ROUTE.'/news/form/'.$r->idtin)}}"><i class="fa fa-pencil"></i></a></td>
+                    <td align="center"><a href="{{asset($ADMIN_ROUTE.'/product/form/'.$r->idcat)}}"><i class="fa fa-pencil"></i></a></td>
 
-                    <td align="center"> <a onclick="confirmDel({{$r->idtin}})"> <i class="fa fa-times" style="color:#F00;"></i> </a> </td>
+                    <td align="center"> <a onclick="confirmDel({{$r->idcat}})"> <i class="fa fa-times" style="color:#F00;"></i> </a> </td>
                     </tr>
                     
                     @endforeach
                     </table>
-                    
-                    {{$rs_news->render()}}
+
+                    {{$rs_product->render()}}
 
                     @endif
                   </div>
@@ -67,7 +72,7 @@
               </div>
 
               <div class="col-md-12">
-              <a type="button" href="{{asset($ADMIN_ROUTE.'/news/form')}}" class="btn btn-success">Thêm mới</a>
+              <a type="button" href="{{asset($ADMIN_ROUTE.'/product/form')}}" class="btn btn-success">Thêm mới</a>
               <button onclick="confirmDel()" type="button" class="btn btn-danger">Xoá hết</button>
               </div>
     </form>
@@ -84,7 +89,7 @@ function confirmDel(id=null){
   var ok = confirm("Bạn có chắc muốn xoá?");
   if(ok){
     if(id!=null){
-      return window.location="{{asset($ADMIN_ROUTE.'/news/delete')}}/" + id;
+      return window.location="{{asset($ADMIN_ROUTE.'/product/delete')}}/" + id;
     }else {
       j('#frm').submit();
     }

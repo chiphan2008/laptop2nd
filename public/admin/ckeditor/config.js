@@ -7,7 +7,7 @@ CKEDITOR.editorConfig = function( config ) {
 	// Define changes to default configuration here. For example:
 	// config.language = 'fr';
 	// config.uiColor = '#AADC6E';
-	var HOST_PATH = 'http://localhost/la_demo1/public';
+	var HOST_PATH = 'http://localhost/laptop2nd/public/admin';
 	config.filebrowserBrowseUrl = HOST_PATH+'/ckfinder/ckfinder.html';
 config.filebrowserImageBrowseUrl = HOST_PATH+'/ckfinder/ckfinder.html?type=Images';
 config.filebrowserFlashBrowseUrl = HOST_PATH+'/ckfinder/ckfinder.html?type=Flash';

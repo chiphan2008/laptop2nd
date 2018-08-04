@@ -232,8 +232,7 @@ class AdminController extends Controller
     {
         $id = round($request->id);
         $row =[];
-        $rs = DB::table('category')->where(['idcat'=>$id])
-      					->get();
+        $rs = DB::table('category')->where(['idcat'=>$id])->get();
         if(count($rs)>0) $row =$rs[0];
         return view('admin.catForm',[
           'id'=> $id,'row'=>$row
@@ -249,20 +248,145 @@ class AdminController extends Controller
         $data['anhien'] = round($request->anhien);
         $data['kw'] = trim($request->kw);
         $data['des'] = trim($request->des);
-        $data['created_at'] = Carbon::now();
         $data['updated_at'] = Carbon::now();
         if($id>0){
           DB::table('category')->where(['idcat'=>$id])->update($data);
         }else {
+          $data['created_at'] = Carbon::now();
           DB::table('category')->insert($data);
         }
         return redirect()->route('category');
     }
+    //product
+    public function getProduct(){
+      $rs_product = DB::table('product')
+					->select('idsp','tensp','giaban','urlhinh','anhien','idcat')
+          ->orderBy('idsp','desc')->paginate(20);
+      return view('admin.product',[
+        'rs_product'=>$rs_product
+      ]);
+    }
+    // delete all pro
+    public function postProduct(Request $request){
+    	if(!empty($request->input('chon'))){
+    		foreach ($request->input('chon') as $k) {
+    			$rs = DB::table('product')->select('urlhinh')
+						    ->where(['idsp'=>$k])->get();
+          $hinh = json_decode($rs[0]->urlhinh,true);
+          foreach ($hinh as $img_name) {
+            if(is_file('./images/product/'.$img_name))
+                unlink('./images/product/'.$img_name);
+            if(is_file('./images/product/thumb/'.$img_name))
+              unlink('./images/product/thumb/'.$img_name);
+            if(is_file('./images/product/thumbnail/'.$img_name))
+              unlink('./images/product/thumbnail/'.$img_name);
+          }
+				  DB::table('product')->where(['idsp'=>$k])->delete();
+	    	}	
+			return back()->with('success',"Đã xóa thành công.");
+    	}
+    	return back();
+    }
+    // add, update form
+    public function getProductForm(Request $request){
+        $id = round($request->id);$row =[];
+        $rs = DB::table('product')->where(['idsp'=>$id])->get();
+        if(count($rs)>0) $row =$rs[0];
+        return view('admin.productForm',[
+          'id'=> $id,'row'=>$row
+        ]);
+    }
+    public function postProductForm(Request $request){
+        $id = round($request->id);
+        $data['tensp'] = trim($request->tensp);
+        $data['alias'] = trim($request->alias);
+        $data['giaban'] = round($request->giaban);
+        $data['gianhap'] = round($request->gianhap);
+
+        $arr['hinh'] = is_array($request->name_hinh)?$request->name_hinh:[];
+        if ($request->hasFile('undefined')) {
+          $files = $request->undefined;
+          foreach($files as $file){
+            $img_name[] = $file->getClientOriginalName();
+            $img_path[] = $file->getRealPath();
+          }
+          //print_r($img_path);exit;
+          for($i=0;$i<count($img_name);$i++){
+            $filename = time().'_'.$this->rname_url_hinh($img_name[$i]);
+            array_push($arr['hinh'],$filename);
+
+            $img = Image::make($img_path[$i]);
+            $img->save('./images/product/'.$filename);
+
+            $img = Image::make($img_path[$i]);
+            $img->resize(480, 480);
+            $img->save("images/product/thumb/".$filename);
+
+            $img = Image::make($img_path[$i]);
+            $img->resize(100, 100);
+            $img->save("images/product/thumbnail/".$filename);
+
+          }//foreach				
+        }		    
+        $data['urlhinh'] = json_encode($arr['hinh']);
+        
+        $data['mota'] = trim($request->mota);
+        $data['noidung'] = trim($request->noidung);
+        $data['idcat'] = round($request->idcat);
+        $data['thutu'] = round($request->thutu);
+        $data['anhien'] = round($request->anhien);
+        $data['kw'] = trim($request->kw);
+        $data['des'] = trim($request->des);
+        $data['updated_at'] = Carbon::now();
+        
+        if($id>0){
+          DB::table('product')->where(['idsp'=>$id])->update($data);
+        }else {
+          $data['created_at'] = Carbon::now();
+          DB::table('product')->insert($data);
+        }
+        return redirect()->route('product');
+    }
+    
+    //delete urlhinh
+    public function delHinhsp($idsp,$loc){
+    	$rs = DB::table('product')->select('urlhinh')
+            ->where(['idsp'=>$idsp])
+            ->get();
+      $hinh = json_decode($rs[0]->urlhinh,true);
+      
+      if(is_file('./images/product/'.$hinh[$loc]))
+        unlink('./images/product/'.$hinh[$loc]);
+      if(is_file('./images/product/thumb/'.$hinh[$loc]))
+        unlink('./images/product/thumb/'.$hinh[$loc]);
+      if(is_file('./images/product/thumbnail/'.$hinh[$loc]))
+        unlink('./images/product/thumbnail/'.$hinh[$loc]);
+      unset($hinh[$loc]);
+      $update = json_encode($hinh);
+      DB::table('product')->where(['idsp'=>$idsp])->update(['urlhinh'=>$update]);
+      return back()->with('success',"Đã xóa thành công.");
+    }
+    // deleteProduct
+    public function deleteProduct($id){
+    	$rs = DB::table('product')->where(['idsp'=>$id])->get();
+      $hinh = json_decode($rs[0]->urlhinh,true);
+      foreach ($hinh as $img_name) {
+        if(is_file('./images/product/'.$img_name))
+          unlink('./images/product/'.$img_name);
+        if(is_file('./images/product/thumb/'.$img_name))
+          unlink('./images/product/thumb/'.$img_name);
+        if(is_file('./images/product/thumbnail/'.$img_name))
+          unlink('./images/product/thumbnail/'.$img_name);
+      }
+      DB::table('product')->where(['idsp'=>$id])->delete();	
+      return back()->with('success',"Đã xóa thành công.");
+    }
+
+    
     //selectMenu
     public function selectCat($id=0){
     	$menu = DB::table('category')
-					->select('name','idcat','thutu','anhien')
-					->where(['idcha'=>$id])
+					->select('name','idcat','thutu','anhien')->where(['idcha'=>$id])
 					->orderBy('thutu','asc')->orderBy('name','asc')
 					->get();
 		  return $menu;
@@ -270,21 +394,78 @@ class AdminController extends Controller
     //news
     public function getNews()
     {
-        return view('admin.news');
+        $rs_news = DB::table('news')
+        ->select('tieude','idtin','urlhinh','solanxem','anhien')
+        ->orderBy('idtin','desc')->paginate(20);
+        return view('admin.news',[
+          'rs_news'=>$rs_news
+        ]);
     }
-
+    //news del all
+    public function postNews(Request $request){
+    	if(!empty($request->input('chon'))){
+    		foreach ($request->input('chon') as $k) {
+    			$rs = DB::table('news')->where(['idtin'=>$k])->get();
+          if(is_file('./images/news/'.$rs[0]->urlhinh))
+              unlink('./images/news/'.$rs[0]->urlhinh);
+				  DB::table('news')->where(['idtin'=>$k])->delete();
+	    	}	
+			return back()->with('success',"Đã xóa thành công.");
+    	}
+    	return back();
+    }
+    // add, update news
     public function getNewsForm(Request $request)
     {
-        return view('admin.newsForm',['id'=>$request->id]);
+        $id = round($request->id);$row =[];
+        $rs = DB::table('news')->where(['idtin'=>$id])->get();
+        if(count($rs)>0) $row =$rs[0];
+        return view('admin.newsForm',[
+          'id'=> $id,'row'=>$row
+        ]);
     }
     public function postNewsForm(Request $request)
     {
-        //var_dump($request->tieude);
-        return view('admin.news');
+      $id = round($request->id);
+      $data['tieude'] = trim($request->tieude);
+      $data['alias'] = trim($request->alias);
+      $data['tomtat'] = trim($request->tomtat);
+      $data['noidung'] = trim($request->noidung);
+      	    
+      $filename = '';
+      if($request->hasFile('urlhinh')){
+        $file = $request->file('urlhinh');
+        $filename = time().'_'.$this->rname_url_hinh($file->getClientOriginalName());
+        $img = Image::make($file->getRealPath())->resize('480','480');
+        $img->save('./images/news/'.$filename);
+      }
+      $data['urlhinh'] = $filename;
+      $data['solanxem'] = round($request->solanxem);
+      $data['anhien'] = round($request->anhien);
+      $data['kw'] = trim($request->kw);
+      $data['updated_at'] = Carbon::now();
+      
+      if($id>0){
+        if($filename!=''){
+          if(is_file('./images/news/'.$request->file_name))
+            unlink('./images/news/'.$request->file_name);
+        }else {
+          $data['urlhinh'] = $request->file_name;
+        }
+        DB::table('news')->where(['idtin'=>$id])->update($data);
+      }else {
+        $data['created_at'] = Carbon::now();
+        DB::table('news')->insert($data);
+      }
+      return redirect()->route('news');
     }
-
-    public function getDelNews($id=0)
+    
+    public function deleteNews($id=0)
     {
-        return view('admin.news');
+      $rs = DB::table('news')->where(['idtin'=>$id])->get();
+      if(is_file('./images/news/'.$rs[0]->urlhinh))
+          unlink('./images/news/'.$rs[0]->urlhinh);
+      DB::table('news')->where(['idtin'=>$id])->delete();
+			return back()->with('success',"Đã xóa thành công.");
     }
 }
