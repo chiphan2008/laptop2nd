@@ -55,15 +55,17 @@ Route::group(['prefix' => 'admincp','middleware'=>'guest'], function (){
   Route::get('/logo/form/{id?}', 'AdminController@getLogoForm');
   Route::post('/logo/form/{id?}', 'AdminController@postLogoForm');
   Route::get('/logo/delete/{id}', 'AdminController@deleteLogo');
-  //banner NOT...YET
+  //banner
   Route::get('/banner', 'AdminController@getBanner')->name('banner');
-  //info NOT...YET
-  Route::get('/info', 'AdminController@getProduct')->name('info');
+  Route::post('/banner', 'AdminController@postBanner');
+  //info
+  Route::get('/info', 'AdminController@getInfo')->name('info');
+  Route::post('/info', 'AdminController@postInfo');
   //maps
   Route::get('/map', 'AdminController@getMap')->name('map');
   Route::post('/map', 'AdminController@postMap');
   //promotion NOT...YET
-  Route::get('/promotion', 'AdminController@getProduct')->name('promotion');
+  Route::get('/promotion', 'AdminController@getPromotion')->name('promotion');
   //news 
   Route::get('/news', 'AdminController@getNews')->name('news');
   Route::post('/news', 'AdminController@postNews');

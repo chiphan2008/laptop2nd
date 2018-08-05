@@ -204,9 +204,69 @@ class AdminController extends Controller
         return redirect()->route('logo');
     }
     //banner
+    public function add_banner($request,$urlhinh,$name,$link,$banner,$x='480',$y='240'){
+      $filename='';
+      if($request->hasFile($urlhinh)){
+        $file = $request->file($urlhinh);
+        $filename = time().'_'.$this->rname_url_hinh($file->getClientOriginalName());
+        $img = Image::make($file->getRealPath())->resize($x,$y);
+        $img->save('./images/banner/'.$filename);
+        $data['urlhinh'] = $filename;
+      }
+      $data['name'] = trim($name);
+      $data['link'] = trim($link);
+      if($filename!=''){
+        if(is_file('./images/banner/'.$banner))
+        unlink('./images/banner/'.$banner);
+      }else {
+        $data['urlhinh'] = $banner;
+      }
+      return $data;
+    }
+    public function postBanner(Request $request)
+    {
+        $data = $this->add_banner($request,'urlhinh0',$request->name0,$request->link0,$request->banner0);
+        $row[0] = $data;
+        $data = $this->add_banner($request,'urlhinh1',$request->name1,$request->link1,$request->banner1);
+        $row[1] = $data;
+        $data = $this->add_banner($request,'urlhinh2',$request->name2,$request->link2,$request->banner2);
+        $row[2] = $data;
+        $data = $this->add_banner($request,'urlhinh3',$request->name3,$request->link3,$request->banner3);
+        $row[3] = $data;
+        $data = $this->add_banner($request,'urlhinh4',$request->name4,$request->link4,$request->banner4,'1170','200');
+        $row[4] = $data;
+        //$row = $this->get_json('banner'); 
+        $this->put_json('banner',$row);
+        return back()->with('success',"Đã cập nhật thành công.");
+    }
+
     public function getBanner()
     {
-        return view('admin.banner');
+        $row = $this->get_json('banner'); 
+        return view('admin.banner',['row'=>$row]);
+    }
+
+    // info
+    public function getInfo()
+    {
+        $row = $this->get_json('info'); 
+        return view('admin.info',['row'=>$row]);
+    }
+    public function postInfo(Request $request)
+    {
+        $row['footer'] = trim($request->footer);
+        $row['contact'] = trim($request->contact);
+        $row['fb'] = trim($request->fb);
+        $row['kw'] = trim($request->kw);
+        $row['des'] = trim($request->des);
+        $this->put_json('info',$row);
+        return back()->with('success',"Đã cập nhật thành công.");
+    }
+
+    //promotion
+    public function getPromotion()
+    {
+        return view('admin.promotion');
     }
     //maps
     public function getMap()
