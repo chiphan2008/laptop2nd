@@ -44,7 +44,11 @@ $user = session()->get('user');
     <script src="{{asset('admin/ckeditor/ckeditor.js')}}"></script>
     <script src="{{asset('admin/ckfinder/ckfinder.js')}}"></script>
     
+    <!-- Bootstrap -->
+    <script src="{{asset('admin/vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
     
+    <script src="{{asset('admin/vendors/moment/min/moment.min.js')}}"></script>
+    <script src="{{asset('admin/vendors/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
     <style type="text/css">
            
     .inpput{width:99%; border:1px solid #DDD; padding:5px}
@@ -123,44 +127,44 @@ $user = session()->get('user');
 
   // j(function() {
   //   var dateFormat = "dd-mm-yy";
-  //   j( "#date_active" )
-  //       .datepicker({
-  //         defaultDate: "+1w",
-  //         numberOfMonths: 1,
-  //         showOn: "button",
-  //         buttonImage: "la_demo/images/calendar.png",
-  //         buttonImageOnly: true,
-  //         dateFormat: "dd-mm-yy"
+    // j( "#reservation-time" )
+    //     .datepicker({
+    //       defaultDate: "+1w",
+    //       numberOfMonths: 1,
+    //       showOn: "button",
+    //       buttonImage: "la_demo/images/calendar.png",
+    //       buttonImageOnly: true,
+    //       dateFormat: "dd-mm-yy"
 
-  //       })
-  //       .on( "change", function() {
-  //         to.datepicker( "option", "minDate", getDate( this ) );
-  //       });
+    //     })
+    //     .on( "change", function() {
+    //       to.datepicker( "option", "minDate", getDate( this ) );
+    //     });
 
-  //     from = j( "#from" )
-  //       .datepicker({
-  //         defaultDate: "+1w",
-  //         numberOfMonths: 1,
-  //         showOn: "button",
-  //         buttonImage: "la_demo/images/calendar.png",
-  //         buttonImageOnly: true,
-  //         dateFormat: "dd-mm-yy"
+      // from = j( "#from" )
+      //   .datepicker({
+      //     defaultDate: "+1w",
+      //     numberOfMonths: 1,
+      //     showOn: "button",
+      //     buttonImage: "la_demo/images/calendar.png",
+      //     buttonImageOnly: true,
+      //     dateFormat: "dd-mm-yy"
 
-  //       })
-  //       .on( "change", function() {
-  //         to.datepicker( "option", "minDate", getDate( this ) );
-  //       }),
-  //     to = j( "#to" ).datepicker({
-  //         defaultDate: "+1w",
-  //         numberOfMonths: 1,
-  //         showOn: "button",
-  //         buttonImage: "la_demo/images/calendar.png",
-  //         buttonImageOnly: true,
-  //         dateFormat: "dd-mm-yy"
-  //     })
-  //     .on( "change", function() {
-  //       from.datepicker( "option", "maxDate", getDate( this ) );
-  //     });
+      //   })
+      //   .on( "change", function() {
+      //     to.datepicker( "option", "minDate", getDate( this ) );
+      //   }),
+      // to = j( "#to" ).datepicker({
+      //     defaultDate: "+1w",
+      //     numberOfMonths: 1,
+      //     showOn: "button",
+      //     buttonImage: "la_demo/images/calendar.png",
+      //     buttonImageOnly: true,
+      //     dateFormat: "dd-mm-yy"
+      // })
+      // .on( "change", function() {
+      //   from.datepicker( "option", "maxDate", getDate( this ) );
+      // });
 
   //   function getDate( element ) {
   //     var date;
@@ -381,13 +385,9 @@ $user = session()->get('user');
 
     <script src="{{asset('js/my.js')}}"></script>
     <script src="{{asset('js/jquery.filer.min.js')}}"></script>
-    
-    <!-- Bootstrap -->
-    <script src="{{asset('admin/vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-    
-    <script src="{{asset('admin/vendors/moment/min/moment.min.js')}}"></script>
-    <script src="{{asset('admin/vendors/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
-
+    <!-- iCheck -->
+    <script src="{{asset('admin/vendors/iCheck/icheck.min.js')}}"></script>
+  
     <!-- Custom Theme Scripts -->
     <script src="{{asset('admin/build/js/custom.js')}}"></script>
 
