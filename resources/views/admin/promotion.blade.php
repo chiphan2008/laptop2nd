@@ -11,14 +11,14 @@
                 <div class="x_panel" style="">
                   <div class="x_title">
                     <h2>Tạo khuyến mãi</h2>
-                    
+
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
                     <div class="well" style="overflow: auto">
 
                       <div class="col-md-5">
-                      <h2 style="padding-top:2px;">
+                      <h2 style="margin-bottom:19px;">
                         Thời gian áp dụng:
                         </h2>
                           <fieldset>
@@ -37,20 +37,25 @@
                         <p>
                         <div class="radio">
                             <label class="">
-                              <div class="iradio_flat-green checked" style="position: relative;">
-                              <input type="radio" class="flat" checked="" name="loaikm" style="position: absolute; opacity: 0;">
+                              <div class="iradio_flat-green" style="position: relative;">
+                              <input type="radio" checked class="flat" name="loaikm" style="position: absolute; opacity: 0;">
                               <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
-                              </div> Giá
+                            </div> Giá
                             </label>
-                        </div>
-                        <div class="radio">
                             <label class="">
                               <div class="iradio_flat-green" style="position: relative;">
                               <input type="radio" class="flat" name="loaikm" style="position: absolute; opacity: 0;">
                               <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
                               </div> %
                             </label>
+                            <label class="">
+                              <div class="iradio_flat-green" style="position: relative;">
+                              <input type="radio" class="flat" name="loaikm" style="position: absolute; opacity: 0;">
+                              <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                            </div> Code
+                            </label>
                         </div>
+
 
                         </p>
                           <fieldset>
@@ -64,7 +69,7 @@
 
                     </div>
 
-                    
+
 
                   </div>
                 </div>
