@@ -34,30 +34,30 @@ $user = session()->get('user');
     </script> -->
     <!-- Custom Theme Style -->
     <link href="{{asset('admin/build/css/custom.min.css')}}" rel="stylesheet" />
-    
+
     <link href="{{asset('css/jquery.filer.css')}}" rel="stylesheet" />
     <link href="{{asset('css/jquery.filer-dragdropbox-theme.css')}}" rel="stylesheet" />
-    
+
 	  <?php date_default_timezone_set('Asia/Ho_Chi_Minh');?>
     <!-- jQuery -->
     <script src="{{asset('admin/vendors/jquery/dist/jquery.min.js')}}"></script>
     <script src="{{asset('admin/ckeditor/ckeditor.js')}}"></script>
     <script src="{{asset('admin/ckfinder/ckfinder.js')}}"></script>
-    
+
     <!-- Bootstrap -->
     <script src="{{asset('admin/vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-    
+
     <script src="{{asset('admin/vendors/moment/min/moment.min.js')}}"></script>
     <script src="{{asset('admin/vendors/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
     <style type="text/css">
-           
+
     .inpput{width:99%; border:1px solid #DDD; padding:5px}
     #mapCanvas {
         width: 60%;
         height: 500px;
         float: left;
     }
-    #infoPanel 
+    #infoPanel
     {
         width:35%;
         float: left;
@@ -67,8 +67,12 @@ $user = session()->get('user');
         margin-bottom: 5px;
     }
     .huongdan{margin-top:10px; border:1px solid #DDD; background:#EEE; line-height:200%; font-size:15px; color:#f00; padding:20px; text-align:center;}
-    
-        
+    .show{
+      display: inline-block;
+    }
+    .hide{
+      display: none;
+    }
     .file_input{
         display: inline-block;
         padding: 10px 16px;
@@ -387,7 +391,7 @@ $user = session()->get('user');
     <script src="{{asset('js/jquery.filer.min.js')}}"></script>
     <!-- iCheck -->
     <script src="{{asset('admin/vendors/iCheck/icheck.min.js')}}"></script>
-  
+
     <!-- Custom Theme Scripts -->
     <script src="{{asset('admin/build/js/custom.js')}}"></script>
 

@@ -24,7 +24,7 @@
                         <option value="0">Danh mục cha</option>
                         <?php $menu1 = $AdminCtrl->selectCat(0);?>
                         @foreach($menu1 as $list1)
-                            <option <?=@$list1->idcat==$row->idcha?'selected':''?> style="font-weight:bold;" value="{{$list1->idcat}}">{{$list1->name}}</option>
+                            <option <?=$list1->idcat==@$row->idcha?'selected':''?> style="font-weight:bold;" value="{{$list1->idcat}}">{{$list1->name}}</option>
                         @endforeach
                         </select>
                     </p>

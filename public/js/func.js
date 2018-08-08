@@ -30,3 +30,11 @@ function str_slug(title)
 function format_number(x){
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+function generate_str(n) {
+  var code = "";
+  var str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  for (var i = 0; i < n; i++)
+    code += str.charAt(Math.floor(Math.random() * str.length));
+
+  return code;
+}
