@@ -66,7 +66,7 @@ Route::group(['prefix' => 'admincp','middleware'=>'guest'], function (){
   Route::post('/map', 'AdminController@postMap');
   //promotion NOT...YET
   Route::get('/promotion', 'AdminController@getPromotion')->name('promotion');
-  //news 
+  //news
   Route::get('/news', 'AdminController@getNews')->name('news');
   Route::post('/news', 'AdminController@postNews');
   Route::get('/news/form/{id?}', 'AdminController@getNewsForm');

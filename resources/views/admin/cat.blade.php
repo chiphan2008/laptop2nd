@@ -1,7 +1,8 @@
 @extends("layouts.admin")
 @inject('AdminCtrl', 'App\Http\Controllers\AdminController')
-<?php $rs_cat = $AdminCtrl->selectCat(0);?>
+<?php $rs_cat = $AdminCtrl->selectCat(0);$tag="<b>AAA</b>";?>
 @section('content')
+
 <div class="right_col" role="main">
     <form class="form-horizontal" method="POST" id="frm">
     {{ csrf_field() }}
@@ -16,7 +17,6 @@
                 @endif
                   <div class="x_title">
                     <h2>Danh mục</h2>
-
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
