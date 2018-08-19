@@ -176,7 +176,7 @@ class AdminController extends Controller
         if($request->hasFile('urlhinh')){
           $file = $request->file('urlhinh');
           $filename = time().'_'.$this->rname_url_hinh($file->getClientOriginalName());
-          $img = Image::make($file->getRealPath())->resize('200','200');
+          $img = Image::make($file->getRealPath());//->resize('200','200');
           $img->save('./images/slider/'.$filename);
         }
 
@@ -254,8 +254,11 @@ class AdminController extends Controller
     }
     public function postInfo(Request $request)
     {
+        $row['title_index'] = trim($request->title_index);
+        $row['copyright'] = trim($request->copyright);
         $row['footer'] = trim($request->footer);
         $row['contact'] = trim($request->contact);
+        $row['google_analytic'] = trim($request->google_analytic);
         $row['fb'] = trim($request->fb);
         $row['kw'] = trim($request->kw);
         $row['des'] = trim($request->des);

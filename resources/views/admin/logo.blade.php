@@ -29,7 +29,7 @@
                         <tr>
                           <td><input type="checkbox" name="chon[]" id="chon" value="{{$r['id']}}"></td>
                           <td>{{$r['ten']}}</td>
-                          <td><img src="{{asset('images/slider/'.$r['urlhinh'])}}" height="100" /></td>
+                          <td><img src="{{asset('images/slider/'.$r['urlhinh'])}}" height="50" /></td>
 
                           <td style="text-align:center">
                             @if($r['anhien']==1)
