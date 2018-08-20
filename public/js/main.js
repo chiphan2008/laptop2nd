@@ -1,7 +1,9 @@
 /* Theme JS */
-
-(function($) {
-    "use strict";
+"use strict";
+$(document).ready( function() { 
+   
+//(function($) {
+    
 
   /* ----------------------------------------------
         jQuery MeanMenu
@@ -775,5 +777,5 @@
 			nextText: '<i class="fa fa-angle-right nivo-next-icon"></i>'
 		});
 
-
-})(jQuery);
+    });
+//})(jQuery);

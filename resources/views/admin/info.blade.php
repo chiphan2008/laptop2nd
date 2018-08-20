@@ -43,6 +43,14 @@
                 </div>
             </div>
             <div class="form-group">
+                <label class="col-sm-2 control-label">Tiêu đề trang chủ:</label>
+                <div class="col-sm-10">
+                    <p>
+                        <input value="{{@$row['title_index']}}" type="text" id="title_index" name="title_index" class="form-control" />
+                    </p>
+                </div>
+            </div>
+            <div class="form-group">
                 <label class="col-sm-2 control-label">Meta keyword:</label>
                 <div class="col-sm-10">
                     <p>
@@ -58,7 +66,22 @@
                     </p>
                 </div>
             </div>
-
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Google Analytic:</label>
+                <div class="col-sm-10">
+                    <p>
+                        <textarea id="google_analytic" class="form-control" rows="5" name="google_analytic" cols="50">{{@trim($row['google_analytic'])}}</textarea>
+                    </p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Copyright:</label>
+                <div class="col-sm-10">
+                    <p>
+                        <input value="{{@$row['copyright']}}" type="text" id="copyright" name="copyright" class="form-control" />
+                    </p>
+                </div>
+            </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label"></label>
                 <div class="col-sm-10">
