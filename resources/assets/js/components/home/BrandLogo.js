@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import getApi from '../../api/getApi';
-import global from '../../global';
 
 export default class BrandLogo extends Component {
     constructor(props) {

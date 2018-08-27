@@ -14,6 +14,7 @@ class LoginController extends Controller
             session()->put('user',Auth::user());
             return redirect()->route('dashboard');
         }
+        return back()->with('err',"Sai tên đăng nhập hoặc mật khẩu");
     }
 
     public function postChangePwd(Request $request){

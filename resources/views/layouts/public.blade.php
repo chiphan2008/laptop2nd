@@ -328,11 +328,11 @@
                                                     <li><a href="index-4.html">Home Shop 4</a></li>
                                                 </ul>
                                             </li> -->
-                                            <li><a href="#">Trang chủ</a></li>
+                                            <li><a href="{{asset('/')}}">Trang chủ</a></li>
                                             <li><a href="#">Giới thiệu</a></li>
                                             <li><a href="#">Sản phẩm</a></li>
                                             <li><a href="#">Tin tức</a></li>
-                                            <li><a href="#">Liên hệ</a></li>
+                                            <li><a href="{{asset('/lien-he.html')}}">Liên hệ</a></li>
                                           </ul>
                                     </nav>
                                 </div>
@@ -344,7 +344,7 @@
                                               <li><a href="#">Giới thiệu</a></li>
                                               <li><a href="#">Sản phẩm</a></li>
                                               <li><a href="#">Tin tức</a></li>
-                                              <li><a href="#">Liên hệ</a></li>
+                                              <li><a href="{{asset('/lien-he.html')}}">Liên hệ</a></li>
                                             </ul>
                                         </nav>
                                     </div>
@@ -358,7 +358,7 @@
             <!-- HRADER AREA END -->
 
           @yield('content')
-
+          <script src="{{asset('js/app.js')}}"></script>
 
                         <footer class="footer-area">
                             <!-- newsletter area -->
@@ -439,7 +439,7 @@
 
           </div>
         
-          <script src="{{asset('js/app.js')}}"></script>
+          
         <!-- <script>window.jQuery || document.write('<script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>')</script> -->
 
         <!-- Popper min js -->

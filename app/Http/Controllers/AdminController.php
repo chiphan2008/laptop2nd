@@ -89,12 +89,13 @@ class AdminController extends Controller
         if($request->hasFile('urlhinh')){
           $file = $request->file('urlhinh');
           $filename = time().'_'.$this->rname_url_hinh($file->getClientOriginalName());
-          $img = Image::make($file->getRealPath())->resize('200','200');
+          $img = Image::make($file->getRealPath())->resize('1281','434');
           $img->save('./images/slider/'.$filename);
         }
 
-        $data['ten'] = $request->input('ten');
-        $data['link'] = $request->input('link');
+        $data['ten'] = trim($request->ten);
+        $data['link'] = trim($request->link);
+        $data['content'] = trim($request->content);
         $data['urlhinh'] = $filename;
         $data['anhien'] = round($request->input('anhien'));
 

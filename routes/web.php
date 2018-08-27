@@ -15,13 +15,13 @@
 Route::get('/','LaptopController@index')->name('index');
 Route::get('/gio-hang.html', function () {
     return view('cart');
-});
+})->name('cart');
 Route::get('/xac-nhan-dat-hang.html', function () {
     return view('checkout');
-});
+})->name('checkout');
 Route::get('/lien-he.html', function () {
     return view('contact');
-});
+})->name('contact');
 /*
 |--------------------------------------------------------------------------
 | Api
@@ -29,6 +29,8 @@ Route::get('/lien-he.html', function () {
 */
 Route::group(['prefix' => 'apis'],function(){
     Route::get('/get-logo','LaptopController@getBrand');
+    Route::get('/get-banner','LaptopController@getBanner');
+    Route::get('/get-slider','LaptopController@getSlider');
 });
 /*
 |--------------------------------------------------------------------------

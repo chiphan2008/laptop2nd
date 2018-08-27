@@ -47,7 +47,14 @@
                     </p>
                 </div>
             </div>
-
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Mô tả:</label>
+                <div class="col-sm-10">
+                    <p>
+                        <textarea id="content" class="form-control ck_editor" rows="5" name="content" cols="50">{{@$row['content']}}</textarea>
+                    </p>
+                </div>
+            </div>
 
             <div class="form-group">
             <label class="col-sm-2 control-label">Hiển thị:</label>

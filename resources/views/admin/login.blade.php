@@ -26,8 +26,9 @@
     <div>
       <a class="hiddenanchor" id="signup"></a>
       <a class="hiddenanchor" id="signin"></a>
-
+      
       <div class="login_wrapper">
+      
         <div class="animate form login_form">
           <section class="login_content">
           <form class="form-horizontal" method="POST" action="">
@@ -39,22 +40,26 @@
               <div>
                 <input name="password" type="password" class="form-control" placeholder="Password" required="" />
               </div>
+              @if ($message = Session::get('err'))
+                  <div class="panel-body">
+                    <div class="alert alert-warning" role="alert">
+                      {{$message}}
+                    </div>
+                  </div>
+                  <div class="clearfix"></div>
+                @endif
               <div>
                 <!-- <a class="btn btn-default submit" >Log in</a> -->
                 <button type="submit" class="btn btn-primary">
                                     Login
                                 </button>
-                <a class="reset_pass" href="#">Lost your password?</a>
+                <!-- <a class="reset_pass" href="#">Lost your password?</a> -->
               </div>
 
               <div class="clearfix"></div>
-
-             
             </form>
           </section>
         </div>
-
-        
       </div>
     </div>
   </body>
