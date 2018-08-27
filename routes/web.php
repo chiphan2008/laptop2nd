@@ -47,6 +47,10 @@ Route::group(['prefix' => 'admincp','middleware'=>'guest'], function (){
   	session()->flush();
   	return redirect()->route('login');
   })->name('logout');
+  Route::get('/change-password', function(){
+    return View('admin.changepwd');
+  })->name('change_pwd');
+  Route::post('/change-password', 'LoginController@postChangePwd');
   Route::get('/', 'AdminController@index')->name('dashboard');
 
   //slider
