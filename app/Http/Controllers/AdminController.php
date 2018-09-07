@@ -236,21 +236,21 @@ class AdminController extends Controller
         $row[3] = $data;
         $data = $this->add_banner($request,'urlhinh4',$request->name4,$request->link4,$request->banner4,'1170','200');
         $row[4] = $data;
-        //$row = $this->get_json('banner'); 
+        //$row = $this->get_json('banner');
         $this->put_json('banner',$row);
         return back()->with('success',"Đã cập nhật thành công.");
     }
 
     public function getBanner()
     {
-        $row = $this->get_json('banner'); 
+        $row = $this->get_json('banner');
         return view('admin.banner',['row'=>$row]);
     }
 
     // info
     public function getInfo()
     {
-        $row = $this->get_json('info'); 
+        $row = $this->get_json('info');
         return view('admin.info',['row'=>$row]);
     }
     public function postInfo(Request $request)
@@ -364,7 +364,7 @@ class AdminController extends Controller
               unlink('./images/product/thumbnail/'.$img_name);
           }
 				  DB::table('product')->where(['idsp'=>$k])->delete();
-	    	}	
+	    	}
 			return back()->with('success',"Đã xóa thành công.");
     	}
     	return back();
@@ -408,10 +408,10 @@ class AdminController extends Controller
             $img->resize(100, 100);
             $img->save("images/product/thumbnail/".$filename);
 
-          }//foreach				
-        }		    
+          }//foreach
+        }
         $data['urlhinh'] = json_encode($arr['hinh']);
-        
+
         $data['mota'] = trim($request->mota);
         $data['noidung'] = trim($request->noidung);
         $data['idcat'] = round($request->idcat);
@@ -420,7 +420,7 @@ class AdminController extends Controller
         $data['kw'] = trim($request->kw);
         $data['des'] = trim($request->des);
         $data['updated_at'] = Carbon::now();
-        
+
         if($id>0){
           DB::table('product')->where(['idsp'=>$id])->update($data);
         }else {
@@ -429,14 +429,14 @@ class AdminController extends Controller
         }
         return redirect()->route('product');
     }
-    
+
     //delete urlhinh
     public function delHinhsp($idsp,$loc){
     	$rs = DB::table('product')->select('urlhinh')
             ->where(['idsp'=>$idsp])
             ->get();
       $hinh = json_decode($rs[0]->urlhinh,true);
-      
+
       if(is_file('./images/product/'.$hinh[$loc]))
         unlink('./images/product/'.$hinh[$loc]);
       if(is_file('./images/product/thumb/'.$hinh[$loc]))
@@ -460,11 +460,11 @@ class AdminController extends Controller
         if(is_file('./images/product/thumbnail/'.$img_name))
           unlink('./images/product/thumbnail/'.$img_name);
       }
-      DB::table('product')->where(['idsp'=>$id])->delete();	
+      DB::table('product')->where(['idsp'=>$id])->delete();
       return back()->with('success',"Đã xóa thành công.");
     }
 
-    
+
     //selectMenu
     public function selectCat($id=0){
     	$menu = DB::table('category')
@@ -491,7 +491,7 @@ class AdminController extends Controller
           if(is_file('./images/news/'.$rs[0]->urlhinh))
               unlink('./images/news/'.$rs[0]->urlhinh);
 				  DB::table('news')->where(['idtin'=>$k])->delete();
-	    	}	
+	    	}
 			return back()->with('success',"Đã xóa thành công.");
     	}
     	return back();
@@ -513,7 +513,7 @@ class AdminController extends Controller
       $data['alias'] = trim($request->alias);
       $data['tomtat'] = trim($request->tomtat);
       $data['noidung'] = trim($request->noidung);
-      	    
+
       $filename = '';
       if($request->hasFile('urlhinh')){
         $file = $request->file('urlhinh');
@@ -526,7 +526,7 @@ class AdminController extends Controller
       $data['anhien'] = round($request->anhien);
       $data['kw'] = trim($request->kw);
       $data['updated_at'] = Carbon::now();
-      
+
       if($id>0){
         if($filename!=''){
           if(is_file('./images/news/'.$request->file_name))
@@ -541,7 +541,7 @@ class AdminController extends Controller
       }
       return redirect()->route('news');
     }
-    
+
     public function deleteNews($id=0)
     {
       $rs = DB::table('news')->where(['idtin'=>$id])->get();
