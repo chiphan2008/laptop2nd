@@ -17,7 +17,7 @@ class Controller extends BaseController
 	  public function put_json($filename,$data){
 		    file_put_contents('./asset/json/'.$filename.'.json',json_encode($data));
     }
-
+    
     public function vn_str_filter ($str){
        $unicode = array(
 

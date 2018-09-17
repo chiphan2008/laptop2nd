@@ -55,12 +55,10 @@
                     <i class="fa fa-eye-slash" style="color:red;"></i>
                     @endif
                     </td>
-
-                    <td align="center"><a href="{{asset($ADMIN_ROUTE.'/product/form/'.$r->idcat)}}"><i class="fa fa-pencil"></i></a></td>
-
-                    <td align="center"> <a onclick="confirmDel({{$r->idcat}})"> <i class="fa fa-times" style="color:#F00;"></i> </a> </td>
+                      <td align="center"><a href="{{asset($ADMIN_ROUTE.'/product/form/'.$r->idsp)}}"><i class="fa fa-pencil"></i></a></td>
+                      <td align="center"> <a onclick="confirmDel({{$r->idsp}})"> <i class="fa fa-times" style="color:#F00;"></i> </a> </td>
                     </tr>
-                    
+
                     @endforeach
                     </table>
 

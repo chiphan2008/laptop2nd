@@ -236,21 +236,21 @@ class AdminController extends Controller
         $row[3] = $data;
         $data = $this->add_banner($request,'urlhinh4',$request->name4,$request->link4,$request->banner4,'1170','200');
         $row[4] = $data;
-        //$row = $this->get_json('banner'); 
+        //$row = $this->get_json('banner');
         $this->put_json('banner',$row);
         return back()->with('success',"Đã cập nhật thành công.");
     }
 
     public function getBanner()
     {
-        $row = $this->get_json('banner'); 
+        $row = $this->get_json('banner');
         return view('admin.banner',['row'=>$row]);
     }
 
     // info
     public function getInfo()
     {
-        $row = $this->get_json('info'); 
+        $row = $this->get_json('info');
         return view('admin.info',['row'=>$row]);
     }
     public function postInfo(Request $request)
@@ -259,6 +259,7 @@ class AdminController extends Controller
         $row['copyright'] = trim($request->copyright);
         $row['footer'] = trim($request->footer);
         $row['contact'] = trim($request->contact);
+        $row['about'] = trim($request->about);
         $row['google_analytic'] = trim($request->google_analytic);
         $row['fb'] = trim($request->fb);
         $row['kw'] = trim($request->kw);
@@ -285,6 +286,7 @@ class AdminController extends Controller
         $data['ten'] = trim($request->ten);
         $data['chitiet'] = trim($request->chitiet);
         $data['diachi'] = trim($request->diachi);
+        $data['noidung'] = trim($request->noidung);
         $data['toado'] = trim($request->toado);
         $data['anhien'] = round($request->anhien);
         $this->put_json('map',$data);
@@ -364,7 +366,7 @@ class AdminController extends Controller
               unlink('./images/product/thumbnail/'.$img_name);
           }
 				  DB::table('product')->where(['idsp'=>$k])->delete();
-	    	}	
+	    	}
 			return back()->with('success',"Đã xóa thành công.");
     	}
     	return back();
@@ -401,26 +403,27 @@ class AdminController extends Controller
             $img->save('./images/product/'.$filename);
 
             $img = Image::make($img_path[$i]);
-            $img->resize(480, 480);
+            $img->resize(300, 300);
             $img->save("images/product/thumb/".$filename);
 
             $img = Image::make($img_path[$i]);
-            $img->resize(100, 100);
+            $img->resize(150, 150);
             $img->save("images/product/thumbnail/".$filename);
 
-          }//foreach				
-        }		    
+          }//foreach
+        }
         $data['urlhinh'] = json_encode($arr['hinh']);
-        
+
         $data['mota'] = trim($request->mota);
         $data['noidung'] = trim($request->noidung);
         $data['idcat'] = round($request->idcat);
         $data['thutu'] = round($request->thutu);
+        $data['noibat'] = round($request->noibat);
         $data['anhien'] = round($request->anhien);
         $data['kw'] = trim($request->kw);
         $data['des'] = trim($request->des);
         $data['updated_at'] = Carbon::now();
-        
+
         if($id>0){
           DB::table('product')->where(['idsp'=>$id])->update($data);
         }else {
@@ -429,14 +432,14 @@ class AdminController extends Controller
         }
         return redirect()->route('product');
     }
-    
+
     //delete urlhinh
     public function delHinhsp($idsp,$loc){
     	$rs = DB::table('product')->select('urlhinh')
             ->where(['idsp'=>$idsp])
             ->get();
       $hinh = json_decode($rs[0]->urlhinh,true);
-      
+
       if(is_file('./images/product/'.$hinh[$loc]))
         unlink('./images/product/'.$hinh[$loc]);
       if(is_file('./images/product/thumb/'.$hinh[$loc]))
@@ -460,11 +463,11 @@ class AdminController extends Controller
         if(is_file('./images/product/thumbnail/'.$img_name))
           unlink('./images/product/thumbnail/'.$img_name);
       }
-      DB::table('product')->where(['idsp'=>$id])->delete();	
+      DB::table('product')->where(['idsp'=>$id])->delete();
       return back()->with('success',"Đã xóa thành công.");
     }
 
-    
+
     //selectMenu
     public function selectCat($id=0){
     	$menu = DB::table('category')
@@ -491,7 +494,7 @@ class AdminController extends Controller
           if(is_file('./images/news/'.$rs[0]->urlhinh))
               unlink('./images/news/'.$rs[0]->urlhinh);
 				  DB::table('news')->where(['idtin'=>$k])->delete();
-	    	}	
+	    	}
 			return back()->with('success',"Đã xóa thành công.");
     	}
     	return back();
@@ -513,7 +516,7 @@ class AdminController extends Controller
       $data['alias'] = trim($request->alias);
       $data['tomtat'] = trim($request->tomtat);
       $data['noidung'] = trim($request->noidung);
-      	    
+
       $filename = '';
       if($request->hasFile('urlhinh')){
         $file = $request->file('urlhinh');
@@ -526,7 +529,7 @@ class AdminController extends Controller
       $data['anhien'] = round($request->anhien);
       $data['kw'] = trim($request->kw);
       $data['updated_at'] = Carbon::now();
-      
+
       if($id>0){
         if($filename!=''){
           if(is_file('./images/news/'.$request->file_name))
@@ -541,7 +544,7 @@ class AdminController extends Controller
       }
       return redirect()->route('news');
     }
-    
+
     public function deleteNews($id=0)
     {
       $rs = DB::table('news')->where(['idtin'=>$id])->get();

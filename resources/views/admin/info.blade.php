@@ -19,7 +19,7 @@
             </div>
 
             <div class="form-group">
-                <label class="col-sm-2 control-label">Footer:</label>
+                <label class="col-sm-2 control-label">Thông tin chung:</label>
                 <div class="col-sm-10">
                     <p>
                         <textarea id="footer" class="form-control ck_editor" rows="5" name="footer" cols="50">{{@trim($row['footer'])}}</textarea>
@@ -27,13 +27,23 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">Contact:</label>
+                <label class="col-sm-2 control-label">Giờ làm việc:</label>
                 <div class="col-sm-10">
                     <p>
                         <textarea id="contact" class="form-control ck_editor" rows="5" name="contact" cols="50">{{@trim($row['contact'])}}</textarea>
                     </p>
                 </div>
             </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Giới thiệu:</label>
+                <div class="col-sm-10">
+                    <p>
+                        <textarea id="about" class="form-control ck_editor" rows="5" name="about" cols="50">{{@trim($row['about'])}}</textarea>
+                    </p>
+                </div>
+            </div>
+
             <div class="form-group">
                 <label class="col-sm-2 control-label">Facebook:</label>
                 <div class="col-sm-10">
@@ -96,5 +106,5 @@
     </form>
 
 </div>
- 
+
 @endsection

@@ -329,10 +329,10 @@
                                                 </ul>
                                             </li> -->
                                             <li><a href="{{asset('/')}}">Trang chủ</a></li>
-                                            <li><a href="#">Giới thiệu</a></li>
-                                            <li><a href="#">Sản phẩm</a></li>
-                                            <li><a href="#">Tin tức</a></li>
-                                            <li><a href="{{asset('/lien-he.html')}}">Liên hệ</a></li>
+                                            <li><a href="{{route('about')}}">Giới thiệu</a></li>
+                                            <li><a href="{{route('shop')}}">Sản phẩm</a></li>
+                                            <li><a href="{{route('tech')}}">Công nghệ</a></li>
+                                            <li><a href="{{route('contact')}}">Liên hệ</a></li>
                                           </ul>
                                     </nav>
                                 </div>
@@ -340,11 +340,11 @@
                                     <div class="mobile-menu">
                                         <nav id="mobile-menu-active">
                                             <ul class="menu-overflow">
-                                              <li><a href="#">Trang chủ</a></li>
-                                              <li><a href="#">Giới thiệu</a></li>
-                                              <li><a href="#">Sản phẩm</a></li>
-                                              <li><a href="#">Tin tức</a></li>
-                                              <li><a href="{{asset('/lien-he.html')}}">Liên hệ</a></li>
+                                              <li><a href="{{asset('/')}}">Trang chủ</a></li>
+                                              <li><a href="{{route('about')}}">Giới thiệu</a></li>
+                                              <li><a href="{{route('shop')}}">Sản phẩm</a></li>
+                                              <li><a href="{{route('tech')}}">Công nghệ</a></li>
+                                              <li><a href="{{route('contact')}}">Liên hệ</a></li>
                                             </ul>
                                         </nav>
                                     </div>
@@ -391,7 +391,7 @@
                                         <div class="col-sm-6 col-lg-3 col-md-3 col-xs-12">
                                             <div class="footer-logo-area">
                                             {!! $row_gen['footer'] !!}
-                                                
+
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-lg-3 col-md-3 col-xs-12">
@@ -408,11 +408,11 @@
                                             js = d.createElement(s); js.id = id;
                                             js.src = "//connect.facebook.net/vi_VN/all.js#xfbml=1";
                                             fjs.parentNode.insertBefore(js, fjs);
-                                            }(document, 'script', 'facebook-jssdk'));</script>  
+                                            }(document, 'script', 'facebook-jssdk'));</script>
                                             <div class="fb-like-box" data-href="{{$row_gen['fb']}}" data-width="500" data-show-faces="true" data-header="true" data-stream="false" data-show-border="false"></div>
                                             </div>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -433,13 +433,13 @@
                             <!-- footer copyright area end -->
                         </footer>
                         <!-- QUICKVIEW PRODUCT START -->
-                        
+
                         <!-- QUICKVIEW PRODUCT END -->
 
 
           </div>
-        
-          
+
+
         <!-- <script>window.jQuery || document.write('<script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>')</script> -->
 
         <!-- Popper min js -->
@@ -450,8 +450,8 @@
         <script src="{{asset('js/jquery.nivo.slider.pack.js')}}"></script>
         <!-- All plugins here -->
         <script src="{{asset('js/plugins.js')}}"></script>
+
         <!-- Main js  -->
-        
         <script src="{{asset('js/main.js')}}"></script>
 
 

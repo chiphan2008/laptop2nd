@@ -95,7 +95,7 @@
                     <div class="jFiler">
                         <input type="file" name="hinh[]" multiple="multiple" style="position: absolute; left: -9999px; top: -9999px; z-index: -9999;">
                         <a class="file_input"><i class="fa fa-paperclip"></i> Thêm hình ảnh</a>
-                    </div>                
+                    </div>
                 </div>
 	        </div>
 
@@ -119,7 +119,7 @@
                           </div>
                     </div>
             @endif
-            
+
             <div class="form-group">
                 <label class="col-sm-2 control-label">Meta Keyword:</label>
                 <div class="col-sm-10">
@@ -144,6 +144,13 @@
                         <input value="{{@round($row->thutu)}}" type="text" id="thutu" name="thutu" class="form-control" style='width:158px;float:left;' />
                     </p>
                   </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Nổi bật:</label>
+                <div class="col-sm-10">
+                <input {{(isset($row->noibat) && @round($row->noibat)==0)?'':'checked="checked"'}} name="noibat" type="checkbox" value="1">
+                </div>
             </div>
 
             <div class="form-group">
@@ -179,7 +186,7 @@ j(function(){
             j('#loader'+vt).css('display', 'block');
             url = "{{asset($ADMIN_ROUTE.'/product/delete_hinhsp/'.@$row->idsp)}}/"+vt;
             j.get(url,null,daxoa);
-          } 
+          }
     });
 
     if(j("#alias").val() == ''){
@@ -205,7 +212,7 @@ j(function(){
     })
 });
 
-function daxoa(d){ 
+function daxoa(d){
    obj.remove();
 }
 </script>

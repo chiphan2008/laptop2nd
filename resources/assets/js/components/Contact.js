@@ -35,16 +35,11 @@ export default class Contact extends Component {
 
 
               <div className="contact-page-area">
-
                 <div className="contact-page-map">
-
-
                     <div className="container-fluid">
                         <div id="map"></div>
                     </div>
-
                 </div>
-
 
                 <div className="contact-form-area">
                     <div className="container-fluid">

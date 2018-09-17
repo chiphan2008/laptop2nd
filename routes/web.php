@@ -19,9 +19,16 @@ Route::get('/gio-hang.html', function () {
 Route::get('/xac-nhan-dat-hang.html', function () {
     return view('checkout');
 })->name('checkout');
-Route::get('/lien-he.html', function () {
-    return view('contact');
-})->name('contact');
+Route::get('/lien-he.html', 'LaptopController@getContact')->name('contact');
+Route::get('/gioi-thieu.html', function () {
+    return view('about');
+})->name('about');
+Route::get('/cong-nghe.html', function () {
+    return view('tech');
+})->name('tech');
+Route::get('/san-pham.html', function () {
+    return view('shop');
+})->name('shop');
 /*
 |--------------------------------------------------------------------------
 | Api
