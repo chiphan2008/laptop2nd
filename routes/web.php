@@ -29,6 +29,9 @@ Route::get('/cong-nghe.html', function () {
 Route::get('/san-pham.html', function () {
     return view('shop');
 })->name('shop');
+Route::get('/danh-muc/{alias}.html', function () {
+    return view('shop');
+});
 /*
 |--------------------------------------------------------------------------
 | Api

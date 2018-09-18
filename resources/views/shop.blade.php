@@ -91,100 +91,7 @@
                                        </li>
                                    </ul>
                                </div>
-                               <div class="product-filter mb-30">
-                                   <div class="widget-title">
-                                       <h3>Filter by price</h3>
-                                   </div>
-                                   <div class="widget-content">
-                                       <div id="price-range"></div>
-                                       <div class="price-values">
-                                           <div class="price_text_btn">
-                                               <span>Price:</span>
-                                               <input type="text" class="price-amount">
-                                           </div>
-                                           <button class="button" type="submit">Filter</button>
-                                       </div>
-                                   </div>
-                               </div>
-                               <div class="widget-title">
-                                   <h3>SELECT BY COLOR</h3>
-                               </div>
-                               <div class="widget-content">
-                                   <ul class="product-categories">
-                                       <li class="cat-item">
-                                           <a href="#">Gold</a>
-                                           <span class="count">(1)</span>
-                                       </li>
-                                       <li class="cat-item">
-                                           <a href="#">Green</a>
-                                           <span class="count">(1)</span>
-                                       </li>
-                                       <li class="cat-item">
-                                           <a href="#">White</a>
-                                           <span class="count">(1)</span>
-                                       </li>
-                                   </ul>
-                               </div>
-                               <div class="product-filter mb-30">
-                                   <div class="widget-title">
-                                       <h3>TOP RATED PRODUCTS</h3>
-                                   </div>
-                                   <div class="widget-content">
-                                       <ul class="product_list_widget">
-                                           <li class="widget-mini-product">
-                                               <div class="product-image">
-                                                   <a title="Phasellus vel hendrerit" href="#">
-                                                       <img alt="" src="images/product/2.jpg">
-                                                   </a>
-                                               </div>
-                                               <div class="product-info">
-                                                   <a title="Phasellus vel hendrerit" href="#">
-                                                       <span class="product-title">Consequuntur magni</span>
-                                                   </a>
-                                                   <div class="star-rating">
-                                                       <div class="rating-box">
-                                                           <span><i class="fa fa-star"></i></span>
-                                                           <span><i class="fa fa-star"></i></span>
-                                                           <span><i class="fa fa-star"></i></span>
-                                                           <span><i class="fa fa-star"></i></span>
-                                                           <span><i class="fa fa-star"></i></span>
-                                                       </div>
-                                                   </div>
-                                                   <span class="woocommerce-Price-amount amount">
-                                                       <span class="woocommerce-Price-currencySymbol">$</span>55.00</span>
-                                               </div>
-                                           </li>
-                                           <li class="widget-mini-product">
-                                               <div class="product-image">
-                                                   <a title="Phasellus vel hendrerit" href="#">
-                                                       <img alt="" src="images/product/3.jpg">
-                                                   </a>
-                                               </div>
-                                               <div class="product-info">
-                                                   <a title="Phasellus vel hendrerit" href="#">
-                                                       <span class="product-title">Aliquam lobortis</span>
-                                                   </a>
-                                                   <div class="star-rating">
-                                                       <div class="rating-box">
-                                                           <span><i class="fa fa-star"></i></span>
-                                                           <span><i class="fa fa-star"></i></span>
-                                                           <span><i class="fa fa-star"></i></span>
-                                                           <span><i class="fa fa-star"></i></span>
-                                                           <span><i class="fa fa-star"></i></span>
-                                                       </div>
-                                                   </div>
-                                                   <span class="woocommerce-Price-amount amount">
-                                                       <span class="woocommerce-Price-currencySymbol">$</span>55.00</span>
-                                               </div>
-                                           </li>
-                                       </ul>
-                                   </div>
-                               </div>
-                               <div class="sidebar-single-banner">
-                                   <a href="#">
-                                       <img src="images/banner/shop-sidebar.jpg" alt="Banner">
-                                   </a>
-                               </div>
+
                                <div class="sidebar-tag">
                                    <div class="widget-title">
                                        <h3>PRODUCT TAGS</h3>
@@ -222,22 +129,7 @@
                                            <li><a data-toggle="tab" href="#list"><i class="ion-navicon"></i></a></li>
                                        </ul>
                                    </div>
-                                   <p class="woocommerce-result-count">Showing 1–12 of 42 results</p>
-                                   <div class="woocommerce-ordering">
-                                       <form method="get" class="woocommerce-ordering hidden-xs">
-                                           <div class="orderby-wrapper">
-                                               <label>Sort By :</label>
-                                               <select class="nice-select-menu orderby">
-                                                   <option dara-display="Select">Default sorting</option>
-                                                   <option value="popularity">Sort by popularity</option>
-                                                   <option value="rating">Sort by average rating</option>
-                                                   <option value="date">Sort by newness</option>
-                                                   <option value="price">Sort by price: low to high</option>
-                                                   <option value="price-desc">Sort by price: high to low</option>
-                                               </select>
-                                           </div>
-                                       </form>
-                                   </div>
+                                   
                                </div>
                                <div class="shop-page-product-area tab-content">
                                    <div id="grid" class="tab-pane fade in show active">

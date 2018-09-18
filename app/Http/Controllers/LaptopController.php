@@ -10,6 +10,14 @@ class LaptopController extends Controller
     public function getInfo(){
         return $this->get_json('info');
     }
+    public function selectCat($id=0){
+    	$menu = DB::table('category')
+					->select('name','idcat','alias')
+          ->where(['idcha'=>$id,'anhien'=>1])
+					->orderBy('thutu','asc')->orderBy('name','asc')
+					->get();
+		  return $menu;
+    }
     public function getBrand(){
         $row = $this->get_json('logo');
         unset($row[-1]);
