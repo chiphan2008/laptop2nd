@@ -2,6 +2,8 @@
 <?php
 $row_gen = $LaptopCtrl->getInfo();
 $menu1 = $LaptopCtrl->selectCat();
+$cart = @session()->get('cart');
+$cart_detail = @session()->get('cart_detail');
 ?>
 
 <!doctype html>
@@ -38,6 +40,7 @@ $menu1 = $LaptopCtrl->selectCat();
         {!! $row_gen['google_analytic'] !!}
         <!-- jQuery CDN -->
         <script src="{{asset('js/jquery-3.2.1.min.js')}}" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script src="{{asset('js/func.js')}}"></script>
 
     </head>
     <body>
@@ -72,70 +75,42 @@ $menu1 = $LaptopCtrl->selectCat();
                                 <!-- shop-cart-menu -->
                                 <div class="shop-cart-menu pull-right">
                                     <ul>
-                                        <li><a href="#">
+                                        <li><a href="{{route('cart')}}">
                                             <span class="cart-icon">
-                                                <i class="ion-bag"></i><sup>3</sup>
+                                                <i class="ion-bag"></i><sup>{{count($cart)}}</sup>
                                             </span>
                                             <span class="cart-text">
-                                                <span class="cart-text-title">My cart <br> <strong>$ 145.00</strong> </span>
+                                                <span class="cart-text-title">Giỏ hàng <br> <strong>{{number_format(@$cart_detail['total'],0)}} đ</strong> </span>
                                             </span>
                                         </a>
+                                            @if(count($cart_detail)>0)
                                             <ul>
+                                              @foreach($cart_detail as $k=>$v)
+                                                @if(is_numeric($k))
                                                 <li>
                                                     <!-- single-shop-cart-wrapper -->
                                                     <div class="single-shop-cart-wrapper">
                                                         <div class="shop-cart-img">
-                                                            <a href="#"><img src="images/product/1.jpg" alt="Image of Product"></a>
+                                                            <a href="#"><img src="{{asset('/images/product/'.$v->urlhinh[0])}}" alt="{{$v->tensp}}"></a>
                                                         </div>
                                                         <div class="shop-cart-info">
-                                                            <h5><a href="cart.html">sport t-shirt men</a></h5>
-                                                            <span class="price">£515.00</span>
-                                                            <span class="quantaty">Qty: 1</span>
-                                                            <span class="cart-remove"><a href="#"><i class="fa fa-times"></i></a></span>
+                                                            <h5><a href="cart.html">{{$v->tensp}}</a></h5>
+                                                            <span class="price">{{number_format($v->giaban,0)}}</span>
+                                                            <span class="quantaty">Số lượng: {{$v->qty}}</span>
+                                                            <span class="cart-remove"><a href="{{asset('/cart/remove/'.$k)}}"><i class="fa fa-times"></i></a></span>
                                                         </div>
                                                     </div>
                                                 </li>
-                                                <li>
-                                                    <!-- single-shop-cart-wrapper -->
-                                                    <div class="single-shop-cart-wrapper">
-                                                        <div class="shop-cart-img">
-                                                            <a href="#"><img src="images/product/2.jpg" alt="Image of Product"></a>
-                                                        </div>
-                                                        <div class="shop-cart-info">
-                                                            <h5><a href="cart.html">sport coat amet</a></h5>
-                                                            <span class="price">£100.00</span>
-                                                            <span class="quantaty">Qty: 1</span>
-                                                            <span class="cart-remove"><a href="#"><i class="fa fa-times"></i></a></span>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <!-- single-shop-cart-wrapper -->
-                                                    <div class="single-shop-cart-wrapper">
-                                                        <div class="shop-cart-img">
-                                                            <a href="#"><img src="images/product/3.jpg" alt="Image of Product"></a>
-                                                        </div>
-                                                        <div class="shop-cart-info">
-                                                            <h5><a href="cart.html">Pellentesque men</a></h5>
-                                                            <span class="price">£265.00</span>
-                                                            <span class="quantaty">Qty: 1</span>
-                                                            <span class="cart-remove"><a href="#"><i class="fa fa-times"></i></a></span>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <!-- shop-cart-total -->
-                                                    <div class="shop-cart-total">
-                                                        <p>Subtotal: <span class="pull-right">£880.00</span></p>
-                                                    </div>
-                                                </li>
+                                                @endif
+                                                @endforeach
                                                 <li>
                                                     <div class="shop-cart-btn">
-                                                        <a href="checkout.html">Checkout</a>
-                                                        <a href="cart.html" class="pull-right">View Cart</a>
+                                                        <a href="{{route('checkout')}}">Thanh toán</a>
+                                                        <a href="{{route('cart')}}" class="pull-right">Giỏ hàng</a>
                                                     </div>
                                                 </li>
                                             </ul>
+                                          @endif
                                         </li>
                                     </ul>
                                 </div>

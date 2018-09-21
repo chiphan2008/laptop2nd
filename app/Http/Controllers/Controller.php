@@ -17,7 +17,7 @@ class Controller extends BaseController
 	  public function put_json($filename,$data){
 		    file_put_contents('./asset/json/'.$filename.'.json',json_encode($data));
     }
-    
+
     public function vn_str_filter ($str){
        $unicode = array(
 
@@ -49,9 +49,9 @@ class Controller extends BaseController
 
            'Y'=>'Ý|Ỳ|Ỷ|Ỹ|Ỵ'
        );
+      $chars = array('~','^','&','*','_','__','`','@','#','$','%','!',' !',' ?','?','"','“','”',':','+','/','(',')','--','.',',','=','™');
 
       foreach($unicode as $nonUnicode=>$uni){
-    		$chars = array('~','^','&','*','_','__','`','@','#','$','%',' ?','?','"','“','”',':','+','/','(',')','--','.',',','=','™');
     		$str = preg_replace("/($uni)/i", $nonUnicode, trim($str));
         $str = trim(str_replace($chars,' ',$str));
     		$str = str_replace(' ','-',$str);

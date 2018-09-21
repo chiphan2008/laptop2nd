@@ -5846,7 +5846,7 @@ a.ideas-btn:hover {
   color: #0070ce;
 }
 .blog-page h1 a:before {
-    content: '\f005';
+    /* content: 'f005'; */
     display: inline-block;
     font-family: FontAwesome;
     font-size: 8px;
@@ -5983,7 +5983,7 @@ color: #0070ce;
 .blog_Archives__sidbar li {
     color: #333;
     font-size: 14px;
-    list-style: outside none disc;
+    list-style: none;
     margin-bottom: 5px;
     transition: all 0.3s ease 0s;
     padding: 7px 0;

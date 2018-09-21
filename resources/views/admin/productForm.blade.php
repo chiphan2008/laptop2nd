@@ -53,7 +53,15 @@
                     </p>
                   </div>
             </div>
-
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Khối lượng:</label>
+                  <div class="col-sm-10">
+                    <p>
+                        <input value="{{@$row->khoiluong}}" type="text" id="khoiluong" name="khoiluong" class="form-control" style='width:158px;float:left;' />
+                        <span style="font-weight:bold;padding:7px 20px;display:inline-block;" id="khoiluongVal">Gam</span>
+                    </p>
+                  </div>
+            </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label">Mô tả:</label>
                 <div class="col-sm-10">

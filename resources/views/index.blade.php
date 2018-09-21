@@ -111,7 +111,7 @@
                                               </div>
                                               <div class="product-hidden">
                                                   <div class="add-to-cart">
-                                                      <a href="cart.html">Add to cart</a>
+                                                      <a href="{{asset('/cart/add/'.$r_new_product->idsp)}}" rel="{{$r_new_product->idsp}}">Thêm vào giỏ hàng</a>
                                                   </div>
 
                                               </div>
@@ -182,7 +182,7 @@
                                                   </span>
                                               </div>
                                               <div class="add-to-cart">
-                                                  <a href="cart.html">Add to cart</a>
+                                                  <a href="{{asset('/cart/add/'.$r_selling_product->idsp)}}" rel="{{$r_selling_product->idsp}}">Thêm vào giỏ hàng</a>
                                               </div>
                                           </div>
                                       </div>
@@ -229,7 +229,7 @@
 
                                               </div>
                                               <div class="add-to-cart">
-                                                  <a href="cart.html">Add to cart</a>
+                                                  <a href="{{asset('/cart/add/'.$r_view_product->idsp)}}"  rel="{{$r_view_product->idsp}}">Thêm vào giỏ hàng</a>
                                               </div>
                                           </div>
                                       </div>
@@ -276,7 +276,7 @@
 
                                               </div>
                                               <div class="add-to-cart">
-                                                  <a href="cart.html">Add to cart</a>
+                                                  <a href="{{asset('/cart/add/'.$r_highlight_product->idsp)}}" rel="{{$r_highlight_product->idsp}}">Thêm vào giỏ hàng</a>
                                               </div>
                                           </div>
                                       </div>
@@ -294,6 +294,17 @@
 
         <!-- end product -->
 
-
+        <script type="text/javascript">
+        var obj;
+        jQuery(function(){
+            jQuery(".add_cart").click(function(event) {
+              var idsp=jQuery(this).attr("rel");
+              url = "{{asset('/cart/add')}}/"+idsp;
+              jQuery.get(url,null,function(data){
+                console.log(data);
+              });
+            });
+        });
+        </script>
           <!-- Body main wrapper end -->
 @endsection

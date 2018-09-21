@@ -386,6 +386,7 @@ class AdminController extends Controller
         $data['alias'] = trim($request->alias);
         $data['giaban'] = round($request->giaban);
         $data['gianhap'] = round($request->gianhap);
+        $data['khoiluong'] = round($request->khoiluong);
 
         $arr['hinh'] = is_array($request->name_hinh)?$request->name_hinh:[];
         if ($request->hasFile('undefined')) {

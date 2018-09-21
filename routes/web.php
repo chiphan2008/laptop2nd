@@ -16,16 +16,19 @@ Route::get('/','LaptopController@index')->name('index');
 Route::get('/gio-hang.html', function () {
     return view('cart');
 })->name('cart');
-Route::get('/xac-nhan-dat-hang.html', function () {
-    return view('checkout');
-})->name('checkout');
+Route::get('/xac-nhan-dat-hang.html', 'LaptopController@checkout')->name('checkout');
+Route::post('/gio-hang.html', 'LaptopController@handlePostCart');
+Route::prefix('/cart')->group( function () {
+  Route::get('/{act}/{idsp}', 'LaptopController@handleCart');
+  Route::post('/delivery', 'LaptopController@getDelivery');
+});
+
 Route::get('/lien-he.html', 'LaptopController@getContact')->name('contact');
 Route::get('/gioi-thieu.html', function () {
     return view('about');
 })->name('about');
-Route::get('/cong-nghe.html', function () {
-    return view('tech');
-})->name('tech');
+Route::get('/cong-nghe.html', 'LaptopController@getTech')->name('tech');
+Route::get('/cong-nghe/{alias}.html', 'LaptopController@getDetailTech');
 Route::get('/san-pham.html', function () {
     return view('shop');
 })->name('shop');

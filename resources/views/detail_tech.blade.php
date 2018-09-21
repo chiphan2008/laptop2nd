@@ -1,13 +1,16 @@
 @extends("layouts.public")
 
 @section("content")
+@foreach($tech as $r_news)
 <div class="breadcrumbs-container">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
                 <nav class="woocommerce-breadcrumb">
                     <a href="{{asset('/')}}">Trang chủ</a>
-                    <span class="separator">/</span> Công nghệ
+                    <span class="separator">/</span>
+                    <a href="{{asset('/cong-nghe.html')}}">Công nghệ</a>
+                    <span class="separator">/</span> {{$r_news->tieude}}
                 </nav>
             </div>
         </div>
@@ -20,36 +23,44 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-md-9">
-                        <div class="page-content blog-page blog-sidebar right-sidebar blog-text-align">
-                          @foreach($tech as $r_news)
+                        <div class="single-blog page-content blog-page blog-sidebar right-sidebar">
+
                             <!-- blog post -->
                             <article class="text-center">
-                                <div class="blog-entry-header">
-                                    <h1><a href="{{asset('/cong-nghe/'.$r_news->alias.'.html')}}">{{$r_news->tieude}}</a></h1>
-                                    <div class="post-meta">
-                                        <div class="post-date">
-                                          <i class="fa fa-calendar"></i>{{date('d-m-Y H:m:s', strtotime($r_news->create_at))}}
+                                    <div class="blog-entry-header">
+                                        <h1>{{$r_news->tieude}}</h1>
+                                        <div class="post-meta">
+                                            <a href="#" class="post-date"><i class="fa fa-calendar"></i> {{date('d/m/Y H:m:s',strtotime($r_news->create_at))}} </a>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="post-thumbnail">
-                                    <a href="{{asset('/cong-nghe/'.$r_news->alias.'.html')}}"><img src="images/news/{{$r_news->urlhinh}}" alt="{{$r_news->tieude}}"></a>
-                                </div>
-                                <div class="postinfo-wrapper">
-                                    <p>{{$r_news->tomtat}}</p>
-                                    <a class="readmore button" href="{{asset('/cong-nghe/'.$r_news->alias.'.html')}}">Xem thêm <i class="fa fa-long-arrow-right"></i></a>
-                                </div>
-                            </article>
+
+                                    <div class="postinfo-wrapper">
+                                        {!! $r_news->noidung !!}
+                                    </div>
+                                </article>
                             <!-- blog post end -->
                           @endforeach
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12 col-12">
-                                <div class="clearfix mb-20 pull-right">
-                                  {{$tech->render()}}
+
+
+                          <div class="relatedposts">
+                                    <h3>Bài viết liên quan</h3>
+                                    <div class="row">
+                                      @foreach($other_tech as $r_other)
+                                        <!-- related post -->
+                                        <div class="relatedthumb col-md-4 col-sm-6">
+                                            <div class="image">
+                                                <img src="{{asset('images/news/'.$r_other->urlhinh)}}" alt="{{$r_other->tieude}}">
+                                            </div>
+                                            <h4><a rel="external" href="single-blog.html">{{$r_other->tieude}}</a></h4>
+                                            <span class="post-date"> {{date('d/m/Y H:m:s',strtotime($r_other->create_at))}} </span>
+                                        </div>
+                                        <!-- related post end -->
+                                      @endforeach
+                                    </div>
                                 </div>
-                            </div>
+
                         </div>
+
                     </div>
                     <div class="col-xs-12 col-md-3">
                         <div class="blog_sidebar">
