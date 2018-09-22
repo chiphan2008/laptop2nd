@@ -43,7 +43,23 @@
                     </p>
                 </div>
             </div>
-
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Ngân hàng:</label>
+                <div class="col-sm-10">
+                    <p>
+                        <textarea id="bank_sys" class="form-control ck_editor" rows="5" name="bank_sys" cols="50">{{@trim($row['bank_sys'])}}</textarea>
+                    </p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Giá trị đơn hàng (FreeShip):</label>
+                <div class="col-sm-10">
+                    <p>
+                        <input style="width:200px;float:left;margin-right:10px" value="{{@$row['total_freeship']}}" type="text" id="total_freeship" name="total_freeship" class="form-control" />
+                        <span style="font-weight:bold;padding:7px 20px;display:inline-block;" id="total_freeshipVal"></span>
+                    </p>
+                </div>
+            </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label">Facebook:</label>
                 <div class="col-sm-10">
@@ -106,5 +122,16 @@
     </form>
 
 </div>
+<script type="text/javascript">
+j(function(){
+  if(j("#total_freeship").val() != ''){
+      j("#total_freeshipVal").html(format_number(j("#total_freeship").val()))
+  }
+  j("#total_freeship").blur(function(){
+    var name = j(this).val();
+    j("#total_freeshipVal").html(format_number(name))
+  })
+});
 
+</script>
 @endsection

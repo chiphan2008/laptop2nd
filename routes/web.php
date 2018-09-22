@@ -17,10 +17,13 @@ Route::get('/gio-hang.html', function () {
     return view('cart');
 })->name('cart');
 Route::get('/xac-nhan-dat-hang.html', 'LaptopController@checkout')->name('checkout');
+Route::post('/xac-nhan-dat-hang.html', 'LaptopController@postCheckout');
 Route::post('/gio-hang.html', 'LaptopController@handlePostCart');
+Route::get('/area/{id_parent}', 'LaptopController@getArea');
 Route::prefix('/cart')->group( function () {
   Route::get('/{act}/{idsp}', 'LaptopController@handleCart');
   Route::post('/delivery', 'LaptopController@getDelivery');
+
 });
 
 Route::get('/lien-he.html', 'LaptopController@getContact')->name('contact');
@@ -67,6 +70,7 @@ Route::group(['prefix' => 'admincp','middleware'=>'guest'], function (){
   })->name('change_pwd');
   Route::post('/change-password', 'LoginController@postChangePwd');
   Route::get('/', 'AdminController@index')->name('dashboard');
+  Route::post('/', 'AdminController@importFile');
 
   //slider
   Route::get('/slide', 'AdminController@getSlide')->name('slide');

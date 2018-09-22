@@ -155,12 +155,17 @@
             </div>
 
             <div class="form-group">
-                <label class="col-sm-2 control-label">Nổi bật:</label>
+                <label class="col-sm-2 control-label">Sản phẩm đề xuất:</label>
                 <div class="col-sm-10">
                 <input {{(isset($row->noibat) && @round($row->noibat)==0)?'':'checked="checked"'}} name="noibat" type="checkbox" value="1">
                 </div>
             </div>
-
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Miễn phí vận chuyển:</label>
+                <div class="col-sm-10">
+                <input {{(isset($row->freeship) && @round($row->freeship)==0)?'':'checked="checked"'}} name="freeship" type="checkbox" value="1">
+                </div>
+            </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label">Hiển thị:</label>
                 <div class="col-sm-10">

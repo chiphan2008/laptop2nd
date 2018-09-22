@@ -1,5 +1,6 @@
 @extends("layouts.public")
-
+@inject('LaptopCtrl', 'App\Http\Controllers\LaptopController')
+<?php $area = $LaptopCtrl->getArea(0); ?>
 @section("content")
 <div class="breadcrumbs-container">
   <div class="container">
@@ -17,7 +18,19 @@
   <div class="checkout-page-area">
                   <div class="checkout-area">
                       <div class="container">
-                          <form action="#">
+                        <div class="row">
+                          <div class="col-lg-12 col-md-12">
+                            @if ($message = Session::get('err'))
+                              <div class="panel-body">
+                                <div class="alert alert-warning" role="alert">
+                                  {{$message}}
+                                </div>
+                              </div>
+                            @endif
+                          </div>
+                        </div>
+                          <form action="" method="post">
+                            {{ csrf_field() }}
                               <div class="row">
                                   <div class="col-lg-6 col-md-6">
                                       <div class="checkbox-form">
@@ -27,7 +40,7 @@
                                               <div class="col-md-3">
                                                   <div class="checkout-form-list">
                                                       <label>Xưng hô: <span class="required">*</span></label>
-                                                      <select name="gioitinh">
+                                                      <select name="sex">
                                                           <option value="1">Anh</option>
                                                           <option value="0">Chị</option>
                                                       </select>
@@ -36,39 +49,46 @@
                                               <div class="col-md-9">
                                                   <div class="checkout-form-list mb-10">
                                                       <label>Họ tên: <span class="required">*</span></label>
-                                                      <input type="text" name="hoten" placeholder="Họ tên" />
+                                                      <input type="text" name="name" id="name" placeholder="Họ tên" />
                                                   </div>
                                               </div>
                                               <div class="col-md-6">
                                                 <div class="checkout-form-list mb-10">
                                                     <label>Tỉnh/TP <span class="required">*</span></label>
-                                                    <input type="text" name="city" id="city" placeholder="Tỉnh/TP">
+                                                    <select name="city" id="city" onchange="callDistrict(this.value)">
+                                                        <option value="-1">Tỉnh/TP</option>
+                                                        @foreach($area as $v)
+                                                        <option value="{{$v->id}}">{{$v->name}}</option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
                                               </div>
                                               <div class="col-md-6">
                                                 <div class="checkout-form-list mb-10">
                                                     <label>Quận/Huyện <span class="required">*</span></label>
-                                                    <input type="text" name="district" id="district" placeholder="Quận/Huyện">
+                                                    <select name="district" id="district">
+                                                        <option value="-1">Quận/Huyện</option>
+                                                    </select>
                                                 </div>
                                               </div>
                                               <div class="col-md-12">
                                                   <div class="checkout-form-list">
                                                       <label>Địa chỉ:<span class="required">*</span></label>
-                                                      <input onblur="getDelivery()" type="text" name="diachi" id="address" placeholder="Địa chỉ" />
+                                                      <input onblur="getDelivery()" type="text" name="address" id="address" placeholder="Địa chỉ" />
                                                   </div>
                                               </div>
 
                                               <div class="col-md-6">
                                                 <div class="checkout-form-list mb-30">
                                                     <label> Email <span class="required">*</span></label>
-                                                    <input type="email" name="email" placeholder="">
+                                                    <input type="email" name="email" id="email" placeholder="">
                                                 </div>
                                             </div>
 
                                               <div class="col-md-6">
                                                   <div class="checkout-form-list mb-30">
                                                       <label>Số điện thoại:  <span class="required">*</span></label>
-                                                      <input type="text" name="dienthoai" placeholder="Số điện thoại" />
+                                                      <input type="text" name="phone" id="phone" placeholder="Số điện thoại" />
                                                   </div>
                                               </div>
 
@@ -78,7 +98,7 @@
                                               <div class="order-notes">
                                                   <div class="checkout-form-list">
                                                       <label>Ghi chú</label>
-                                                      <textarea id="checkout-mess" name="ghichu" cols="30" rows="10" ></textarea>
+                                                      <textarea id="notes" name="note" cols="30" rows="10" ></textarea>
                                                   </div>
                                               </div>
                                           </div>
@@ -112,7 +132,7 @@
                                                   </tbody>
                                                   <tfoot>
                                                       <tr class="order-total">
-                                                          <th>Tổng đơn hàng</th>
+                                                          <th>Tổng đơn hàng (VNĐ)</th>
                                                           <td><strong><span class="amount">{{number_format($cart_detail['total'],0)}}</span></strong>
                                                           </td>
                                                       </tr>
@@ -120,52 +140,33 @@
                                               </table>
                                               @endif
                                           </div>
-                                          <div class="col-lg-12 col-md-12">
-                                            <label>Phí vận chuyển từ giaohangtietkiem:</label>
-                                            <strong id="delivery"></strong>
-                                          </div>
+                                          <span>Phí vận chuyển tạm tính GHTK: <strong id="delivery"></strong></span>
+                                          <input type="hidden" id="ship" name="ship" value="0" />
                                           <div class="payment-method">
                                               <div class="payment-accordion">
+
                                                   <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                                                      <div class="panel panel-default">
-                                                          <div class="panel-heading" role="tab" id="headingOne">
-                                                              <h4 class="panel-title">
-                                                                  <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                              Direct Bank Transfer
-                                                              </a>
-                                                              </h4>
-                                                          </div>
-                                                          <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                                                              <div class="panel-body">
-                                                                  <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
-                                                              </div>
-                                                          </div>
+                                                    <h5>Hình thức thanh toán:</h5>
+
+                                                      <div class="panel-heading" role="tab" id="headingOne">
+                                                        <label  for="cod" class="panel-title">
+                                                        <input type="radio" checked name="payment" id="cod" value="1" />
+                                                         Vận chuyển COD (Thanh toán khi nhận hàng)
+                                                       </label>
                                                       </div>
-                                                      <div class="panel panel-default">
+
+                                                      <div>
                                                           <div class="panel-heading" role="tab" id="headingTwo">
                                                               <h4 class="panel-title">
-                                                                  <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                              Cheque Payment
-                                                              </a>
+                                                                <label  for="transfer" class="panel-title">
+                                                                <input type="radio" name="payment" id="transfer" value="2" />
+                                                                 Chuyển khoản
+                                                               </label>
                                                               </h4>
                                                           </div>
-                                                          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                                          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
                                                               <div class="panel-body">
-                                                                  <p>Please send your cheque to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
-                                                              </div>
-                                                          </div>
-                                                      </div>
-                                                      <div class="panel panel-default">
-                                                          <div class="panel-heading" role="tab" id="headingThree">
-                                                              <h4 class="panel-title">
-                                                                  <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                              PayPal
-                                                              </a>
-                                                              </h4>
-                                                          </div>
-                                                          <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                                                              <div class="panel-body">
-                                                                  <p>Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.</p>
+                                                                  {!! $info['bank_sys'] !!}
                                                               </div>
                                                           </div>
                                                       </div>
@@ -185,13 +186,47 @@
               </div>
 </div>
 <script type="text/javascript">
-// jQuery(function(){
-//
-//
-// });
+jQuery(document).ready(function() {
+    //$('input[type=submit]').prop('disabled', true);
+    var dist = $('#district').val();
+    $('#headingTwo').click(function(){
+      $('#collapseTwo').show();
+    });
+    $('#headingOne').click(function(){
+      $('#collapseTwo').hide();
+    })
+    $('input[type=submit]').click(function(){
+
+      if($('#name').val().trim()=='') {alert('Vui lòng nhập họ tên.');$('#name').focus();return false;}
+      if($('#city').val()==-1) {alert('Vui lòng chọn Tỉnh/TP.');$('#city').focus();return false;}
+      //if(dist.trim()==-1) {alert('Vui lòng chọn Quận/Huyện.');$('#district').focus();return false;}
+      if($('#address').val().trim()=='') {alert('Vui lòng nhập địa chỉ.');$('#address').focus();return false;}
+      if($('#email').val().trim()=='') {alert('Vui lòng nhập email.');$('#email').focus();return false;}
+      if($('#phone').val().trim()=='') {alert('Vui lòng nhập số điện thoại.');$('#phone').focus();return false;}
+    });
+
+
+});
+function callDistrict(id){
+  // var dist = jQuery('#district').val();
+  $('#district').html('');
+  if(id!=-1){
+    var url = "{{asset('/area')}}/"+id;
+    jQuery.get(url,null,function(data){
+      data.map(e=>{
+        $('#district').append("<option value="+e.id+">"+e.name+"</option>")
+      })
+    })
+  }else {
+    $('#district').append("<option value='-1'>Quận/Huyện</option>");
+  }
+}
 function getDelivery(){
-  var city = jQuery('#city').val();
-  var district = jQuery('#district').val();
+  //$("#list option[value='2']").text()
+  var id_city = jQuery('#city').val();
+  var city = $("#city option[value='"+id_city+"']").text();
+  var id_district = jQuery('#district').val();
+  var district = $("#district option[value='"+id_district+"']").text();
   var address = jQuery('#address').val();
   var weight = {{$cart_detail['weight']}} || 0;
   //alert(city);
@@ -209,8 +244,10 @@ function getDelivery(){
         },
         dataType: 'json',
         success: function (data) {
-          jQuery( "#delivery" ).append(format_number(data.fee.fee)+" VNĐ");
-            //console.info(data.fee.fee);
+          jQuery( "#delivery" ).text(data.fee);
+          if($.isNumeric(data.val)){
+            $("#ship").val(data.val);
+          }
         }
     });
   }

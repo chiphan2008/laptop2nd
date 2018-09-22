@@ -15,13 +15,18 @@ class CreateDonhangTable extends Migration
     {
         Schema::create('donhang', function (Blueprint $table) {
             $table->increments('iddh');
-            $table->dateTime('thoigiandat');
-            $table->string('tennguoinhan');
-            $table->text('diadiemgiao');
+            $table->string('code');
+            $table->string('name');
+            $table->tinyInteger('sex');
+            $table->string('address');
             $table->string('email');
-            $table->string('dienthoai');
-            $table->text('ghichu');
-            $table->tinyInteger('tinhtrang');
+            $table->string('phone');
+            $table->text('note');
+            $table->integer('ship');
+            $table->tinyInteger('payment');
+            $table->integer('city');
+            $table->integer('district');
+            $table->tinyInteger('status');
             $table->timestamps();
         });
     }

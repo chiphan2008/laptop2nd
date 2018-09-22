@@ -40,7 +40,7 @@ $cart_detail = @session()->get('cart_detail');
         {!! $row_gen['google_analytic'] !!}
         <!-- jQuery CDN -->
         <script src="{{asset('js/jquery-3.2.1.min.js')}}" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-        <script src="{{asset('js/func.js')}}"></script>
+        
 
     </head>
     <body>

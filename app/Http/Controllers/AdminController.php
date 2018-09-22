@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Intervention\Image\ImageManagerStatic as Image;
 use DB;
 use Carbon\Carbon;
+use Rap2hpoutre\FastExcel\FastExcel;
 
 class AdminController extends Controller
 {
@@ -14,9 +15,11 @@ class AdminController extends Controller
      *
      * @return void
      */
+    //private $excel;
     public function __construct()
     {
         //$this->middleware('auth');
+        //$this->excel = $excel;
     }
 
     /**
@@ -27,6 +30,27 @@ class AdminController extends Controller
     public function index()
     {
         return view('admin.index');
+    }
+    public function importFile(Request $request)
+    {
+      return back();
+      if($request->file('imported-file'))
+      {
+            $path = $request->file('imported-file')->getRealPath();
+            (new FastExcel)->import($path, function ($row) {
+              DB::table('area')->insert([
+                "id" => $row['id'],
+                "name" => $row['name'],
+                "id_parent" => $row['id_parent'],
+                "weight" => $row['weight']
+              ]);
+            });
+
+            //dd($path);
+            //$data = Excel::load($path,function(){})->get();
+            //dd($data);
+      }
+        //return back();
     }
     //Hinh slide
     public function getSlide()
@@ -261,6 +285,8 @@ class AdminController extends Controller
         $row['contact'] = trim($request->contact);
         $row['about'] = trim($request->about);
         $row['google_analytic'] = trim($request->google_analytic);
+        $row['bank_sys'] = trim($request->bank_sys);
+        $row['total_freeship'] = round($request->total_freeship);
         $row['fb'] = trim($request->fb);
         $row['kw'] = trim($request->kw);
         $row['des'] = trim($request->des);
@@ -387,6 +413,7 @@ class AdminController extends Controller
         $data['giaban'] = round($request->giaban);
         $data['gianhap'] = round($request->gianhap);
         $data['khoiluong'] = round($request->khoiluong);
+        $data['freeship'] = round($request->freeship);
 
         $arr['hinh'] = is_array($request->name_hinh)?$request->name_hinh:[];
         if ($request->hasFile('undefined')) {
