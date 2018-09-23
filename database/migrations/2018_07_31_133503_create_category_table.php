@@ -20,6 +20,7 @@ class CreateCategoryTable extends Migration
             $table->integer('idcha');
             $table->tinyInteger('thutu');
             $table->tinyInteger('anhien');
+            $table->tinyInteger('total');
             $table->string('kw');
             $table->string('des');
             $table->timestamps();

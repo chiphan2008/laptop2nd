@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDonhangchitietTable extends Migration
+class CreateBillDetailTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateDonhangchitietTable extends Migration
      */
     public function up()
     {
-        Schema::create('donhangchitiet', function (Blueprint $table) {
-            $table->integer('iddh');
-            $table->integer('idsp');
-            $table->integer('soluong');
-            $table->integer('giaban');
-            $table->string('makm');
+        Schema::create('bill_detail', function (Blueprint $table) {
+          $table->integer('idbill');
+          $table->integer('idsp');
+          $table->integer('qty');
+          $table->integer('price');
         });
     }
 
@@ -29,6 +28,6 @@ class CreateDonhangchitietTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('donhangchitiet');
+        Schema::dropIfExists('bill_detail');
     }
 }

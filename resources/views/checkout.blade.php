@@ -47,13 +47,13 @@
                                                   </div>
                                               </div>
                                               <div class="col-md-9">
-                                                  <div class="checkout-form-list mb-10">
+                                                  <div class="checkout-form-list">
                                                       <label>Họ tên: <span class="required">*</span></label>
                                                       <input type="text" name="name" id="name" placeholder="Họ tên" />
                                                   </div>
                                               </div>
                                               <div class="col-md-6">
-                                                <div class="checkout-form-list mb-10">
+                                                <div class="checkout-form-list">
                                                     <label>Tỉnh/TP <span class="required">*</span></label>
                                                     <select name="city" id="city" onchange="callDistrict(this.value)">
                                                         <option value="-1">Tỉnh/TP</option>
@@ -61,14 +61,16 @@
                                                         <option value="{{$v->id}}">{{$v->name}}</option>
                                                         @endforeach
                                                     </select>
+                                                    <input type="hidden" id="city_name" name="city_name" value="" />
                                                 </div>
                                               </div>
                                               <div class="col-md-6">
-                                                <div class="checkout-form-list mb-10">
+                                                <div class="checkout-form-list mb-5">
                                                     <label>Quận/Huyện <span class="required">*</span></label>
                                                     <select name="district" id="district">
                                                         <option value="-1">Quận/Huyện</option>
                                                     </select>
+                                                    <input type="hidden" id="district_name" name="district_name" value="" />
                                                 </div>
                                               </div>
                                               <div class="col-md-12">
@@ -79,14 +81,14 @@
                                               </div>
 
                                               <div class="col-md-6">
-                                                <div class="checkout-form-list mb-30">
+                                                <div class="checkout-form-list">
                                                     <label> Email <span class="required">*</span></label>
                                                     <input type="email" name="email" id="email" placeholder="">
                                                 </div>
                                             </div>
 
                                               <div class="col-md-6">
-                                                  <div class="checkout-form-list mb-30">
+                                                  <div class="checkout-form-list">
                                                       <label>Số điện thoại:  <span class="required">*</span></label>
                                                       <input type="text" name="phone" id="phone" placeholder="Số điện thoại" />
                                                   </div>
@@ -129,6 +131,12 @@
                                                       </tr>
                                                     @endif
                                                     @endforeach
+                                                    <tr class="cart-subtotal">
+                                                      <th>Mã giảm giá</th>
+                                                      <td class="checkout-form-list">
+                                                        <input onblur="" type="text" style="margin-bottom:5px;text-transform: uppercase;" name="code_discount" id="code_discount" placeholder="" />
+                                                      </td>
+                                                    </tr>
                                                   </tbody>
                                                   <tfoot>
                                                       <tr class="order-total">
@@ -147,7 +155,7 @@
 
                                                   <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                                                     <h5>Hình thức thanh toán:</h5>
-
+                                                    <input type="hidden" name="payment_label" id="payment_label" value="Vận chuyển COD (Thanh toán khi nhận hàng)" />
                                                       <div class="panel-heading" role="tab" id="headingOne">
                                                         <label  for="cod" class="panel-title">
                                                         <input type="radio" checked name="payment" id="cod" value="1" />
@@ -189,10 +197,13 @@
 jQuery(document).ready(function() {
     //$('input[type=submit]').prop('disabled', true);
     var dist = $('#district').val();
+    //$('#code_discount').uppercase();
     $('#headingTwo').click(function(){
+      $('#payment_label').val("Chuyển khoản");
       $('#collapseTwo').show();
     });
     $('#headingOne').click(function(){
+      $('#payment_label').val("Vận chuyển COD (Thanh toán khi nhận hàng)");
       $('#collapseTwo').hide();
     })
     $('input[type=submit]').click(function(){
@@ -225,8 +236,10 @@ function getDelivery(){
   //$("#list option[value='2']").text()
   var id_city = jQuery('#city').val();
   var city = $("#city option[value='"+id_city+"']").text();
+  $("#city_name").val(city);
   var id_district = jQuery('#district').val();
   var district = $("#district option[value='"+id_district+"']").text();
+  $("#district_name").val(district);
   var address = jQuery('#address').val();
   var weight = {{$cart_detail['weight']}} || 0;
   //alert(city);

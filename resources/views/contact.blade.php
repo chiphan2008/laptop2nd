@@ -31,31 +31,32 @@
                             <div class="col-sm-12 col-md-12 col-lg-6 col-xs-12">
                                 <div class="contact-form-inner">
                                     <h2>VẤN ĐỀ CỦA BẠN?</h2>
-                                    <form action="mail.php" method="get">
+                                    <form action="" method="post">
+                                      {{ csrf_field() }}
                                         <div class="row">
                                             <div class="col">
-                                                <input type="text" class="form-control" placeholder="First name*" required>
+                                                <input type="text" class="form-control" name="name" placeholder="Họ tên*" required>
                                             </div>
                                             <div class="col">
-                                                <input type="text" class="form-control" placeholder="Last name*" required>
+                                                <input type="text" class="form-control" name="phone" placeholder="Số điện thoại*" required>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col">
-                                                <input type="text" class="form-control" placeholder="Email*" required>
+                                                <input type="text" class="form-control" name="email" placeholder="Email*" required>
                                             </div>
                                             <div class="col">
-                                                <input type="text" class="form-control" placeholder="Subject*" required>
+                                                <input type="text" class="form-control" name="title" placeholder="Tiêu đề*" required>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col">
-                                                <textarea name="your-message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required" aria-required="true"
-                                                    aria-invalid="false" placeholder="Message *" required></textarea>
+                                                <textarea name="contents" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required" aria-required="true"
+                                                    aria-invalid="false" placeholder="Nội dung *" required></textarea>
                                             </div>
                                         </div>
                                         <div class="contact-submit">
-                                            <input type="submit" value="Send Email" class="wpcf7-form-control wpcf7-submit button">
+                                            <input type="submit" value="Gửi thư" class="wpcf7-form-control wpcf7-submit button">
                                         </div>
                                     </form>
                                 </div>

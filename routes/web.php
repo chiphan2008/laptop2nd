@@ -11,6 +11,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/tst.html', function () {
+    return view('layouts.contacttemplate');
+});
 
 Route::get('/','LaptopController@index')->name('index');
 Route::get('/gio-hang.html', function () {
@@ -23,10 +26,11 @@ Route::get('/area/{id_parent}', 'LaptopController@getArea');
 Route::prefix('/cart')->group( function () {
   Route::get('/{act}/{idsp}', 'LaptopController@handleCart');
   Route::post('/delivery', 'LaptopController@getDelivery');
-
 });
 
 Route::get('/lien-he.html', 'LaptopController@getContact')->name('contact');
+Route::post('/lien-he.html', 'LaptopController@postContact');
+
 Route::get('/gioi-thieu.html', function () {
     return view('about');
 })->name('about');

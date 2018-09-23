@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Mail;
+use Validator;
 use Carbon\Carbon;
 use GuzzleHttp\Client;
 
@@ -61,37 +63,72 @@ class LaptopController extends Controller
       ]);
     }
     public function postCheckout(Request $request){
-      $count = DB::table('donhang')->count()+1000;
-      $data['code'] = 'LT'.$count;
-      $data['name'] = trim($request->name);
-      $data['sex'] = round($request->sex);
-      $data['address'] = trim($request->address);
-      $data['email'] = trim($request->email);
-      $data['phone'] = trim($request->phone);
-      $data['note'] = trim($request->note);
-      $data['ship'] = round($request->ship);
-      $data['payment'] = round($request->payment);
-      $data['city'] = round($request->city);
-      $data['district'] = round($request->district);
-      $data['status'] = 0;
-      $data['created_at'] = Carbon::now();
-      $data['updated_at'] = Carbon::now();
-      DB::table('donhang')->insert($data);
-      $id = DB::getPdo()->lastInsertId();
-      $cart_detail = session()->get('cart_detail');
-      $bill['iddh'] = $id;
-      foreach ($cart_detail as $k => $v) {
-        if(is_numeric($k)){
-          $bill['idsp'] = $k;
-          $bill['soluong'] = $v->qty;
-          $bill['giaban'] = $v->giaban;
-          $bill['makm'] = trim(@$v->makm);
-          DB::table('donhangchitiet')->insert($bill);
+
+      $rules = [
+        'name' => 'required',
+        'city' => 'required',
+        'district' => 'required',
+        'phone' => 'required',
+        'email' => 'required'
+  		];
+  		//$messages = [
+  		//	'city.required' => trans('valid.city_required'),
+  		//];
+  		$validator = Validator::make($request->all(), $rules);
+
+  		if ($validator->fails()) {
+  			return redirect()->back('err','Vui lòng cung cấp thông tin bắt buộc.');
+  		}else {
+
+        $data['name'] = trim($request->name);
+        $data['sex'] = round($request->sex);
+        $data['address'] = trim($request->address);
+        $data['email'] = trim($request->email);
+        $data['phone'] = trim($request->phone);
+        $data['city'] = round($request->city);
+        $data['district'] = round($request->district);
+        $data['created_at'] = Carbon::now();
+        $data['updated_at'] = Carbon::now();
+        if(DB::table('client')->count()==0){
+          DB::table('client')->insert($data);
         }
+        $count = DB::table('bill')->count()+1000;
+        $data['code_bill'] = 'LT'.$count;
+        $data['code_discount'] = trim($request->code_discount);
+        $data['note'] = trim($request->note);
+        $data['ship'] = round($request->ship);
+        $data['payment'] = round($request->payment);
+        $data['status'] = 0;
+
+        DB::table('bill')->insert($data);
+        $idbill = DB::getPdo()->lastInsertId();
+        $bill['idbill'] = $idbill;
+
+        $cart_detail = session()->get('cart_detail');
+        $area['city_name'] = trim($request->city_name);
+        $area['district_name'] = trim($request->district_name);
+        $area['payment_label'] = trim($request->payment_label);
+        Mail::send('layouts.emailtemplate', ['data'=>$data,'area'=>$area,'cart_detail'=>$cart_detail], function ($message) use ($data){
+            $message->from('se7en.hs@gmail.com', 'Laptop2nd.vn');
+            $message->subject('Đơn hàng #'.$data['code_bill']);
+            $message->bcc("se7en.hs@gmail.com");
+            $message->to($data['email']);
+        });
+
+        foreach ($cart_detail as $k => $v) {
+          if(is_numeric($k)){
+            $bill['idsp'] = $k;
+            $bill['qty'] = $v->qty;
+            $bill['price'] = $v->giaban;
+            DB::table('bill_detail')->insert($bill);
+          }
+        }
+        $request->session()->forget('cart');
+        $request->session()->forget('cart_detail');
+        return redirect()->route('index');
       }
-      $request->session()->forget('cart');
-      $request->session()->forget('cart_detail');
-      return redirect()->route('index');
+
+
     }
     public function handlePostCart(Request $request){
       //dd($request->qty);
@@ -170,6 +207,36 @@ class LaptopController extends Controller
     public function getContact(){
         $row = $this->get_json('map');
         return view('contact',compact('row'));
+    }
+    public function postContact(Request $request){
+      $rules = [
+        'name' => 'required',
+        'contents' => 'required',
+        'title' => 'required',
+        'phone' => 'required',
+        'email' => 'required'
+  		];
+  		//$messages = [
+  		//	'city.required' => trans('valid.city_required'),
+  		//];
+  		$validator = Validator::make($request->all(), $rules);
+
+  		if ($validator->fails()) {
+  			return redirect()->back('err','Vui lòng cung cấp thông tin bắt buộc.');
+  		}else {
+        $data['title'] = $request->title;
+        $data['contents'] = $request->contents;
+        $data['name'] = $request->name;
+        $data['phone'] = $request->phone;
+        $data['email'] = $request->email;
+        Mail::send('layouts.contacttemplate', ['data'=>$data], function ($message) use ($data){
+            $message->from('se7en.hs@gmail.com', 'Laptop2nd.vn');
+            $message->subject($data['title']);
+            $message->to($data['email']);
+        });
+        return back();
+      }
+
     }
     public function getDetailTech($alias){
         $tech = DB::table('news')
