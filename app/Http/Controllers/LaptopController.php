@@ -13,11 +13,12 @@ class LaptopController extends Controller
 {
     public $endpoint = "https://services.giaohangtietkiem.vn/services/shipment/fee";
     public function __construct(){
-    //    $news = DB::table('news')->get();
-    //    foreach ($news as $v) {
-    //      DB::table('news')->where(['idtin'=>$v->idtin])
-    //      ->update(['alias'=>$this->vn_str_filter($v->tieude)]);
-    //    }
+        //$bill_detail = DB::table('bill_detail')->get();
+        //foreach ($bill_detail as $v) {
+        //  //dd($v->idsp);
+        //  DB::select('call update_total_sell(?,?)',[$v->idsp,$v->qty]);
+
+        //}
     }
     public function getArea($id_parent){
       $data = DB::table('area')->where(['id_parent'=>$id_parent])
@@ -50,6 +51,13 @@ class LaptopController extends Controller
         $data->fee = number_format($data->fee,0).' VNĐ';
       }
       return json_encode($data);
+    }
+    public function getCart(){
+        $cart_detail = @session()->get('cart_detail');
+        if(count($cart_detail)==0){
+          return redirect()->route('index');
+        }
+        return view('cart');
     }
     public function checkout(){
       $cart_detail = @session()->get('cart_detail');
@@ -135,7 +143,7 @@ class LaptopController extends Controller
       $cart_detail=[];
       foreach ($request->qty as $key => $value) {
         $value=max(1,round($value));
-        $data[$key]=$value;
+        $cart[$key]=$value;
         $products = DB::table('product')
   					->select('tensp','alias','giaban','urlhinh','khoiluong','freeship')
             ->where(['idsp'=>$key])->get()->toArray();
@@ -147,17 +155,21 @@ class LaptopController extends Controller
         @$cart_detail['weight'] += $value*$product->khoiluong;
         @$cart_detail['freeship'] += $product->freeship;
       }
-      session()->put('cart',$data);
+      session()->put('cart',$cart);
       session()->put('cart_detail',$cart_detail);
       return back();
     }
-    public function handleCart($act,$idsp){
+
+    public function handleCart($act,$idsp,$qty=0){
       $data = session()->get('cart');
       if($act=='add'){
         @$data[$idsp]++;
       }
       if($act=='remove'){
         unset($data[$idsp]);
+      }
+      if($qty>0){
+        $data[$idsp]=$qty;
       }
       $cart_detail=[];
       foreach ($data as $key => $value) {
@@ -174,7 +186,7 @@ class LaptopController extends Controller
       }
       session()->put('cart',$data);
       session()->put('cart_detail',$cart_detail);
-      return back();
+      return redirect()->route('cart');
     }
     public function getInfo(){
         return $this->get_json('info');
@@ -238,6 +250,23 @@ class LaptopController extends Controller
       }
 
     }
+    public function getDetailProduct($alias){
+        $products = DB::table('product')
+          ->where('alias',$alias)->get()->toArray();
+        $solanxem = $products[0]->solanxem+1;
+        DB::table('product')->where('alias',$alias)
+            ->update(['solanxem'=>$solanxem]);
+          //inRandomOrder()
+        //dd($products[0]->idtin);exit;
+        $other_products = DB::table('product')
+        ->where('idsp','!=',$products[0]->idsp)->orderBy('idsp','desc')
+        ->limit(5)->get();
+
+        return view('product',[
+            'products'=>$products,'other_products'=>$other_products,
+            'title'=>$products[0]->tensp,'keywords'=>$products[0]->kw,'description'=>$products[0]->des
+        ]);
+    }
     public function getDetailTech($alias){
         $tech = DB::table('news')
           ->where('alias',$alias)->get()->toArray();
@@ -273,16 +302,16 @@ class LaptopController extends Controller
         $row_banner = $this->getBanner();
         $row_slider = $this->getSlider();
         $row_new_product = DB::table('product')
-        ->select('idsp','tensp','giaban','gianhap','urlhinh')
-        ->orderBy('idsp','desc')->limit(8)->get();
+        ->select('idsp','tensp','alias','giaban','gianhap','urlhinh')
+        ->orderBy('idsp','desc')->limit(16)->get();
         $row_selling_product = DB::table('product')
-        ->select('idsp','tensp','giaban','gianhap','urlhinh')
+        ->select('idsp','tensp','alias','giaban','gianhap','urlhinh')
         ->orderBy('solanban','desc')->limit(12)->get();
         $row_view_product = DB::table('product')
-        ->select('idsp','tensp','giaban','gianhap','urlhinh')
+        ->select('idsp','tensp','alias','giaban','gianhap','urlhinh')
         ->orderBy('solanxem','desc')->limit(12)->get();
         $row_highlight_product = DB::table('product')
-        ->select('idsp','tensp','giaban','gianhap','urlhinh')
+        ->select('idsp','tensp','alias','giaban','gianhap','urlhinh')
         ->where(['noibat'=>1])->orderBy('thutu','desc')
         ->limit(12)->get();
         return view('index',[

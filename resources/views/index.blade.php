@@ -82,28 +82,29 @@
                       <div class="row">
                           <div class="home-two-product-carousel-active owl-carousel">
                               <?php $i=0; ?>
-                              @while($i<count($row_new_product))
+                              @for($i=0;$i<16;$i+=2)
                               <div class="col-sm-12">
                                 <!-- {/*single product*/} -->
-                                @foreach($row_new_product as $r_new_product)
+                                @for($j=$i;$j<count($row_new_product);$j++)
                                 <?php
+                                  $r_new_product = $row_new_product[$j];
                                   $hinh = json_decode($r_new_product->urlhinh,true);
                                 ?>
                                   <div class="single-product-area">
                                       <div class="product-wrapper gridview">
                                           <div class="list-col4">
                                               <div class="product-image">
-                                                  <a href="#">
-                                                      <img src="images/product/{{$hinh[0]}}" alt="{{$r_new_product->tensp}}" />
+                                                  <a href="{{asset('/san-pham/'.$r_new_product->alias.'.html')}}">
+                                                      <img src="{{asset('/images/product/thumb/'.$hinh[0])}}" alt="{{$r_new_product->tensp}}" />
                                                   </a>
                                                   <div class="quickviewbtn">
-                                                      <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
+                                                      <a href="{{asset('/san-pham/'.$r_new_product->alias.'.html')}}"  data-original-title="Quick View"><i class="ion-eye"></i></a>
                                                   </div>
                                               </div>
                                           </div>
                                           <div class="list-col8">
                                               <div class="product-info">
-                                                  <h2><a href="single-product.html">{{$r_new_product->tensp}}</a></h2>
+                                                  <h2><a href="{{asset('/san-pham/'.$r_new_product->alias.'.html')}}">{{$r_new_product->tensp}}</a></h2>
                                                   <span class="price">
                                                       <del>{{number_format($r_new_product->giaban,0)}}</del>
                                                       {{number_format($r_new_product->gianhap,0)}}
@@ -118,10 +119,10 @@
                                           </div>
                                       </div>
                                   </div>
-                                <?php $i++;if($i%2==0) break; ?>
-                                @endforeach
+                                <?php if(($j+1-$i)%2==0) break; ?>
+                                @endfor
                               </div>
-                              @endwhile
+                              @endfor
                           </div>
                       </div>
                   </div>
@@ -155,28 +156,29 @@
                               <h3>Sản phẩm bán chạy</h3>
                           </div>
                           <div class="mini-product carosel-next-prive owl-carousel">
-                            <?php $i=0; ?>
-                            @while($i<count($row_selling_product))
+                            @for($i=0;$i<12;$i=$i+4)
+
                               <div class="mini-product-listview">
-                                @foreach($row_selling_product as $r_selling_product)
+                                @for($j=$i;$j<count($row_selling_product);$j++)
                                 <?php
+                                  $r_selling_product = $row_selling_product[$j];
                                   $hinh = json_decode($r_selling_product->urlhinh,true);
                                 ?>
                                   <div class="single-product-area">
                                       <div class="product-wrapper listview">
                                           <div class="list-col4">
                                               <div class="product-image">
-                                                  <a href="#">
-                                                      <img src="images/product/thumbnail/{{$hinh[0]}}" alt="{{$r_selling_product->tensp}}" />
+                                                  <a href="{{asset('/san-pham/'.$r_selling_product->alias.'.html')}}">
+                                                      <img src="{{asset('/images/product/thumbnail/'.$hinh[0])}}" alt="{{$r_selling_product->tensp}}" />
                                                   </a>
                                                   <div class="quickviewbtn">
-                                                      <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
+                                                      <a href="{{asset('/san-pham/'.$r_selling_product->alias.'.html')}}"  data-original-title="Quick View"><i class="ion-eye"></i></a>
                                                   </div>
                                               </div>
                                           </div>
                                           <div class="list-col8">
                                               <div class="product-info">
-                                                  <h2><a href="single-product.html">{{$r_selling_product->tensp}}</a></h2>
+                                                  <h2><a href="{{asset('/san-pham/'.$r_selling_product->alias.'.html')}}">{{$r_selling_product->tensp}}</a></h2>
                                                   <span class="price">
                                                       {{number_format($r_selling_product->giaban,0)}}
                                                   </span>
@@ -187,10 +189,10 @@
                                           </div>
                                       </div>
                                   </div>
-                                <?php $i++;if($i%4==0) break; ?>
-                                @endforeach
+                                <?php if(($j+1-$i)%4==0) break; ?>
+                                @endfor
                               </div>
-                            @endwhile
+                            @endfor
                           </div>
                           </div>
                       </div>
@@ -201,28 +203,28 @@
                               <h3>Sản phẩm được quan tâm</h3>
                           </div>
                           <div class="mini-product carosel-next-prive owl-carousel">
-                            <?php $i=0; ?>
-                            @while($i<count($row_view_product))
+                            @for($i=0;$i<12;$i=$i+4)
                               <div class="mini-product-listview">
-                                @foreach($row_view_product as $r_view_product)
+                                @for($j=$i;$j<count($row_view_product);$j++)
                                 <?php
+                                  $r_view_product = $row_view_product[$j];
                                   $hinh = json_decode($r_view_product->urlhinh,true);
                                 ?>
                                   <div class="single-product-area">
                                       <div class="product-wrapper listview">
                                           <div class="list-col4">
                                               <div class="product-image">
-                                                  <a href="#">
-                                                      <img src="images/product/thumbnail/{{$hinh[0]}}" alt="{{$r_view_product->tensp}}" />
+                                                  <a href="{{asset('/san-pham/'.$r_view_product->alias.'.html')}}">
+                                                      <img src="{{asset('/images/product/thumbnail/'.$hinh[0])}}" alt="{{$r_view_product->tensp}}" />
                                                   </a>
                                                   <div class="quickviewbtn">
-                                                      <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
+                                                      <a href="{{asset('/san-pham/'.$r_view_product->alias.'.html')}}"  data-original-title="Quick View"><i class="ion-eye"></i></a>
                                                   </div>
                                               </div>
                                           </div>
                                           <div class="list-col8">
                                               <div class="product-info">
-                                                  <h2><a href="single-product.html">{{$r_view_product->tensp}}</a></h2>
+                                                  <h2><a href="{{asset('/san-pham/'.$r_view_product->alias.'.html')}}">{{$r_view_product->tensp}}</a></h2>
                                                   <span class="price">
                                                       {{number_format($r_view_product->giaban,0)}}
                                                   </span>
@@ -234,10 +236,10 @@
                                           </div>
                                       </div>
                                   </div>
-                                <?php $i++;if($i%4==0) break; ?>
-                                @endforeach
+                                <?php if(($j+1-$i)%4==0) break; ?>
+                                @endfor
                               </div>
-                            @endwhile
+                            @endfor
                           </div>
                           </div>
                       </div>
@@ -248,28 +250,28 @@
                               <h3>Sản phẩm đề xuất</h3>
                           </div>
                           <div class="mini-product carosel-next-prive owl-carousel">
-                              <?php $i=0; ?>
-                              @while($i<count($row_highlight_product))
+                              @for($i=0;$i<12;$i=$i+4)
                               <div class="mini-product-listview">
-                                  @foreach($row_highlight_product as $r_highlight_product)
+                                  @for($j=$i;$j<count($row_highlight_product);$j++)
                                   <?php
+                                    $r_highlight_product = $row_highlight_product[$j];
                                     $hinh = json_decode($r_highlight_product->urlhinh,true);
                                   ?>
                                   <div class="single-product-area">
                                       <div class="product-wrapper listview">
                                           <div class="list-col4">
                                               <div class="product-image">
-                                                  <a href="#">
-                                                      <img src="images/product/thumbnail/{{$hinh[0]}}" alt="{{$r_highlight_product->tensp}}" />
+                                                  <a href="{{asset('/san-pham/'.$r_highlight_product->alias.'.html')}}">
+                                                      <img src="{{asset('/images/product/thumbnail/'.$hinh[0])}}" alt="{{$r_highlight_product->tensp}}" />
                                                   </a>
                                                   <div class="quickviewbtn">
-                                                      <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"><i class="ion-eye"></i></a>
+                                                      <a href="{{asset('/san-pham/'.$r_highlight_product->alias.'.html')}}"  data-original-title="Quick View"><i class="ion-eye"></i></a>
                                                   </div>
                                               </div>
                                           </div>
                                           <div class="list-col8">
                                               <div class="product-info">
-                                                  <h2><a href="single-product.html">{{$r_highlight_product->tensp}}</a></h2>
+                                                  <h2><a href="{{asset('/san-pham/'.$r_highlight_product->alias.'.html')}}">{{$r_highlight_product->tensp}}</a></h2>
                                                   <span class="price">
                                                       {{number_format($r_highlight_product->giaban,0)}}
                                                   </span>
@@ -281,10 +283,10 @@
                                           </div>
                                       </div>
                                   </div>
-                                  <?php $i++;if($i%4==0) break; ?>
-                                  @endforeach
+                                  <?php if(($j+1-$i)%4==0) break; ?>
+                                  @endfor
                               </div>
-                              @endwhile
+                              @endfor
                           </div>
                           </div>
                       </div>
@@ -301,7 +303,7 @@
               var idsp=jQuery(this).attr("rel");
               url = "{{asset('/cart/add')}}/"+idsp;
               jQuery.get(url,null,function(data){
-                console.log(data);
+                //console.log(data);
               });
             });
         });

@@ -92,26 +92,6 @@
                                    </ul>
                                </div>
 
-                               <div class="sidebar-tag">
-                                   <div class="widget-title">
-                                       <h3>PRODUCT TAGS</h3>
-                                   </div>
-                                   <div class="widget-content">
-                                       <div class="product-tags">
-                                           <a href="#">New </a>
-                                           <a href="#">brand</a>
-                                           <a href="#">black</a>
-                                           <a href="#">white</a>
-                                           <a href="#">chire</a>
-                                           <a href="#">table</a>
-                                           <a href="#">Lorem</a>
-                                           <a href="#">ipsum</a>
-                                           <a href="#">dolor</a>
-                                           <a href="#">sit</a>
-                                           <a href="#">amet</a>
-                                       </div>
-                                   </div>
-                               </div>
                            </div>
                        </div>
                        <div class="col-xs-12 col-md-9 shop-content">
@@ -129,7 +109,7 @@
                                            <li><a data-toggle="tab" href="#list"><i class="ion-navicon"></i></a></li>
                                        </ul>
                                    </div>
-                                   
+
                                </div>
                                <div class="shop-page-product-area tab-content">
                                    <div id="grid" class="tab-pane fade in show active">

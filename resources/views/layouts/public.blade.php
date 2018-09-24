@@ -26,7 +26,7 @@ $cart_detail = @session()->get('cart_detail');
         @endif
         <meta name="author" content="Laptop 2nd">
         <link rel="icon" href="{{asset('favicon.ico')}}" type="image/x-icon" />
-        <title>@if(empty($title)) {{$row_gen['title_index']}} @else {{$title}} @endif </title>
+        <title>@if(empty($title)) {{$row_gen['title_index']}} @else {{$title.' | Laptop2ND'}} @endif </title>
 
         <link type="text/css" rel="stylesheet" href="{{ asset('/css/app.css') }}" />
         <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
@@ -40,7 +40,7 @@ $cart_detail = @session()->get('cart_detail');
         {!! $row_gen['google_analytic'] !!}
         <!-- jQuery CDN -->
         <script src="{{asset('js/jquery-3.2.1.min.js')}}" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-        
+
 
     </head>
     <body>
@@ -130,7 +130,7 @@ $cart_detail = @session()->get('cart_detail');
                                     <ul class="categori-menu-list menu-hidden">
                                       @foreach($menu1 as $r_cat1)
                                         <li>
-                                          <a href="{{asset('/danh-muc/'.$r_cat1->alias.'.html')}}">{{$r_cat1->name}}<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                                          <a href="{{asset('/san-pham/'.$r_cat1->alias)}}">{{$r_cat1->name}}<i class="fa fa-angle-right" aria-hidden="true"></i></a>
                                             <!-- categori Mega-Menu Start -->
                                             <?php $menu2 = $LaptopCtrl->selectCat($r_cat1->idcat); ?>
                                             @if(count($menu2)>0)
@@ -139,7 +139,7 @@ $cart_detail = @session()->get('cart_detail');
                                                 <li class="single-megamenu">
                                                     <ul>
                                                         <!-- <li class="menu-tile">Cameras</li> -->
-                                                        <li><a href="{{asset('/danh-muc/'.$r_cat2->alias.'.html')}}">{{$r_cat2->name}}</a></li>
+                                                        <li><a href="{{asset('/san-pham/'.$r_cat2->alias)}}">{{$r_cat2->name}}</a></li>
                                                     </ul>
                                                 </li>
                                                 @endforeach

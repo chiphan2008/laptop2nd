@@ -455,7 +455,7 @@ class AdminController extends Controller
         if($id>0){
           DB::table('product')->where(['idsp'=>$id])->update($data);
         }else {
-          DB::select('exec update_total_cat(?)',array($data['idcat']));
+          DB::select('call update_total_cat(?)',array($data['idcat']));
           $data['created_at'] = Carbon::now();
           DB::table('product')->insert($data);
         }
@@ -493,7 +493,7 @@ class AdminController extends Controller
           unlink('./images/product/thumbnail/'.$img_name);
       }
       DB::table('product')->where(['idsp'=>$id])->delete();
-      DB::select('exec remove_total_cat(?)',array($rs[0]->idcat));
+      DB::select('call remove_total_cat(?)',array($rs[0]->idcat));
       return back()->with('success',"Đã xóa thành công.");
     }
 

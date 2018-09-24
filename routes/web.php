@@ -11,20 +11,18 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/tst.html', function () {
-    return view('layouts.contacttemplate');
-});
+//Route::get('/tst.html', function () {
+//    return view('layouts.contacttemplate');
+//});
 
 Route::get('/','LaptopController@index')->name('index');
-Route::get('/gio-hang.html', function () {
-    return view('cart');
-})->name('cart');
+Route::get('/gio-hang.html','LaptopController@getCart')->name('cart');
 Route::get('/xac-nhan-dat-hang.html', 'LaptopController@checkout')->name('checkout');
 Route::post('/xac-nhan-dat-hang.html', 'LaptopController@postCheckout');
 Route::post('/gio-hang.html', 'LaptopController@handlePostCart');
 Route::get('/area/{id_parent}', 'LaptopController@getArea');
 Route::prefix('/cart')->group( function () {
-  Route::get('/{act}/{idsp}', 'LaptopController@handleCart');
+  Route::get('/{act}/{idsp}/{qty?}', 'LaptopController@handleCart');
   Route::post('/delivery', 'LaptopController@getDelivery');
 });
 
@@ -39,9 +37,12 @@ Route::get('/cong-nghe/{alias}.html', 'LaptopController@getDetailTech');
 Route::get('/san-pham.html', function () {
     return view('shop');
 })->name('shop');
-Route::get('/danh-muc/{alias}.html', function () {
-    return view('shop');
+Route::get('/san-pham/{alias}.html','LaptopController@getDetailProduct');
+Route::post('/san-pham/{alias}.html','LaptopController@handleCart');
+Route::get('/san-pham/{alias}', function () {
+    return view('category');
 });
+
 /*
 |--------------------------------------------------------------------------
 | Api

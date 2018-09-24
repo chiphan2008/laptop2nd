@@ -42,9 +42,9 @@
                                 @if(is_numeric($k))
                                   <tr>
                                       <td class="product-thumbnail">
-                                          <a href="#"><img src="{{asset('/images/product/'.$v->urlhinh[0])}}" alt="{{$v->tensp}}"></a>
+                                          <a href="{{asset('/san-pham/'.$v->alias.'.html')}}"><img src="{{asset('/images/product/'.$v->urlhinh[0])}}" alt="{{$v->tensp}}"></a>
                                       </td>
-                                      <td class="product-name"><a href="#">{{$v->tensp}}</a></td>
+                                      <td class="product-name"><a href="{{asset('/san-pham/'.$v->alias.'.html')}}">{{$v->tensp}}</a></td>
                                       <td class="product-price"><span class="amount">{{number_format($v->giaban,0)}}</span></td>
                                       <td class="product-quantity">
                                         <input type="number" name="qty[{{$k}}]" value="{{round($v->qty)}}" />
