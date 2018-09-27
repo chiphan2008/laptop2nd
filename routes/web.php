@@ -33,15 +33,12 @@ Route::get('/gioi-thieu.html', function () {
     return view('about');
 })->name('about');
 Route::get('/cong-nghe.html', 'LaptopController@getTech')->name('tech');
+Route::post('/tim-kiem.html', 'LaptopController@getSearch')->name('search');
 Route::get('/cong-nghe/{alias}.html', 'LaptopController@getDetailTech');
-Route::get('/san-pham.html', function () {
-    return view('shop');
-})->name('shop');
+Route::get('/san-pham.html', 'LaptopController@getShop')->name('shop');
 Route::get('/san-pham/{alias}.html','LaptopController@getDetailProduct');
 Route::post('/san-pham/{alias}.html','LaptopController@handleCart');
-Route::get('/san-pham/{alias}', function () {
-    return view('category');
-});
+Route::get('/san-pham/{alias}', 'LaptopController@getCategory');
 
 /*
 |--------------------------------------------------------------------------

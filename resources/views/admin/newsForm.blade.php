@@ -54,7 +54,7 @@
             <div class="form-group" >
                 <label class="col-sm-2 control-label">Hình hiện tại:</label>
                 <div class="col-sm-10">
-                <img src="{{asset('./images/news/'.$row->urlhinh)}}" height="50"/>
+                <img src="{{asset('public/images/news/'.$row->urlhinh)}}" height="50"/>
                 <input name="file_name" value="{{@$row->urlhinh}}" type="hidden" />
                 </div>
             </div>
@@ -74,7 +74,7 @@
                     </p>
                 </div>
             </div>
-                
+
 
             <div class="form-group">
                 <label class="col-sm-2 control-label">Hiển thị:</label>
@@ -105,7 +105,7 @@
 <script type="text/javascript">
 var obj;
 j(function(){
-    
+
     if(j("#alias").val() == ''){
       j("#alias").val(str_slug(j("#tieude").val()))
     }
@@ -113,7 +113,7 @@ j(function(){
       var name = j(this).val();
       j("#alias").val(str_slug(name))
     })
-    
+
 });
 
 </script>

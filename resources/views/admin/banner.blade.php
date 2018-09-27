@@ -37,7 +37,7 @@
                             </div>
                             <div class="x_content">
                                 <div style="text-align: center; margin-bottom: 15px;">
-                                    <img src="{{asset('images/banner/'.@$row[0]['urlhinh'])}}" class="img-responsive" />
+                                    <img src="{{asset('public/images/banner/'.@$row[0]['urlhinh'])}}" class="img-responsive" />
                                 </div>
                                 <div class="divider"></div>
                                 <div class="form-group">
@@ -68,7 +68,7 @@
                             </div>
                             <div class="x_content">
                                 <div style="text-align: center; margin-bottom: 15px;">
-                                    <img src="{{asset('images/banner/'.@$row[1]['urlhinh'])}}" class="img-responsive" />
+                                    <img src="{{asset('public/images/banner/'.@$row[1]['urlhinh'])}}" class="img-responsive" />
                                 </div>
                                 <div class="divider"></div>
                                 <div class="form-group">
@@ -98,7 +98,7 @@
 
                             <div class="x_content">
                                 <div style="text-align: center; margin-bottom: 15px;">
-                                    <img src="{{asset('images/banner/'.@$row[2]['urlhinh'])}}" class="img-responsive" />
+                                    <img src="{{asset('public/images/banner/'.@$row[2]['urlhinh'])}}" class="img-responsive" />
                                 </div>
                                 <div class="divider"></div>
                                 <div class="form-group">
@@ -127,7 +127,7 @@
                           </div>
                           <div class="x_content">
                                 <div style="text-align: center; margin-bottom: 15px;">
-                                    <img src="{{asset('images/banner/'.@$row[3]['urlhinh'])}}" class="img-responsive" />
+                                    <img src="{{asset('public/images/banner/'.@$row[3]['urlhinh'])}}" class="img-responsive" />
                                 </div>
                                 <div class="divider"></div>
                                 <div class="form-group">
@@ -161,7 +161,7 @@
                           
                           <div class="x_content">
                                 <div style="text-align: center; margin-bottom: 15px;">
-                                    <img src="{{asset('images/banner/'.@$row[4]['urlhinh'])}}" class="img-responsive" />
+                                    <img src="{{asset('public/images/banner/'.@$row[4]['urlhinh'])}}" class="img-responsive" />
                                 </div>
                                 <div class="divider"></div>
                                 <div class="form-group">

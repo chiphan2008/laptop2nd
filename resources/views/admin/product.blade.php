@@ -40,10 +40,12 @@
                     <tr>
                     <td style="width:5%;text-align:center"><input type="checkbox" name="chon[]" id="chon" value="{{$r->idsp}}"></td>
 
-                    <td>{{$r->tensp}} </td>
+                    <td><a target="_blank" href="{{asset('/san-pham/'.$r->alias.'.html')}}">{{$r->tensp}}</a> </td>
                     <td>
                     @if(count($hinh)>0)
-                    <img src="{{asset('images/product/thumb/'.$hinh[0])}}" height="50" />
+                    <a target="_blank" href="{{asset('/san-pham/'.$r->alias.'.html')}}">
+                    <img src="{{asset('public/images/product/thumb/'.$hinh[0])}}" height="50" />
+                    </a>
                     @endif
                     </td>
                     <td>{{number_format($r->giaban,0,".",",")}}</td>

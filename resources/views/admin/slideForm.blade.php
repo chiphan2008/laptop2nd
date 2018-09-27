@@ -26,7 +26,7 @@
             <div class="form-group" >
                 <label class="col-sm-2 control-label">Hình hiện tại:</label>
                 <div class="col-sm-10">
-                <img src="{{asset('images/slider/'.$row['urlhinh'])}}" height="50" />
+                <img src="{{asset('public/images/slider/'.$row['urlhinh'])}}" height="50" />
                 </div>
             </div>
             @endif

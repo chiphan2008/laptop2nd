@@ -1,7 +1,6 @@
 @extends("layouts.public")
 @inject('LaptopCtrl', 'App\Http\Controllers\LaptopController')
 <?php
-$row_gen = $LaptopCtrl->getInfo();$category = $cat[0];
 $menu1 = $LaptopCtrl->selectCat();
 ?>
 @section("content")
@@ -14,7 +13,7 @@ $menu1 = $LaptopCtrl->selectCat();
                     <a href="{{asset('/')}}">Trang chủ</a>
                     <span class="separator">/</span>
                     <a href="{{asset('/san-pham.html')}}">Sản phẩm</a>
-                    <span class="separator">/</span> {{$category->name}}
+                    <span class="separator">/</span> Kết quả tìm kiếm
                 </nav>
             </div>
         </div>
@@ -51,6 +50,11 @@ $menu1 = $LaptopCtrl->selectCat();
                                <div class="shop-page-product-area tab-content">
                                    <div id="grid" class="tab-pane fade in show active">
                                        <div class="row">
+                                         @if(count($shop)==0)
+                                         <div class="col-md-12">
+                                           Không tìm thấy sản phẩm..
+                                         </div>
+                                         @endif
                                          @foreach($shop as $r_shop)
                                          <?php $hinh = json_decode($r_shop->urlhinh,true)?>
                                            <div class="col-sm-6 col-md-4 col-xl-3">

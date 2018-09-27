@@ -69,8 +69,8 @@ class AdminController extends Controller
             $stt = $v-1;
             if(array_key_exists($stt,$row)){
               $rs = $row[$stt];
-              if(is_file('./images/slider/'.$rs['urlhinh']))
-                unlink('./images/slider/'.$rs['urlhinh']);
+              if(is_file('./public/images/slider/'.$rs['urlhinh']))
+                unlink('./public/images/slider/'.$rs['urlhinh']);
               unset($row[$stt]);
             }
           }
@@ -84,8 +84,8 @@ class AdminController extends Controller
         $stt = $id-1;
         if(array_key_exists($stt,$row)){
           $rs = $row[$stt];
-          if(is_file('./images/slider/'.$rs['urlhinh']))
-      			unlink('./images/slider/'.$rs['urlhinh']);
+          if(is_file('./public/images/slider/'.$rs['urlhinh']))
+      			unlink('./public/images/slider/'.$rs['urlhinh']);
     		  unset($row[$stt]);
         	if(count($row)==1) $row[-1] = array("kid"=>"0");
     		  $this->put_json('slide',$row);
@@ -114,7 +114,7 @@ class AdminController extends Controller
           $file = $request->file('urlhinh');
           $filename = time().'_'.$this->rname_url_hinh($file->getClientOriginalName());
           $img = Image::make($file->getRealPath())->resize('1281','434');
-          $img->save('./images/slider/'.$filename);
+          $img->save('./public/images/slider/'.$filename);
         }
 
         $data['ten'] = trim($request->ten);
@@ -128,8 +128,8 @@ class AdminController extends Controller
           $data['id'] = $id;
           $rs = $row[$id-1];
           if($filename!=''){
-            if(is_file('./images/slider/'.$rs['urlhinh']))
-            unlink('./images/slider/'.$rs['urlhinh']);
+            if(is_file('./public/images/slider/'.$rs['urlhinh']))
+            unlink('./public/images/slider/'.$rs['urlhinh']);
           }else {
             $data['urlhinh'] = $rs['urlhinh'];
           }
@@ -157,8 +157,8 @@ class AdminController extends Controller
     	    		$stt = $v-1;
               if(array_key_exists($stt,$row)){
                 $rs = $row[$stt];
-                if(is_file('./images/slider/'.$rs['urlhinh']))
-            			unlink('./images/slider/'.$rs['urlhinh']);
+                if(is_file('./public/images/slider/'.$rs['urlhinh']))
+            			unlink('./public/images/slider/'.$rs['urlhinh']);
           		  unset($row[$stt]);
               }
     	    	}
@@ -172,8 +172,8 @@ class AdminController extends Controller
         $stt = $id-1;
         if(array_key_exists($stt,$row)){
           $rs = $row[$stt];
-          if(is_file('./images/slider/'.$rs['urlhinh']))
-      			unlink('./images/slider/'.$rs['urlhinh']);
+          if(is_file('./public/images/slider/'.$rs['urlhinh']))
+      			unlink('./public/images/slider/'.$rs['urlhinh']);
     		  unset($row[$stt]);
         	if(count($row)==1) $row[-1] = array("kid"=>"0");
     		  $this->put_json('logo',$row);
@@ -202,7 +202,7 @@ class AdminController extends Controller
           $file = $request->file('urlhinh');
           $filename = time().'_'.$this->rname_url_hinh($file->getClientOriginalName());
           $img = Image::make($file->getRealPath());//->resize('200','200');
-          $img->save('./images/slider/'.$filename);
+          $img->save('./public/images/slider/'.$filename);
         }
 
         $data['ten'] = $request->input('ten');
@@ -215,8 +215,8 @@ class AdminController extends Controller
           $data['id'] = $id;
           $rs = $row[$id-1];
           if($filename!=''){
-            if(is_file('./images/slider/'.$rs['urlhinh']))
-            unlink('./images/slider/'.$rs['urlhinh']);
+            if(is_file('./public/images/slider/'.$rs['urlhinh']))
+            unlink('./public/images/slider/'.$rs['urlhinh']);
           }else {
             $data['urlhinh'] = $rs['urlhinh'];
           }
@@ -235,14 +235,14 @@ class AdminController extends Controller
         $file = $request->file($urlhinh);
         $filename = time().'_'.$this->rname_url_hinh($file->getClientOriginalName());
         $img = Image::make($file->getRealPath())->resize($x,$y);
-        $img->save('./images/banner/'.$filename);
+        $img->save('./public/images/banner/'.$filename);
         $data['urlhinh'] = $filename;
       }
       $data['name'] = trim($name);
       $data['link'] = trim($link);
       if($filename!=''){
-        if(is_file('./images/banner/'.$banner))
-        unlink('./images/banner/'.$banner);
+        if(is_file('./public/images/banner/'.$banner))
+        unlink('./public/images/banner/'.$banner);
       }else {
         $data['urlhinh'] = $banner;
       }
@@ -370,7 +370,7 @@ class AdminController extends Controller
     //product
     public function getProduct(){
       $rs_product = DB::table('product')
-					->select('idsp','tensp','giaban','urlhinh','anhien','idcat')
+					->select('idsp','tensp','alias','giaban','urlhinh','anhien','idcat')
           ->orderBy('idsp','desc')->paginate(20);
       return view('admin.product',[
         'rs_product'=>$rs_product
@@ -384,12 +384,12 @@ class AdminController extends Controller
 						    ->where(['idsp'=>$k])->get();
           $hinh = json_decode($rs[0]->urlhinh,true);
           foreach ($hinh as $img_name) {
-            if(is_file('./images/product/'.$img_name))
-                unlink('./images/product/'.$img_name);
-            if(is_file('./images/product/thumb/'.$img_name))
-              unlink('./images/product/thumb/'.$img_name);
-            if(is_file('./images/product/thumbnail/'.$img_name))
-              unlink('./images/product/thumbnail/'.$img_name);
+            if(is_file('./public/images/product/'.$img_name))
+                unlink('./public/images/product/'.$img_name);
+            if(is_file('./public/images/product/thumb/'.$img_name))
+              unlink('./public/images/product/thumb/'.$img_name);
+            if(is_file('./public/images/product/thumbnail/'.$img_name))
+              unlink('./public/images/product/thumbnail/'.$img_name);
           }
 				  DB::table('product')->where(['idsp'=>$k])->delete();
 	    	}
@@ -412,6 +412,7 @@ class AdminController extends Controller
         $data['alias'] = trim($request->alias);
         $data['giaban'] = round($request->giaban);
         $data['gianhap'] = round($request->gianhap);
+        $data['giakm'] = round($request->giakm);
         $data['khoiluong'] = round($request->khoiluong);
         $data['freeship'] = round($request->freeship);
 
@@ -428,7 +429,7 @@ class AdminController extends Controller
             array_push($arr['hinh'],$filename);
 
             $img = Image::make($img_path[$i]);
-            $img->save('./images/product/'.$filename);
+            $img->save('./public/images/product/'.$filename);
 
             $img = Image::make($img_path[$i]);
             $img->resize(300, 300);
@@ -469,12 +470,12 @@ class AdminController extends Controller
             ->get();
       $hinh = json_decode($rs[0]->urlhinh,true);
 
-      if(is_file('./images/product/'.$hinh[$loc]))
-        unlink('./images/product/'.$hinh[$loc]);
-      if(is_file('./images/product/thumb/'.$hinh[$loc]))
-        unlink('./images/product/thumb/'.$hinh[$loc]);
-      if(is_file('./images/product/thumbnail/'.$hinh[$loc]))
-        unlink('./images/product/thumbnail/'.$hinh[$loc]);
+      if(is_file('./public/images/product/'.$hinh[$loc]))
+        unlink('./public/images/product/'.$hinh[$loc]);
+      if(is_file('./public/images/product/thumb/'.$hinh[$loc]))
+        unlink('./public/images/product/thumb/'.$hinh[$loc]);
+      if(is_file('./public/images/product/thumbnail/'.$hinh[$loc]))
+        unlink('./public/images/product/thumbnail/'.$hinh[$loc]);
       unset($hinh[$loc]);
       $update = json_encode($hinh);
       DB::table('product')->where(['idsp'=>$idsp])->update(['urlhinh'=>$update]);
@@ -485,12 +486,12 @@ class AdminController extends Controller
     	$rs = DB::table('product')->where(['idsp'=>$id])->get();
       $hinh = json_decode($rs[0]->urlhinh,true);
       foreach ($hinh as $img_name) {
-        if(is_file('./images/product/'.$img_name))
-          unlink('./images/product/'.$img_name);
-        if(is_file('./images/product/thumb/'.$img_name))
-          unlink('./images/product/thumb/'.$img_name);
-        if(is_file('./images/product/thumbnail/'.$img_name))
-          unlink('./images/product/thumbnail/'.$img_name);
+        if(is_file('./public/images/product/'.$img_name))
+          unlink('./public/images/product/'.$img_name);
+        if(is_file('./public/images/product/thumb/'.$img_name))
+          unlink('./public/images/product/thumb/'.$img_name);
+        if(is_file('./public/images/product/thumbnail/'.$img_name))
+          unlink('./public/images/product/thumbnail/'.$img_name);
       }
       DB::table('product')->where(['idsp'=>$id])->delete();
       DB::select('call remove_total_cat(?)',array($rs[0]->idcat));
@@ -521,8 +522,8 @@ class AdminController extends Controller
     	if(!empty($request->input('chon'))){
     		foreach ($request->input('chon') as $k) {
     			$rs = DB::table('news')->where(['idtin'=>$k])->get();
-          if(is_file('./images/news/'.$rs[0]->urlhinh))
-              unlink('./images/news/'.$rs[0]->urlhinh);
+          if(is_file('./public/images/news/'.$rs[0]->urlhinh))
+              unlink('./public/images/news/'.$rs[0]->urlhinh);
 				  DB::table('news')->where(['idtin'=>$k])->delete();
 	    	}
 			return back()->with('success',"Đã xóa thành công.");
@@ -552,24 +553,24 @@ class AdminController extends Controller
         $file = $request->file('urlhinh');
         $filename = time().'_'.$this->rname_url_hinh($file->getClientOriginalName());
         $img = Image::make($file->getRealPath())->resize('480','480');
-        $img->save('./images/news/'.$filename);
+        $img->save('./public/images/news/'.$filename);
       }
       $data['urlhinh'] = $filename;
       $data['solanxem'] = round($request->solanxem);
       $data['anhien'] = round($request->anhien);
       $data['kw'] = trim($request->kw);
-      $data['updated_at'] = Carbon::now();
+      $data['update_at'] = Carbon::now();
 
       if($id>0){
         if($filename!=''){
-          if(is_file('./images/news/'.$request->file_name))
-            unlink('./images/news/'.$request->file_name);
+          if(is_file('./public/images/news/'.$request->file_name))
+            unlink('./public/images/news/'.$request->file_name);
         }else {
           $data['urlhinh'] = $request->file_name;
         }
         DB::table('news')->where(['idtin'=>$id])->update($data);
       }else {
-        $data['created_at'] = Carbon::now();
+        $data['create_at'] = Carbon::now();
         DB::table('news')->insert($data);
       }
       return redirect()->route('news');
@@ -578,8 +579,8 @@ class AdminController extends Controller
     public function deleteNews($id=0)
     {
       $rs = DB::table('news')->where(['idtin'=>$id])->get();
-      if(is_file('./images/news/'.$rs[0]->urlhinh))
-          unlink('./images/news/'.$rs[0]->urlhinh);
+      if(is_file('./public/images/news/'.$rs[0]->urlhinh))
+          unlink('./public/images/news/'.$rs[0]->urlhinh);
       DB::table('news')->where(['idtin'=>$id])->delete();
 			return back()->with('success',"Đã xóa thành công.");
     }

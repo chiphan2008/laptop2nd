@@ -53,6 +53,17 @@
                     </p>
                   </div>
             </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Giá khuyến mãi:</label>
+                  <div class="col-sm-10">
+                    <p>
+                        <input value="{{@$row->giakm}}" type="text" id="giakm" name="giakm" class="form-control" style='width:158px;float:left;' />
+                        <span id="giakmVal" style="font-weight:bold;padding:7px 20px;display:inline-block;"></span>
+                    </p>
+                  </div>
+            </div>
+
             <div class="form-group">
                 <label class="col-sm-2 control-label">Khối lượng:</label>
                   <div class="col-sm-10">
@@ -66,7 +77,7 @@
                 <label class="col-sm-2 control-label">Mô tả:</label>
                 <div class="col-sm-10">
                     <p>
-                        <textarea id="mota" class="form-control" rows="5" name="mota" cols="50">{{@$row->mota}}</textarea>
+                        <textarea id="mota" class="form-control ck_editor" rows="5" name="mota" cols="50">{{@$row->mota}}</textarea>
                     </p>
                 </div>
             </div>
@@ -116,9 +127,9 @@
                           @if(count($hinh)>0)
                           @foreach($hinh as $k => $name_url)
                               <div class="item_trich">
-                                  <img class="img_trich" src="{{asset('images/product/thumb/'.$name_url)}}">
+                                  <img class="img_trich" src="{{asset('public/images/product/thumb/'.$name_url)}}">
                                   <a href="javascript:void(0)" class="icon-jfi-trash jFiler-item-trash-action change_stt" rel="{{$k}}"></a>
-                                  <div id="loader{{$k}}" class="loader_trich"><img src="{{asset('./images/load.gif')}}"></div>
+                                  <div id="loader{{$k}}" class="loader_trich"><img src="{{asset('public/images/load.gif')}}"></div>
                                   <input name="name_hinh[]" value="{{$name_url}}" type="hidden" />
                               </div>
                           @endforeach
@@ -213,6 +224,13 @@ j(function(){
       var name = j(this).val();
       j("#giabanVal").html(format_number(name))
     })
+    j("#giakm").blur(function(){
+      var name = j(this).val();
+      j("#giakmVal").html(format_number(name))
+    })
+    if(j("#giakm").val() != ''){
+        j("#giakmVal").html(format_number(j("#giakm").val()))
+    }
     if(j("#gianhap").val() != ''){
         j("#gianhapVal").html(format_number(j("#gianhap").val()))
     }

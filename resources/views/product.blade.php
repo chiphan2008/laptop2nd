@@ -29,78 +29,32 @@ $urlhinh = json_decode($product->urlhinh,true);
                <div class="container">
                    <div class="single-product-wrapper">
                        <div class="row">
-                           <div class="col-xs-12 col-md-7 col-lg-7">
-                                <div class="product-details-img-content">
-                                    <div class="product-details-tab mr-40">
-                                        <div class="product-details-large tab-content">
+                         <div class="col-xs-12 col-md-7 col-lg-7">
+                              <div class="product-details-img-content">
+                                  <div class="product-details-tab mr-40">
+                                      <div class="product-details-large tab-content">
+                                        @foreach($urlhinh as $k=>$v)
+                                          <div class="tab-pane {{$k==0?'active':''}}" id="pro-details{{$k}}">
+                                              <div class="product-popup">
+                                                  <a href="{{asset('public/images/product/'.$v)}}">
+                                                      <img src="{{asset('public/images/product/'.$v)}}" alt="{{$product->tensp}}">
+                                                  </a>
+                                              </div>
+                                          </div>
+                                          @endforeach
+                                      </div>
+                                      <div class="product-details-small nav product-dec-slider owl-carousel">
                                           @foreach($urlhinh as $k=>$v)
+                                          <a class="{{$k==0?'active':''}}" href="#pro-details{{$k}}">
+                                              <img src="{{asset('public/images/product/thumb/'.$v)}}" alt="{{$product->tensp}}">
+                                          </a>
+                                          @endforeach
 
-                                            <div class="tab-pane active" id="pro-details{{$k}}">
-                                                <div class="product-popup">
-                                                    <a href="{{asset('/images/product/'.$v)}}">
-                                                        <img src="{{asset('/images/product/'.$v)}}" alt="{{$product->tensp}}">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            @endforeach
+                                      </div>
+                                  </div>
+                              </div>
+                         </div>
 
-                                        </div>
-                                        <div class="product-details-small nav product-dec-slider owl-carousel slick-initialized slick-slider slick-dotted slick-vertical"><i class="fa fa-chevron-up slick-arrow" style=""></i>
-                                          <div class="slick-list draggable" style="height: 488px;"><div class="slick-track" style="opacity: 1; height: 2928px; transform: translate3d(0px, -488px, 0px);">
-                                            <div class="slick-slide slick-cloned" data-slick-index="-4" aria-hidden="true" style="width: 150px;" tabindex="-1"><div><a href="#pro-details2" style="width: 100%; display: inline-block;" tabindex="-1">
-                                                <img src="{{asset('/images/product/thumbnail/'.$urlhinh[0])}}" alt="">
-                                            </a></div></div>
-                                            <div class="slick-slide slick-cloned" data-slick-index="-3" aria-hidden="true" style="width: 150px;" tabindex="-1"><div><a href="#pro-details3" style="width: 100%; display: inline-block;" tabindex="-1">
-                                                <img src="{{asset('/images/product/thumbnail/'.$urlhinh[0])}}" alt="">
-                                            </a></div></div><div class="slick-slide slick-cloned" data-slick-index="-2" aria-hidden="true" style="width: 150px;" tabindex="-1"><div><a href="#pro-details4" style="width: 100%; display: inline-block;" tabindex="-1">
-                                                <img src="{{asset('/images/product/thumbnail/'.$urlhinh[0])}}" alt="">
-                                            </a></div></div><div class="slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" style="width: 150px;" tabindex="-1"><div><a href="#pro-details5" style="width: 100%; display: inline-block;" tabindex="-1">
-                                                <img src="{{asset('/images/product/thumbnail/'.$urlhinh[0])}}" alt="">
-                                            </a></div></div><div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 150px;" role="tabpanel" id="slick-slide00"><div><a class="active" href="#pro-details1" style="width: 100%; display: inline-block;" tabindex="0">
-                                                <img src="{{asset('/images/product/thumbnail/'.$urlhinh[0])}}" alt="">
-                                            </a></div></div><div class="slick-slide slick-active" data-slick-index="1" aria-hidden="false" style="width: 150px;" role="tabpanel" id="slick-slide01"><div><a href="#pro-details2" style="width: 100%; display: inline-block;" tabindex="0">
-                                                <img src="{{asset('/images/product/thumbnail/'.$urlhinh[0])}}" alt="">
-                                            </a></div></div><div class="slick-slide slick-active" data-slick-index="2" aria-hidden="false" style="width: 150px;" role="tabpanel" id="slick-slide02"><div><a href="#pro-details3" style="width: 100%; display: inline-block;" tabindex="0">
-                                                <img src="{{asset('/images/product/thumbnail/'.$urlhinh[0])}}" alt="">
-                                            </a></div></div><div class="slick-slide slick-active" data-slick-index="3" aria-hidden="false" style="width: 150px;" role="tabpanel" id="slick-slide03"><div><a href="#pro-details4" style="width: 100%; display: inline-block;" tabindex="0">
-                                                <img src="{{asset('/images/product/thumbnail/'.$urlhinh[0])}}" alt="">
-                                            </a></div></div><div class="slick-slide" data-slick-index="4" aria-hidden="true" style="width: 150px;" tabindex="-1" role="tabpanel" id="slick-slide04"><div><a href="#pro-details5" style="width: 100%; display: inline-block;" tabindex="-1">
-                                                <img src="{{asset('/images/product/thumbnail/'.$urlhinh[0])}}" alt="">
-                                            </a></div></div><div class="slick-slide" data-slick-index="5" aria-hidden="true" style="width: 150px;" tabindex="-1" role="tabpanel" id="slick-slide05"><div><a class="active" href="#pro-details1" style="width: 100%; display: inline-block;" tabindex="-1">
-                                                <img src="{{asset('/images/product/thumbnail/'.$urlhinh[0])}}" alt="">
-                                            </a></div></div><div class="slick-slide" data-slick-index="6" aria-hidden="true" style="width: 150px;" tabindex="-1" role="tabpanel" id="slick-slide06"><div><a href="#pro-details2" style="width: 100%; display: inline-block;" tabindex="-1">
-                                                <img src="{{asset('/images/product/thumbnail/'.$urlhinh[0])}}" alt="">
-                                            </a></div></div><div class="slick-slide" data-slick-index="7" aria-hidden="true" style="width: 150px;" tabindex="-1" role="tabpanel" id="slick-slide07"><div><a href="#pro-details3" style="width: 100%; display: inline-block;" tabindex="-1">
-                                                <img src="{{asset('/images/product/thumbnail/'.$urlhinh[0])}}" alt="">
-                                            </a></div></div><div class="slick-slide" data-slick-index="8" aria-hidden="true" style="width: 150px;" tabindex="-1" role="tabpanel" id="slick-slide08"><div><a href="#pro-details4" style="width: 100%; display: inline-block;" tabindex="-1">
-                                                <img src="{{asset('/images/product/thumbnail/'.$urlhinh[0])}}" alt="">
-                                            </a></div></div><div class="slick-slide" data-slick-index="9" aria-hidden="true" style="width: 150px;" tabindex="-1" role="tabpanel" id="slick-slide09"><div><a href="#pro-details5" style="width: 100%; display: inline-block;" tabindex="-1">
-                                                <img src="{{asset('/images/product/thumbnail/'.$urlhinh[0])}}" alt="">
-                                            </a></div></div><div class="slick-slide slick-cloned" data-slick-index="10" aria-hidden="true" style="width: 150px;" tabindex="-1"><div><a class="active" href="#pro-details1" style="width: 100%; display: inline-block;" tabindex="-1">
-                                                <img src="{{asset('/images/product/thumbnail/'.$urlhinh[0])}}" alt="">
-                                            </a></div></div><div class="slick-slide slick-cloned" data-slick-index="11" aria-hidden="true" style="width: 150px;" tabindex="-1"><div><a href="#pro-details2" style="width: 100%; display: inline-block;" tabindex="-1">
-                                                <img src="{{asset('/images/product/thumbnail/'.$urlhinh[0])}}" alt="">
-                                            </a></div></div><div class="slick-slide slick-cloned" data-slick-index="12" aria-hidden="true" style="width: 150px;" tabindex="-1"><div><a href="#pro-details3" style="width: 100%; display: inline-block;" tabindex="-1">
-                                                <img src="{{asset('/images/product/thumbnail/'.$urlhinh[0])}}" alt="">
-                                            </a></div></div><div class="slick-slide slick-cloned" data-slick-index="13" aria-hidden="true" style="width: 150px;" tabindex="-1"><div><a href="#pro-details4" style="width: 100%; display: inline-block;" tabindex="-1">
-                                                <img src="{{asset('/images/product/thumbnail/'.$urlhinh[0])}}" alt="">
-                                            </a></div></div><div class="slick-slide slick-cloned" data-slick-index="14" aria-hidden="true" style="width: 150px;" tabindex="-1"><div><a href="#pro-details5" style="width: 100%; display: inline-block;" tabindex="-1">
-                                                <img src="{{asset('/images/product/thumbnail/'.$urlhinh[0])}}" alt="">
-                                            </a></div></div><div class="slick-slide slick-cloned" data-slick-index="15" aria-hidden="true" style="width: 150px;" tabindex="-1"><div><a class="active" href="#pro-details1" style="width: 100%; display: inline-block;" tabindex="-1">
-                                                <img src="{{asset('/images/product/thumbnail/'.$urlhinh[0])}}" alt="">
-                                            </a></div></div><div class="slick-slide slick-cloned" data-slick-index="16" aria-hidden="true" style="width: 150px;" tabindex="-1"><div><a href="#pro-details2" style="width: 100%; display: inline-block;" tabindex="-1">
-                                                <img src="{{asset('/images/product/thumbnail/'.$urlhinh[0])}}" alt="">
-                                            </a></div></div><div class="slick-slide slick-cloned" data-slick-index="17" aria-hidden="true" style="width: 150px;" tabindex="-1"><div><a href="#pro-details3" style="width: 100%; display: inline-block;" tabindex="-1">
-                                                <img src="{{asset('/images/product/thumbnail/'.$urlhinh[0])}}" alt="">
-                                            </a></div></div><div class="slick-slide slick-cloned" data-slick-index="18" aria-hidden="true" style="width: 150px;" tabindex="-1"><div><a href="#pro-details4" style="width: 100%; display: inline-block;" tabindex="-1">
-                                                <img src="{{asset('/images/product/thumbnail/'.$urlhinh[0])}}" alt="">
-                                            </a></div></div><div class="slick-slide slick-cloned" data-slick-index="19" aria-hidden="true" style="width: 150px;" tabindex="-1"><div><a href="#pro-details5" style="width: 100%; display: inline-block;" tabindex="-1">
-                                                <img src="{{asset('/images/product/thumbnail/'.$urlhinh[0])}}" alt="">
-                                            </a></div></div></div></div><i class="fa fa-chevron-down slick-arrow" style=""></i><ul class="slick-dots" style="" role="tablist"><li class="slick-active" role="presentation"><button type="button" role="tab" id="slick-slide-control00" aria-controls="slick-slide00" aria-label="1 of 3" tabindex="0" aria-selected="true">1</button></li><li role="presentation"><button type="button" role="tab" id="slick-slide-control01" aria-controls="slick-slide04" aria-label="2 of 3" tabindex="-1">2</button></li><li role="presentation"><button type="button" role="tab" id="slick-slide-control02" aria-controls="slick-slide08" aria-label="3 of 3" tabindex="-1">3</button></li></ul></div>
-
-                                    </div>
-                                </div>
-                           </div>
                            <div class="col-xs-12 col-md-5 col-lg-5">
                                <div class="single-product-info">
                                    <h1>{{$product->tensp}}</h1>
@@ -129,7 +83,75 @@ $urlhinh = json_decode($product->urlhinh,true);
                </div>
            </div>
 
+           <div class="product-description-area">
+                     <div class="container">
+                         <div class="row">
+                             <div class="col-sm-12">
+                                 <!-- <ul class="nav nav-tabs">
+                                     <li class="active">
+                                         <a data-toggle="tab" href="#description">Description</a>
+                                     </li>
 
+                                 </ul> -->
+                                 <div class="tab-content">
+                                     <div id="description" class="tab-pane fade in show active">
+                                         <h2>Nội dung</h2>
+                                         <p>{!!$product->noidung!!}</p>
+                                     </div>
+
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="single-related-product-area">
+                           <div class="container">
+                               <div class="row">
+                                   <div class="col-sm-12">
+                                       <div class="section-title">
+                                           <h3>Sản phẩm khác</h3>
+                                       </div>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                 @foreach($other_products as $r_other_product)
+                                 <?php $hinh = json_decode($r_other_product->urlhinh,true) ?>
+                                   <div class="related-product">
+                                       <div class="single-product-area">
+                                           <div class="product-wrapper gridview">
+                                               <div class="list-col4">
+                                                   <div class="product-image">
+                                                       <a href="{{asset('/san-pham/'.$r_other_product->alias.'.html')}}">
+                                                           <img src="{{asset('public/images/product/thumb/'.$hinh[0])}}" alt="{{$r_other_product->tensp}}">
+                                                       </a>
+                                                       <div class="quickviewbtn">
+                                                           <a href="{{asset('/san-pham/'.$r_other_product->alias.'.html')}}" ><i class="ion-eye"></i></a>
+                                                       </div>
+                                                   </div>
+                                               </div>
+                                               <div class="list-col8">
+                                                   <div class="product-info">
+                                                       <h2><a href="{{asset('/san-pham/'.$r_other_product->alias.'.html')}}">{{$r_other_product->tensp}}</a></h2>
+                                                       <span class="price">
+                                                           <del>{{number_format($r_other_product->giaban,0)}}</del> {{number_format($r_other_product->giaban,0)}}
+                                                       </span>
+                                                   </div>
+                                                   <div class="product-hidden">
+                                                       <div class="add-to-cart">
+                                                           <a href="{{asset('/cart/add/'.$r_other_product->idsp)}}">Thêm vào giỏ hàng</a>
+                                                       </div>
+
+                                                   </div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                                   @endforeach
+                               </div>
+                               <div class="clearfix mb-20"></div>
+                           </div>
+                           <div class="clearfix mb-20"></div>
+                       </div>
     </div>
 
     <script>
@@ -143,7 +165,7 @@ $urlhinh = json_decode($product->urlhinh,true);
         window.location.href = url;
       })
     })
-    
+
     </script>
 
 @endsection

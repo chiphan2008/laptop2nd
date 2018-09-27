@@ -11,11 +11,11 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     public function get_json($filename){
-  		  $content = file_get_contents('./asset/json/'.$filename.'.json');
+  		  $content = file_get_contents('./public/asset/json/'.$filename.'.json');
   		  return  json_decode($content,true);
     }
 	  public function put_json($filename,$data){
-		    file_put_contents('./asset/json/'.$filename.'.json',json_encode($data));
+		    file_put_contents('./public/asset/json/'.$filename.'.json',json_encode($data));
     }
 
     public function vn_str_filter ($str){

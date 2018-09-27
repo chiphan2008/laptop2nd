@@ -8,7 +8,7 @@
               <div class="slider-inner">
                 <div id="mainSlider" class="nivoSlider nevo-slider">
                 @foreach($row_slider as $r)
-                <img src="{{asset('images/slider/'.$r['urlhinh'])}}" alt="{{$r['ten']}}" title="#htmlcaption{{$r['id']}}" />
+                <img src="{{asset('public/images/slider/'.$r['urlhinh'])}}" alt="{{$r['ten']}}" title="#htmlcaption{{$r['id']}}" />
                 @endforeach
                 </div>
                 @foreach($row_slider as $r)
@@ -41,7 +41,7 @@
                                     <div class="four-single-banner-text">
                                         <div class="four-banner-img">
                                             <a href="{{$r['link']}}">
-                                                <img src="images/banner/{{$r['urlhinh']}}" alt="{{$r['name']}}" />
+                                                <img src="{{asset('public/images/banner/'.$r['urlhinh'])}}" alt="{{$r['name']}}" />
                                             </a>
                                         </div>
                                         <div class="four-banner-text">
@@ -62,7 +62,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <a href="{{$row_banner[4]['link']}}">
-                                <img src="images/banner/{{$row_banner[4]['urlhinh']}}" alt="{{$row_banner[4]['name']}}" />
+                                <img src="{{asset('public/images/banner/'.$row_banner[4]['urlhinh'])}}" alt="{{$row_banner[4]['name']}}" />
                             </a>
                         </div>
                     </div>
@@ -95,7 +95,7 @@
                                           <div class="list-col4">
                                               <div class="product-image">
                                                   <a href="{{asset('/san-pham/'.$r_new_product->alias.'.html')}}">
-                                                      <img src="{{asset('/images/product/thumb/'.$hinh[0])}}" alt="{{$r_new_product->tensp}}" />
+                                                      <img src="{{asset('public/images/product/thumb/'.$hinh[0])}}" alt="{{$r_new_product->tensp}}" />
                                                   </a>
                                                   <div class="quickviewbtn">
                                                       <a href="{{asset('/san-pham/'.$r_new_product->alias.'.html')}}"  data-original-title="Quick View"><i class="ion-eye"></i></a>
@@ -106,8 +106,12 @@
                                               <div class="product-info">
                                                   <h2><a href="{{asset('/san-pham/'.$r_new_product->alias.'.html')}}">{{$r_new_product->tensp}}</a></h2>
                                                   <span class="price">
+                                                    @if($r_new_product->giakm==0)
+                                                      {{number_format($r_new_product->giaban,0)}}
+                                                    @else
                                                       <del>{{number_format($r_new_product->giaban,0)}}</del>
-                                                      {{number_format($r_new_product->gianhap,0)}}
+                                                      {{number_format($r_new_product->giakm,0)}}
+                                                    @endif
                                                   </span>
                                               </div>
                                               <div class="product-hidden">
@@ -136,7 +140,7 @@
                         <div class="four-brand-carousel-active owl-carousel">
                             @foreach($row_brand as $r)
                             <div class="brand-logo">
-                                    <a href="{{$r['link']}}"><img style="height:100px" src="images/slider/{{$r['urlhinh']}}" alt="{{$r['ten']}}" /></a>
+                                    <a href="{{$r['link']}}"><img style="height:100px" src="{{asset('public/images/slider/'.$r['urlhinh'])}}" alt="{{$r['ten']}}" /></a>
                                 </div>
                             @endforeach
                         </div>
@@ -169,7 +173,7 @@
                                           <div class="list-col4">
                                               <div class="product-image">
                                                   <a href="{{asset('/san-pham/'.$r_selling_product->alias.'.html')}}">
-                                                      <img src="{{asset('/images/product/thumbnail/'.$hinh[0])}}" alt="{{$r_selling_product->tensp}}" />
+                                                      <img src="{{asset('public/images/product/thumbnail/'.$hinh[0])}}" alt="{{$r_selling_product->tensp}}" />
                                                   </a>
                                                   <div class="quickviewbtn">
                                                       <a href="{{asset('/san-pham/'.$r_selling_product->alias.'.html')}}"  data-original-title="Quick View"><i class="ion-eye"></i></a>
@@ -180,7 +184,12 @@
                                               <div class="product-info">
                                                   <h2><a href="{{asset('/san-pham/'.$r_selling_product->alias.'.html')}}">{{$r_selling_product->tensp}}</a></h2>
                                                   <span class="price">
-                                                      {{number_format($r_selling_product->giaban,0)}}
+                                                      @if($r_selling_product->giakm==0)
+                                                        {{number_format($r_selling_product->giaban,0)}}
+                                                      @else
+                                                        <del>{{number_format($r_selling_product->giaban,0)}}</del>
+                                                        {{number_format($r_selling_product->giakm,0)}}
+                                                      @endif
                                                   </span>
                                               </div>
                                               <div class="add-to-cart">
@@ -215,7 +224,7 @@
                                           <div class="list-col4">
                                               <div class="product-image">
                                                   <a href="{{asset('/san-pham/'.$r_view_product->alias.'.html')}}">
-                                                      <img src="{{asset('/images/product/thumbnail/'.$hinh[0])}}" alt="{{$r_view_product->tensp}}" />
+                                                      <img src="{{asset('public/images/product/thumbnail/'.$hinh[0])}}" alt="{{$r_view_product->tensp}}" />
                                                   </a>
                                                   <div class="quickviewbtn">
                                                       <a href="{{asset('/san-pham/'.$r_view_product->alias.'.html')}}"  data-original-title="Quick View"><i class="ion-eye"></i></a>
@@ -226,7 +235,12 @@
                                               <div class="product-info">
                                                   <h2><a href="{{asset('/san-pham/'.$r_view_product->alias.'.html')}}">{{$r_view_product->tensp}}</a></h2>
                                                   <span class="price">
-                                                      {{number_format($r_view_product->giaban,0)}}
+                                                      @if($r_view_product->giakm==0)
+                                                        {{number_format($r_view_product->giaban,0)}}
+                                                      @else
+                                                        <del>{{number_format($r_view_product->giaban,0)}}</del>
+                                                        {{number_format($r_view_product->giakm,0)}}
+                                                      @endif
                                                   </span>
 
                                               </div>
@@ -262,7 +276,7 @@
                                           <div class="list-col4">
                                               <div class="product-image">
                                                   <a href="{{asset('/san-pham/'.$r_highlight_product->alias.'.html')}}">
-                                                      <img src="{{asset('/images/product/thumbnail/'.$hinh[0])}}" alt="{{$r_highlight_product->tensp}}" />
+                                                      <img src="{{asset('public/images/product/thumbnail/'.$hinh[0])}}" alt="{{$r_highlight_product->tensp}}" />
                                                   </a>
                                                   <div class="quickviewbtn">
                                                       <a href="{{asset('/san-pham/'.$r_highlight_product->alias.'.html')}}"  data-original-title="Quick View"><i class="ion-eye"></i></a>
@@ -273,7 +287,12 @@
                                               <div class="product-info">
                                                   <h2><a href="{{asset('/san-pham/'.$r_highlight_product->alias.'.html')}}">{{$r_highlight_product->tensp}}</a></h2>
                                                   <span class="price">
-                                                      {{number_format($r_highlight_product->giaban,0)}}
+                                                      @if($r_highlight_product->giakm==0)
+                                                        {{number_format($r_highlight_product->giaban,0)}}
+                                                      @else
+                                                        <del>{{number_format($r_highlight_product->giaban,0)}}</del>
+                                                        {{number_format($r_highlight_product->giakm,0)}}
+                                                      @endif
                                                   </span>
 
                                               </div>

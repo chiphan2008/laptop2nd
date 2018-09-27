@@ -33,7 +33,7 @@
                                     </div>
                                 </div>
                                 <div class="post-thumbnail">
-                                    <a href="{{asset('/cong-nghe/'.$r_news->alias.'.html')}}"><img src="images/news/{{$r_news->urlhinh}}" alt="{{$r_news->tieude}}"></a>
+                                    <a href="{{asset('/cong-nghe/'.$r_news->alias.'.html')}}"><img src="{{asset('public/images/news/'.$r_news->urlhinh)}}" alt="{{$r_news->tieude}}"></a>
                                 </div>
                                 <div class="postinfo-wrapper">
                                     <p>{{$r_news->tomtat}}</p>
@@ -72,7 +72,7 @@
                                             <ul>
                                               @foreach($rand as $r_view)
                                                 <li><a href="{{asset('/cong-nghe/'.$r_view->alias.'.html')}}">
-                                                  <img class="pull-left" style="margin-right:7px;width:70px" src="{{asset('/images/news/'.$r_view->urlhinh)}}" alt="{{$r_view->tieude}}"  />
+                                                  <img class="pull-left" style="margin-right:7px;width:70px" src="{{asset('public/images/news/'.$r_view->urlhinh)}}" alt="{{$r_view->tieude}}"  />
                                                   {{$r_view->tieude}}
                                                 </a></li>
                                               @endforeach

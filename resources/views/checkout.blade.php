@@ -49,7 +49,10 @@
                                               <div class="col-md-9">
                                                   <div class="checkout-form-list">
                                                       <label>Họ tên: <span class="required">*</span></label>
-                                                      <input type="text" name="name" id="name" placeholder="Họ tên" />
+                                                      <input type="text" name="name" id="name" value="{{old('name')}}" placeholder="Họ tên" />
+                                                      @if ($errors->has('name'))
+                                                          <div class="text-danger">{{ $errors->first('name') }}</div>
+                                                      @endif
                                                   </div>
                                               </div>
                                               <div class="col-md-6">
@@ -61,6 +64,9 @@
                                                         <option value="{{$v->id}}">{{$v->name}}</option>
                                                         @endforeach
                                                     </select>
+                                                    @if ($errors->has('city'))
+                                                        <div class="text-danger">{{ $errors->first('city') }}</div>
+                                                    @endif
                                                     <input type="hidden" id="city_name" name="city_name" value="" />
                                                 </div>
                                               </div>
@@ -70,6 +76,9 @@
                                                     <select name="district" id="district">
                                                         <option value="-1">Quận/Huyện</option>
                                                     </select>
+                                                    @if ($errors->has('district'))
+                                                        <div class="text-danger">{{ $errors->first('district') }}</div>
+                                                    @endif
                                                     <input type="hidden" id="district_name" name="district_name" value="" />
                                                 </div>
                                               </div>
@@ -77,20 +86,29 @@
                                                   <div class="checkout-form-list">
                                                       <label>Địa chỉ:<span class="required">*</span></label>
                                                       <input onblur="getDelivery()" type="text" name="address" id="address" placeholder="Địa chỉ" />
+                                                      @if ($errors->has('address'))
+                                                          <div class="text-danger">{{ $errors->first('address') }}</div>
+                                                      @endif
                                                   </div>
                                               </div>
 
                                               <div class="col-md-6">
                                                 <div class="checkout-form-list">
                                                     <label> Email <span class="required">*</span></label>
-                                                    <input type="email" name="email" id="email" placeholder="">
+                                                    <input type="email" name="email" id="email" value="{{old('email')}}" placeholder="">
+                                                    @if ($errors->has('email'))
+                                                        <div class="text-danger">{{ $errors->first('email') }}</div>
+                                                    @endif
                                                 </div>
                                             </div>
 
                                               <div class="col-md-6">
                                                   <div class="checkout-form-list">
                                                       <label>Số điện thoại:  <span class="required">*</span></label>
-                                                      <input type="text" name="phone" id="phone" placeholder="Số điện thoại" />
+                                                      <input type="number" name="phone" id="phone" placeholder="Số điện thoại" />
+                                                      @if ($errors->has('phone'))
+                                                          <div class="text-danger">{{ $errors->first('phone') }}</div>
+                                                      @endif
                                                   </div>
                                               </div>
 

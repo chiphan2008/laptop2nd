@@ -40,7 +40,7 @@
                     <td style="width:5%;text-align:center"><input type="checkbox" name="chon[]" id="chon" value="{{$r->idtin}}"></td>
 
                     <td>{{$r->tieude}} </td>
-                    <td><img src="{{asset('images/news/'.$r->urlhinh)}}" height="50" /></td>
+                    <td><img src="{{asset('public/images/news/'.$r->urlhinh)}}" height="50" /></td>
                     <td>{{$r->solanxem}}</td>
 
                     <td align="center">

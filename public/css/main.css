@@ -1583,6 +1583,8 @@ li.megamenu-img a {
 .single-product-area .gridview h2 a {
   color: #555555;
   display: block;
+  height: 40px;
+  overflow: hidden;
   font-size: 15px;
   font-weight: normal;
   margin-bottom: 11px;
@@ -4054,7 +4056,7 @@ button.owl-dot {
 .shop-page-product-area {
     display: block;
     clear: both;
-    padding-top: 30px;
+    /* padding-top: 30px; */
 }
 .shop-page-product-area .single-product-area {
     margin-bottom: 30px;

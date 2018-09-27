@@ -28,18 +28,18 @@ $cart_detail = @session()->get('cart_detail');
         <link rel="icon" href="{{asset('favicon.ico')}}" type="image/x-icon" />
         <title>@if(empty($title)) {{$row_gen['title_index']}} @else {{$title.' | Laptop2ND'}} @endif </title>
 
-        <link type="text/css" rel="stylesheet" href="{{ asset('/css/app.css') }}" />
-        <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
-        <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
-        <link rel="stylesheet" href="{{asset('css/ionicons.min.css')}}">
-        <link rel="stylesheet" href="{{asset('css/css-plugins-call.css')}}">
-        <link rel="stylesheet" href="{{asset('css/bundle.css')}}">
-        <link rel="stylesheet" href="{{asset('css/main.css')}}">
-        <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
-        <link rel="stylesheet" href="{{asset('css/colors.css')}}">
+        <link type="text/css" rel="stylesheet" href="{{asset('public/css/app.css')}}" />
+        <link rel="stylesheet" href="{{asset('public/css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{asset('public/css/font-awesome.min.css')}}">
+        <link rel="stylesheet" href="{{asset('public/css/ionicons.min.css')}}">
+        <link rel="stylesheet" href="{{asset('public/css/css-plugins-call.css')}}">
+        <link rel="stylesheet" href="{{asset('public/css/bundle.css')}}">
+        <link rel="stylesheet" href="{{asset('public/css/main.css')}}">
+        <link rel="stylesheet" href="{{asset('public/css/responsive.css')}}">
+        <link rel="stylesheet" href="{{asset('public/css/colors.css')}}">
         {!! $row_gen['google_analytic'] !!}
         <!-- jQuery CDN -->
-        <script src="{{asset('js/jquery-3.2.1.min.js')}}" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script src="{{asset('public/js/jquery-3.2.1.min.js')}}" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
 
     </head>
@@ -56,7 +56,7 @@ $cart_detail = @session()->get('cart_detail');
                             <div class="col-xl-3 col-md-12">
                                 <!-- site-logo -->
                                 <div class="site-logo">
-                                    <a href="{{asset('/')}}"><img src="{{asset('/images/logo/logo-black.png')}}" alt="Laptop 2nd"></a>
+                                    <a href="{{asset('/')}}"><img src="{{asset('public/images/logo/logo-black.png')}}" alt="Laptop 2nd"></a>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-md-12">
@@ -64,9 +64,10 @@ $cart_detail = @session()->get('cart_detail');
                                 <div class="header-search clearfix">
 
                                     <div class="header-search-form">
-                                        <form action="#">
-                                            <input type="text" name="search" placeholder="Search product...">
-                                            <input type="submit" name="submit" value="Search">
+                                        <form action="{{asset('/tim-kiem.html')}}" method="post">
+                                          {{csrf_field()}}
+                                            <input type="text" name="kw" placeholder="Nhập tên sản phẩm...">
+                                            <input type="submit" name="submit" value="Tìm kiếm">
                                         </form>
                                     </div>
                                 </div>
@@ -91,7 +92,7 @@ $cart_detail = @session()->get('cart_detail');
                                                     <!-- single-shop-cart-wrapper -->
                                                     <div class="single-shop-cart-wrapper">
                                                         <div class="shop-cart-img">
-                                                            <a href="#"><img src="{{asset('/images/product/'.$v->urlhinh[0])}}" alt="{{$v->tensp}}"></a>
+                                                            <a href="#"><img src="{{asset('public/images/product/'.$v->urlhinh[0])}}" alt="{{$v->tensp}}"></a>
                                                         </div>
                                                         <div class="shop-cart-info">
                                                             <h5><a href="cart.html">{{$v->tensp}}</a></h5>
@@ -195,7 +196,7 @@ $cart_detail = @session()->get('cart_detail');
             <!-- HRADER AREA END -->
 
           @yield('content')
-          <script src="{{asset('js/app.js')}}"></script>
+          <script src="{{asset('public/js/app.js')}}"></script>
 
                         <footer class="footer-area">
                             <!-- newsletter area -->
@@ -205,14 +206,14 @@ $cart_detail = @session()->get('cart_detail');
                                         <div class="col-sm-12 col-md-12 col-xl-12">
                                             <div class="newsletter-text">
                                                 <div class="icon"><i class="icon ion-email"></i></div>
-                                                <h3>Sign Up To Newsletter</h3>
-                                                <h4>..and Receive $29 Coupon For First Shopping</h4>
+                                                <h3>Đăng ký để nhận khuyến mãi</h3>
+                                                <h4>..cùng nhiều chương trình ưu đãi đặc biệt</h4>
                                             </div>
                                             <div class="newsletter">
                                                 <div class="newsletter-box">
-                                                     <form action="#">
-                                                          <input class="subscribe" placeholder="your email address" name="email" id="subscribe" type="email">
-                                                          <button type="submit" class="submit">subscribe!</button>
+                                                     <form action="">
+                                                          <input class="subscribe" placeholder="Email của bạn" name="email" id="subscribe" type="email">
+                                                          <button type="submit" class="submit">Đăng ký ngay</button>
                                                      </form>
                                                  </div>
                                             </div>
@@ -277,20 +278,30 @@ $cart_detail = @session()->get('cart_detail');
           </div>
 
 
-        <!-- <script>window.jQuery || document.write('<script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>')</script> -->
+        <!-- <script>window.jQuery || document.write('<script src="{{asset('public/js/jquery-3.2.1.min.js')}}"></script>')</script> -->
 
         <!-- Popper min js -->
-        <script src="{{asset('js/popper.min.js')}}"></script>
+        <script src="{{asset('public/js/popper.min.js')}}"></script>
         <!-- Bootstrap min js  -->
-        <script src="{{asset('js/bootstrap.min.js')}}"></script>
+        <script src="{{asset('public/js/bootstrap.min.js')}}"></script>
 		<!-- nivo slider pack js  -->
-        <script src="{{asset('js/jquery.nivo.slider.pack.js')}}"></script>
+        <script src="{{asset('public/js/jquery.nivo.slider.pack.js')}}"></script>
         <!-- All plugins here -->
-        <script src="{{asset('js/plugins.js')}}"></script>
+        <script src="{{asset('public/js/plugins.js')}}"></script>
 
         <!-- Main js  -->
-        <script src="{{asset('js/main.js')}}"></script>
-
+        <script src="{{asset('public/js/main.js')}}"></script>
+        <script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/59de6c014854b82732ff4fe5/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
 
     </body>
 

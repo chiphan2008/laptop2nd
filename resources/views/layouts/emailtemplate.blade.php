@@ -19,7 +19,7 @@
 <td align="left" valign="top">
 
 <div style="border:1px solid #c9d7f1;padding:5px;font-size:12px;width:auto;margin:0px">
-Xin chào,&nbsp;<strong style="color:#0070ce">{{$data['name']}}</strong><br>
+Xin chào,&nbsp;<strong style="color:#0070ce">{{ $data['sex']==1?'anh':'chị'}} {{$data['name']}}</strong><br>
 Thông tin đơn hàng của bạn tại <a href="http://laptop2nd.vn/" style="color:#0070ce;text-decoration:none" target="_blank" data-saferedirecturl="https://www.google.com/url?q=http://laptop2nd.vn/&amp;source=gmail&amp;ust=1537777122118000&amp;usg=AFQjCNFR0uCvW0T9sxh5zUBPcp4MLyDZHw">laptop2nd.vn</a>						  </div>
 <br>	</td>
 </tr>
@@ -48,7 +48,7 @@ Thông tin đơn hàng của bạn tại <a href="http://laptop2nd.vn/" style="c
 <tr>
 <td>
   <a href="{{asset('/san-pham/'.$v->alias.'.html')}}/" target="_blank" data-saferedirecturl="https://www.google.com/url?q={{asset('/san-pham/'.$v->alias.'.html')}}/&amp;source=gmail&amp;ust=1537777122119000&amp;usg=AFQjCNEwc1QQ_IuQofbPunQqcVu7sm93JQ">
-      <img id="" src="{{asset('/images/product/'.$v->urlhinh[0])}}" alt="{{$v->tensp}}" border="0" width="50" height="60" class="CToWUd">
+      <img id="" src="{{asset('public/images/product/'.$v->urlhinh[0])}}" alt="{{$v->tensp}}" border="0" width="50" height="60" class="CToWUd">
     </a>
 </td>
 <td>
@@ -87,7 +87,13 @@ Thông tin đơn hàng của bạn tại <a href="http://laptop2nd.vn/" style="c
 
 <td colspan="7" style="text-align:left">
 <table width="100%" class="info_cart_title_all" border="0" cellspacing="0" cellpadding="0">
-<tbody><tr>
+<tbody>
+  <tr>
+<td align="left" class="info_cart_title" valign="middle">MÃ ĐƠN HÀNG</td>
+<td align="left" valign="top">{{$data['code_bill']}}</td>
+</tr>
+
+  <tr>
 <td align="left" class="info_cart_title" valign="middle">HỌ VÀ TÊN</td>
 <td align="left" valign="top">{{$data['name']}}</td>
 </tr>

@@ -49,7 +49,7 @@
                                         <!-- related post -->
                                         <div class="relatedthumb col-md-4 col-sm-6">
                                             <div class="image">
-                                                <img src="{{asset('images/news/'.$r_other->urlhinh)}}" alt="{{$r_other->tieude}}">
+                                                <img src="{{asset('public/images/news/'.$r_other->urlhinh)}}" alt="{{$r_other->tieude}}">
                                             </div>
                                             <h4><a rel="external" href="single-blog.html">{{$r_other->tieude}}</a></h4>
                                             <span class="post-date"> {{date('d/m/Y H:m:s',strtotime($r_other->create_at))}} </span>
@@ -83,7 +83,7 @@
                                             <ul>
                                               @foreach($rand as $r_view)
                                                 <li><a href="{{asset('/cong-nghe/'.$r_view->alias.'.html')}}">
-                                                  <img class="pull-left" style="margin-right:7px;width:70px" src="{{asset('/images/news/'.$r_view->urlhinh)}}" alt="{{$r_view->tieude}}"  />
+                                                  <img class="pull-left" style="margin-right:7px;width:70px" src="{{asset('public/images/news/'.$r_view->urlhinh)}}" alt="{{$r_view->tieude}}"  />
                                                   {{$r_view->tieude}}
                                                 </a></li>
                                               @endforeach

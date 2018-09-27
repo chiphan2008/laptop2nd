@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use Mail;
 use Validator;
+use Illuminate\Support\Facades\Response;
 use Carbon\Carbon;
 use GuzzleHttp\Client;
 
@@ -60,34 +61,37 @@ class LaptopController extends Controller
         return view('cart');
     }
     public function checkout(){
-      $cart_detail = @session()->get('cart_detail');
-      if(count($cart_detail)==0){
-        return redirect()->route('index');
-      }
-      $info = $this->getInfo();
-      return view('checkout',[
-        'cart_detail'=>$cart_detail,
-        'info'=>$info
-      ]);
+        $cart_detail = @session()->get('cart_detail');
+        if(count($cart_detail)==0){
+          return redirect()->route('index');
+        }
+        $info = $this->getInfo();
+        return view('checkout',[
+          'cart_detail'=>$cart_detail,
+          'info'=>$info
+        ]);
     }
     public function postCheckout(Request $request){
-
       $rules = [
         'name' => 'required',
         'city' => 'required',
         'district' => 'required',
         'phone' => 'required',
-        'email' => 'required'
+        'email' => 'required|email'
   		];
-  		//$messages = [
-  		//	'city.required' => trans('valid.city_required'),
-  		//];
-  		$validator = Validator::make($request->all(), $rules);
+  		$messages = [
+        'name.required' => 'Vui lòng nhập họ tên',
+        'city.required' => 'Vui lòng chọn Tỉnh/TP',
+        'district.required' => 'Vui lòng chọn Quận/huyện',
+        'phone.required' => 'Vui lòng nhập số điện thoại',
+        'emai.required' => 'Vui lòng nhập email',
+  			'emai.email' => 'Vui lòng nhập đúng định dạng email',
+  		];
+  		$validator = Validator::make($request->all(), $rules,$messages);
 
   		if ($validator->fails()) {
-  			return redirect()->back('err','Vui lòng cung cấp thông tin bắt buộc.');
+  			return redirect()->back()->withErrors($validator)->withInput();
   		}else {
-
         $data['name'] = trim($request->name);
         $data['sex'] = round($request->sex);
         $data['address'] = trim($request->address);
@@ -127,7 +131,7 @@ class LaptopController extends Controller
           if(is_numeric($k)){
             $bill['idsp'] = $k;
             $bill['qty'] = $v->qty;
-            $bill['price'] = $v->giaban;
+            $bill['price'] = ($v->giakm==0?$v->giaban:$v->giaban);
             DB::table('bill_detail')->insert($bill);
           }
         }
@@ -135,8 +139,6 @@ class LaptopController extends Controller
         $request->session()->forget('cart_detail');
         return redirect()->route('index');
       }
-
-
     }
     public function handlePostCart(Request $request){
       //dd($request->qty);
@@ -145,13 +147,13 @@ class LaptopController extends Controller
         $value=max(1,round($value));
         $cart[$key]=$value;
         $products = DB::table('product')
-  					->select('tensp','alias','giaban','urlhinh','khoiluong','freeship')
+  					->select('tensp','alias','giaban','giakm','urlhinh','khoiluong','freeship')
             ->where(['idsp'=>$key])->get()->toArray();
         $product = $products[0];
         $product->qty = $value;
         $product->urlhinh = json_decode($product->urlhinh,true);
         $cart_detail[$key]=$product;
-        @$cart_detail['total'] += $value*$product->giaban;
+        @$cart_detail['total'] += $value*($product->giakm==0?$product->giaban:$product->giakm);
         @$cart_detail['weight'] += $value*$product->khoiluong;
         @$cart_detail['freeship'] += $product->freeship;
       }
@@ -174,13 +176,13 @@ class LaptopController extends Controller
       $cart_detail=[];
       foreach ($data as $key => $value) {
         $products = DB::table('product')
-  					->select('tensp','alias','giaban','urlhinh','khoiluong','freeship')
+  					->select('tensp','alias','giaban','giakm','urlhinh','khoiluong','freeship')
             ->where(['idsp'=>$key])->get()->toArray();
         $product = $products[0];
         $product->qty = $value;
         $product->urlhinh = json_decode($product->urlhinh,true);
         $cart_detail[$key]=$product;
-        @$cart_detail['total'] += $value*$product->giaban;
+        @$cart_detail['total'] += $value*($product->giakm==0?$product->giaban:$product->giakm);
         @$cart_detail['weight'] += $value*$product->khoiluong;
         @$cart_detail['freeship'] += $product->freeship;
       }
@@ -188,12 +190,23 @@ class LaptopController extends Controller
       session()->put('cart_detail',$cart_detail);
       return redirect()->route('cart');
     }
+    public function getSearch(Request $request){
+      $shop = DB::table('product')
+      ->where([
+        ['anhien','=',1],
+        ['tensp','like','%' . $request->kw . '%'],
+        ['mota','like','%' . $request->kw . '%']
+      ])
+      //->orWhere('noidung', 'like', '%' . $request->kw . '%')
+      ->orderBy('idsp','desc')->paginate(16);
+      return view('search',compact('shop'));
+    }
     public function getInfo(){
         return $this->get_json('info');
     }
     public function selectCat($id=0){
     	$menu = DB::table('category')
-					->select('name','idcat','alias')
+					->select('name','idcat','alias','total')
           ->where(['idcha'=>$id,'anhien'=>1])
 					->orderBy('thutu','asc')->orderBy('name','asc')
 					->get();
@@ -220,21 +233,40 @@ class LaptopController extends Controller
         $row = $this->get_json('map');
         return view('contact',compact('row'));
     }
+    public function getShop(){
+        $shop = DB::table('product')
+        ->where('anhien',1)->orderBy('idsp','desc')
+        ->paginate(16);
+        return view('shop',compact('shop'));
+    }
+    public function getCategory($alias){
+        $cat = DB::table('category')->where(['alias'=>$alias])->get();
+        $shop = DB::table('product')
+        ->where(['anhien'=>1,'idcat'=>$cat[0]->idcat])->orderBy('idsp','desc')
+        ->paginate(16);
+        return view('category',compact('shop','cat'));
+    }
     public function postContact(Request $request){
       $rules = [
         'name' => 'required',
         'contents' => 'required',
         'title' => 'required',
         'phone' => 'required',
-        'email' => 'required'
+        'email' => 'required|email'
   		];
-  		//$messages = [
-  		//	'city.required' => trans('valid.city_required'),
-  		//];
-  		$validator = Validator::make($request->all(), $rules);
+  	   $messages = [
+         'email.required' => 'Vui lòng nhập email',
+         'email.email' => 'Email không đúng định dạng',
+         'name.required' => 'Vui lòng nhập họ tên',
+         'title.required' => 'Vui lòng nhập tiêu đề',
+	       'contents.required' => 'Vui lòng nhập nội dung liên hệ',
+      ];
+  		$validator = Validator::make($request->all(), $rules,$messages);
 
   		if ($validator->fails()) {
-  			return redirect()->back('err','Vui lòng cung cấp thông tin bắt buộc.');
+
+        return redirect()->back()->withErrors($validator)->withInput();
+  			//return back()->with('err',$validator->getMessageBag()->toArray());
   		}else {
         $data['title'] = $request->title;
         $data['contents'] = $request->contents;
@@ -242,11 +274,11 @@ class LaptopController extends Controller
         $data['phone'] = $request->phone;
         $data['email'] = $request->email;
         Mail::send('layouts.contacttemplate', ['data'=>$data], function ($message) use ($data){
-            $message->from('se7en.hs@gmail.com', 'Laptop2nd.vn');
+            $message->from($data['email'], 'Laptop2nd.vn');
             $message->subject($data['title']);
-            $message->to($data['email']);
+            $message->to('se7en.hs@gmail.com');
         });
-        return back();
+        return back()->with('success','Cảm ơn quý khách đã liên hệ đến laptop2nd. Chúng tôi sẽ phản hồi đến quý khách trong thời gian sớm nhất.');
       }
 
     }
@@ -256,8 +288,7 @@ class LaptopController extends Controller
         $solanxem = $products[0]->solanxem+1;
         DB::table('product')->where('alias',$alias)
             ->update(['solanxem'=>$solanxem]);
-          //inRandomOrder()
-        //dd($products[0]->idtin);exit;
+
         $other_products = DB::table('product')
         ->where('idsp','!=',$products[0]->idsp)->orderBy('idsp','desc')
         ->limit(5)->get();
@@ -302,16 +333,16 @@ class LaptopController extends Controller
         $row_banner = $this->getBanner();
         $row_slider = $this->getSlider();
         $row_new_product = DB::table('product')
-        ->select('idsp','tensp','alias','giaban','gianhap','urlhinh')
+        ->select('idsp','tensp','alias','giaban','giakm','gianhap','urlhinh')
         ->orderBy('idsp','desc')->limit(16)->get();
         $row_selling_product = DB::table('product')
-        ->select('idsp','tensp','alias','giaban','gianhap','urlhinh')
+        ->select('idsp','tensp','alias','giaban','giakm','gianhap','urlhinh')
         ->orderBy('solanban','desc')->limit(12)->get();
         $row_view_product = DB::table('product')
-        ->select('idsp','tensp','alias','giaban','gianhap','urlhinh')
+        ->select('idsp','tensp','alias','giaban','giakm','gianhap','urlhinh')
         ->orderBy('solanxem','desc')->limit(12)->get();
         $row_highlight_product = DB::table('product')
-        ->select('idsp','tensp','alias','giaban','gianhap','urlhinh')
+        ->select('idsp','tensp','alias','giaban','giakm','gianhap','urlhinh')
         ->where(['noibat'=>1])->orderBy('thutu','desc')
         ->limit(12)->get();
         return view('index',[

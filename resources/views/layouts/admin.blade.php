@@ -14,41 +14,41 @@ $user = session()->get('user');
     <title>Administrator </title>
 
     <!-- Bootstrap -->
-    <link href="{{asset('admin/vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('public/admin/vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="{{asset('admin/vendors/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+    <link href="{{asset('public/admin/vendors/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
     <!-- NProgress -->
-    <link href="{{asset('admin/vendors/nprogress/nprogress.css')}}" rel="stylesheet">
+    <link href="{{asset('public/admin/vendors/nprogress/nprogress.css')}}" rel="stylesheet">
     <!-- iCheck -->
-    <link href="{{asset('admin/vendors/iCheck/skins/flat/green.css')}}" rel="stylesheet">
+    <link href="{{asset('public/admin/vendors/iCheck/skins/flat/green.css')}}" rel="stylesheet">
 
     <!-- bootstrap-progressbar -->
-    <link href="{{asset('admin/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css')}}" rel="stylesheet">
+    <link href="{{asset('public/admin/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css')}}" rel="stylesheet">
     <!-- JQVMap -->
-    <link href="{{asset('admin/vendors/jqvmap/dist/jqvmap.min.css')}}" rel="stylesheet"/>
+    <link href="{{asset('public/admin/vendors/jqvmap/dist/jqvmap.min.css')}}" rel="stylesheet"/>
     <!-- bootstrap-daterangepicker -->
-    <link href="{{asset('admin/vendors/bootstrap-daterangepicker/daterangepicker.css')}}" rel="stylesheet" />
+    <link href="{{asset('public/admin/vendors/bootstrap-daterangepicker/daterangepicker.css')}}" rel="stylesheet" />
 
    <!-- <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASulEnnbaigVNev_MwNTJrdu32ddguhkA&sensor=false">
     </script> -->
     <!-- Custom Theme Style -->
-    <link href="{{asset('admin/build/css/custom.min.css')}}" rel="stylesheet" />
+    <link href="{{asset('public/admin/build/css/custom.min.css')}}" rel="stylesheet" />
 
-    <link href="{{asset('css/jquery.filer.css')}}" rel="stylesheet" />
-    <link href="{{asset('css/jquery.filer-dragdropbox-theme.css')}}" rel="stylesheet" />
+    <link href="{{asset('public/css/jquery.filer.css')}}" rel="stylesheet" />
+    <link href="{{asset('public/css/jquery.filer-dragdropbox-theme.css')}}" rel="stylesheet" />
 
 	  <?php date_default_timezone_set('Asia/Ho_Chi_Minh');?>
     <!-- jQuery -->
-    <script src="{{asset('admin/vendors/jquery/dist/jquery.min.js')}}"></script>
-    <script src="{{asset('admin/ckeditor/ckeditor.js')}}"></script>
-    <script src="{{asset('admin/ckfinder/ckfinder.js')}}"></script>
+    <script src="{{asset('public/admin/vendors/jquery/dist/jquery.min.js')}}"></script>
+    <script src="{{asset('public/admin/ckeditor/ckeditor.js')}}"></script>
+    <script src="{{asset('public/admin/ckfinder/ckfinder.js')}}"></script>
 
     <!-- Bootstrap -->
-    <script src="{{asset('admin/vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('public/admin/vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 
-    <script src="{{asset('admin/vendors/moment/min/moment.min.js')}}"></script>
-    <script src="{{asset('admin/vendors/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
+    <script src="{{asset('public/admin/vendors/moment/min/moment.min.js')}}"></script>
+    <script src="{{asset('public/admin/vendors/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
     <style type="text/css">
 
     .inpput{width:99%; border:1px solid #DDD; padding:5px}
@@ -183,7 +183,7 @@ $user = session()->get('user');
   // } );
 
   </script>
-    <script src="{{asset('js/func.js')}}"></script>
+    <script src="{{asset('public/js/func.js')}}"></script>
   </head>
 
   <body class="nav-md">
@@ -388,13 +388,13 @@ $user = session()->get('user');
 
 
 
-    <script src="{{asset('js/my.js')}}"></script>
-    <script src="{{asset('js/jquery.filer.min.js')}}"></script>
+    <script src="{{asset('public/js/my.js')}}"></script>
+    <script src="{{asset('public/js/jquery.filer.min.js')}}"></script>
     <!-- iCheck -->
-    <script src="{{asset('admin/vendors/iCheck/icheck.min.js')}}"></script>
+    <script src="{{asset('public/admin/vendors/iCheck/icheck.min.js')}}"></script>
 
     <!-- Custom Theme Scripts -->
-    <script src="{{asset('admin/build/js/custom.js')}}"></script>
+    <script src="{{asset('public/admin/build/js/custom.js')}}"></script>
 
   </body>
 </html>
