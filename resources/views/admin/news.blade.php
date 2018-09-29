@@ -35,11 +35,11 @@
 
 
                     @foreach($rs_news as $r)
-                    
+
                     <tr>
                     <td style="width:5%;text-align:center"><input type="checkbox" name="chon[]" id="chon" value="{{$r->idtin}}"></td>
 
-                    <td>{{$r->tieude}} </td>
+                    <td><a target="_blank" href="{{asset('/cong-nghe/'.$r->alias.'.html')}}">{{$r->tieude}}</a>  </td>
                     <td><img src="{{asset('public/images/news/'.$r->urlhinh)}}" height="50" /></td>
                     <td>{{$r->solanxem}}</td>
 
@@ -55,10 +55,10 @@
 
                     <td align="center"> <a onclick="confirmDel({{$r->idtin}})"> <i class="fa fa-times" style="color:#F00;"></i> </a> </td>
                     </tr>
-                    
+
                     @endforeach
                     </table>
-                    
+
                     {{$rs_news->render()}}
 
                     @endif

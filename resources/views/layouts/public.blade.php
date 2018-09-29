@@ -131,7 +131,11 @@ $cart_detail = @session()->get('cart_detail');
                                     <ul class="categori-menu-list menu-hidden">
                                       @foreach($menu1 as $r_cat1)
                                         <li>
-                                          <a href="{{asset('/san-pham/'.$r_cat1->alias)}}">{{$r_cat1->name}}<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                                          <a href="{{asset('/san-pham/'.$r_cat1->alias)}}">
+                                            <span class="fa {{$r_cat1->icon}}" aria-hidden="true"></span>
+
+                                            {{$r_cat1->name}}
+                                            <i class="fa fa-angle-right" aria-hidden="true"></i></a>
                                             <!-- categori Mega-Menu Start -->
                                             <?php $menu2 = $LaptopCtrl->selectCat($r_cat1->idcat); ?>
                                             @if(count($menu2)>0)

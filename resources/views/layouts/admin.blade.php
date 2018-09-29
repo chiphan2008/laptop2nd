@@ -241,7 +241,7 @@ $user = session()->get('user');
                     </ul>
                   </li>
 
-                  <li><a href="{{route('news')}}"><i class="fa fa-newspaper-o"></i> Tin tức</a>
+                  <li><a href="{{route('news')}}"><i class="fa fa-newspaper-o"></i> Công nghệ</a>
                   </li>
 
                   <li><a><i class="fa fa-cog"></i> Cấu hình <span class="fa fa-chevron-down"></span></a>

@@ -105,7 +105,7 @@
                                               <div class="col-md-6">
                                                   <div class="checkout-form-list">
                                                       <label>Số điện thoại:  <span class="required">*</span></label>
-                                                      <input type="number" name="phone" id="phone" placeholder="Số điện thoại" />
+                                                      <input type="text" name="phone" id="phone" placeholder="Số điện thoại" />
                                                       @if ($errors->has('phone'))
                                                           <div class="text-danger">{{ $errors->first('phone') }}</div>
                                                       @endif

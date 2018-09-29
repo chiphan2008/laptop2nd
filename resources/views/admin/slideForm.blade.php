@@ -55,7 +55,14 @@
                     </p>
                 </div>
             </div>
-
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Thứ tự:</label>
+                <div class="col-sm-10">
+                    <p>
+                        <input value="{{@$row['thutu']}}" type="text" id="thutu" name="thutu" class="form-control" />
+                    </p>
+                </div>
+            </div>
             <div class="form-group">
             <label class="col-sm-2 control-label">Hiển thị:</label>
             <div class="col-sm-10">

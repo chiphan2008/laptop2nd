@@ -137,7 +137,7 @@ class LaptopController extends Controller
         }
         $request->session()->forget('cart');
         $request->session()->forget('cart_detail');
-        return redirect()->route('index');
+        return redirect()->route('order_success');
       }
     }
     public function handlePostCart(Request $request){
@@ -206,7 +206,7 @@ class LaptopController extends Controller
     }
     public function selectCat($id=0){
     	$menu = DB::table('category')
-					->select('name','idcat','alias','total')
+					->select('name','idcat','alias','total','icon')
           ->where(['idcha'=>$id,'anhien'=>1])
 					->orderBy('thutu','asc')->orderBy('name','asc')
 					->get();
@@ -226,7 +226,15 @@ class LaptopController extends Controller
     public function getSlider(){
         $row = $this->get_json('slide');
         unset($row[-1]);
-        return $row;
+        $arr = [];
+        foreach ($row as $v) {
+          if($v['anhien']==1){
+            $arr[]=$v;
+          }
+        }
+        array_multisort(array_column($arr, 'thutu'), SORT_DESC, $arr);
+
+        return $arr;
         //return response()->json($row);
     }
     public function getContact(){

@@ -121,6 +121,7 @@ class AdminController extends Controller
         $data['link'] = trim($request->link);
         $data['content'] = trim($request->content);
         $data['urlhinh'] = $filename;
+        $data['thutu'] = round($request->input('thutu'));
         $data['anhien'] = round($request->input('anhien'));
 
         if($id>0){
@@ -286,6 +287,7 @@ class AdminController extends Controller
         $row['about'] = trim($request->about);
         $row['google_analytic'] = trim($request->google_analytic);
         $row['bank_sys'] = trim($request->bank_sys);
+        $row['order_success'] = trim($request->order_success);
         $row['total_freeship'] = round($request->total_freeship);
         $row['fb'] = trim($request->fb);
         $row['kw'] = trim($request->kw);
@@ -352,6 +354,7 @@ class AdminController extends Controller
     {
         $id = round($request->id);
         $data['name'] = trim($request->name);
+        $data['icon'] = trim($request->icon);
         $data['alias'] = trim($request->alias);
         $data['idcha'] = round($request->idcha);
         $data['thutu'] = round($request->thutu);
@@ -433,11 +436,11 @@ class AdminController extends Controller
 
             $img = Image::make($img_path[$i]);
             $img->resize(300, 300);
-            $img->save("images/product/thumb/".$filename);
+            $img->save("./public/images/product/thumb/".$filename);
 
             $img = Image::make($img_path[$i]);
             $img->resize(150, 150);
-            $img->save("images/product/thumbnail/".$filename);
+            $img->save("./public/images/product/thumbnail/".$filename);
 
           }//foreach
         }
@@ -511,7 +514,7 @@ class AdminController extends Controller
     public function getNews()
     {
         $rs_news = DB::table('news')
-        ->select('tieude','idtin','urlhinh','solanxem','anhien')
+        ->select('tieude','idtin','urlhinh','solanxem','anhien','alias')
         ->orderBy('idtin','desc')->paginate(20);
         return view('admin.news',[
           'rs_news'=>$rs_news

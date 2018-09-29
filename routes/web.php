@@ -18,6 +18,9 @@
 Route::get('/','LaptopController@index')->name('index');
 Route::get('/gio-hang.html','LaptopController@getCart')->name('cart');
 Route::get('/xac-nhan-dat-hang.html', 'LaptopController@checkout')->name('checkout');
+Route::get('/dat-hang-thanh-cong.html', function(){
+  return view('order_success');
+})->name('order_success');
 Route::post('/xac-nhan-dat-hang.html', 'LaptopController@postCheckout');
 Route::post('/gio-hang.html', 'LaptopController@handlePostCart');
 Route::get('/area/{id_parent}', 'LaptopController@getArea');

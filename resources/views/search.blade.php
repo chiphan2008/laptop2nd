@@ -34,7 +34,7 @@ $menu1 = $LaptopCtrl->selectCat();
                                    <ul class="product-categories">
                                      @foreach($menu1 as $r1)
                                          <li class="cat-item">
-                                             <a href="{{asset('/san-pham/'.$r1->alias)}}">{{$r1->name}}</a>
+                                             <a href="{{asset('/san-pham/'.$r1->alias)}}"><span class="fa {{$r1->icon}} mr-10" aria-hidden="true"></span>{{$r1->name}}</a>
                                              <span class="count">({{$r1->total}})</span>
                                          </li>
                                       @endforeach

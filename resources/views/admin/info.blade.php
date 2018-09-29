@@ -52,6 +52,15 @@
                 </div>
             </div>
             <div class="form-group">
+                <label class="col-sm-2 control-label">Đặt hàng thành công:</label>
+                <div class="col-sm-10">
+                    <p>
+                        <textarea id="order_success" class="form-control ck_editor" rows="5" name="order_success" cols="50">{{@trim($row['order_success'])}}</textarea>
+                    </p>
+                </div>
+            </div>
+
+            <div class="form-group">
                 <label class="col-sm-2 control-label">Giá trị đơn hàng (FreeShip):</label>
                 <div class="col-sm-10">
                     <p>
